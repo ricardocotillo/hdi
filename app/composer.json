@@ -51,7 +51,9 @@
     "wpackagist-theme/twentytwentyfive": "^1.0",
     "wpackagist-plugin/woocommerce": "^10.4",
     "mnsami/composer-custom-directory-installer": "^2.0",
-    "htmlburger/carbon-fields": "^3.6"
+    "htmlburger/carbon-fields": "^3.6",
+    "wpackagist-plugin/ubigeo-peru": "^4.7",
+    "wpackagist-theme/generatepress": "^3.6"
   },
   "require-dev": {
     "laravel/pint": "^1.18"
