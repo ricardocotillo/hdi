@@ -21,8 +21,8 @@
         }
     },
     "forwardPorts": [
-        8000,
-        5432
+        80,
+        8082
     ],
     "remoteUser": "vscode"
 }
