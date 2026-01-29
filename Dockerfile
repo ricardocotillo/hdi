@@ -38,6 +38,10 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
+# Create devcontainer user
+RUN groupadd --gid 1000 vscode \
+    && useradd --uid 1000 --gid 1000 -m -s /bin/bash vscode
+
 # Set working directory
 WORKDIR /var/www/html
 
