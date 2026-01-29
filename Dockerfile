@@ -4,13 +4,19 @@ FROM php:8.2-fpm
 RUN apt-get update && apt-get install -y \
     git \
     curl \
+    pkg-config \
     libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libicu-dev \
     libonig-dev \
     libxml2-dev \
     libzip-dev \
+    zlib1g-dev \
     unzip
 
 # Install PHP extensions
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install \
     mysqli \
     pdo_mysql \
