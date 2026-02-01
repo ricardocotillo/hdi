@@ -80,3 +80,53 @@ function blankslate_child_register_widgets() {
 	) );
 }
 add_action( 'widgets_init', 'blankslate_child_register_widgets' );
+
+
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
+// Register theme options fields after Carbon Fields is loaded
+add_action( 'carbon_fields_loaded', function() {
+	Container::make( 'theme_options', __( 'Theme Options' ) )
+		->add_tab( __( 'Redes Sociales' ), array(
+			Field::make( 'complex', 'crb_social_media', __( 'Social Media Links' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'name', __( 'Network Name' ) )
+						->set_width( 33 ),
+					Field::make( 'text', 'url', __( 'URL' ) )
+						->set_width( 33 ),
+					Field::make( 'text', 'icon', __( 'Font Awesome Icon (e.g., fab fa-facebook)' ) )
+						->set_width( 34 ),
+				) )
+				->set_min( 1 ),
+		) )
+		->add_tab( __( 'Footer' ), array(
+			Field::make( 'complex', 'crb_distribution', __( 'Direcciones' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'label', __( 'Label' ) )
+						->set_width( 33 ),
+					Field::make( 'textarea', 'address', __( 'Dirección' ) )
+						->set_width( 33 ),
+					Field::make( 'text', 'url', __( 'URL (Opcional)' ) )
+						->set_width( 34 ),
+				) )
+				->set_min( 1 ),
+			Field::make( 'image', 'crb_footer_logo', __( 'Logo Footer' ) ),
+			Field::make( 'complex', 'crb_footer_contacts', __( 'Teléfonos' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'label', __( 'Label' ) )
+						->set_width( 33 ),
+					Field::make( 'text', 'phone', __( 'Teléfono' ) )
+						->set_width( 33 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 34 ),
+				) ),
+			Field::make( 'text', 'crb_copyright', __( 'Copyright Text' ) ),	
+		) );
+} );
+
+
+

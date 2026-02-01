@@ -13,6 +13,15 @@
     color: #ffffff;
     font-size: 15px;
 }
+.site-footer a {
+	text-decoration: none !important;
+}
+
+.site-footer .address {
+	color: #ffffff !important;
+	text-decoration: none !important;
+	font-weight: 500;
+}
 .site-footer i{
 	margin-right: 5px;
 }
