@@ -85,10 +85,10 @@
 					<nav id="menu-principal-container" class="flex justify-end">
 						<?php wp_nav_menu( array( 'menu' => 'principal' ) ); ?>
 					</nav>
-						<div class="mobile-menu-container justify-end">
-							<div id="menu-mobile-button" class="menu-mobile">
-							<i class="fas fa-bars"></i>
-						</div>
+					<div class="mobile-menu-container justify-end">
+						<div id="menu-mobile-button" class="menu-mobile">
+						<i class="fas fa-bars"></i>
+					</div>
 					</div>
 				</div>
 			</div>

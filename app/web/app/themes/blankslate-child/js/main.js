@@ -18,9 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	if (menuMobileButton && menuPrincipal && menuIcon) {
 		menuMobileButton.addEventListener('click', function() {
-			menuPrincipal.classList.toggle('hidden');
+			menuPrincipal.classList.toggle('show');
 			menuIcon.classList.toggle('fa-bars');
 			menuIcon.classList.toggle('fa-times');
 		});
 	}
+
+	// Submenu toggle for mobile
+	const menuItems = document.querySelectorAll('#menu-principal > li');
+	menuItems.forEach(item => {
+		const submenu = item.querySelector('ul');
+		if (submenu) {
+			const link = item.querySelector('a');
+			link.addEventListener('click', function(e) {
+				// Solo prevenir default si estamos en mobile
+				if (window.innerWidth < 768) {
+					e.preventDefault();
+					item.classList.toggle('active');
+				}
+			});
+		}
+	});
 });
+
