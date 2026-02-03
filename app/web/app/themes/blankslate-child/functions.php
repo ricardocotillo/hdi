@@ -17,6 +17,9 @@ function blankslate_child_enqueue_assets() {
 	// Enqueue main stylesheet
 	wp_enqueue_style( 'blankslate-child', get_stylesheet_uri(), array(), '1.0.0' );
 	
+	// Enqueue main script
+	wp_enqueue_script( 'blankslate-child-main', get_stylesheet_directory_uri() . '/js/main.js', array(), '1.0.0', true );
+	
 	// Enqueue livereload script para desarrollo
 	if ( defined( 'WP_ENV' ) && 'development' === WP_ENV || isset( $_ENV['WP_ENV'] ) && 'development' === $_ENV['WP_ENV'] ) {
 		wp_enqueue_script( 'livereload', get_stylesheet_directory_uri() . '/livereload.js', array(), '1.0.0', true );
@@ -34,6 +37,30 @@ function blankslate_child_register_menus() {
 	) );
 }
 add_action( 'after_setup_theme', 'blankslate_child_register_menus' );
+
+/**
+ * Custom walker to add icon to menu items with submenu
+ */
+class Blankslate_Child_Nav_Walker extends Walker_Nav_Menu {
+	public function start_el( &$output, $data_object, $depth = 0, $args = null, $id = 0 ) {
+		parent::start_el( $output, $data_object, $depth, $args, $id );
+		
+		if ( in_array( 'menu-item-has-children', $data_object->classes, true ) ) {
+			$output = str_replace( '</a>', ' <i class="fas fa-caret-down"></i></a>', $output );
+		}
+	}
+}
+
+/**
+ * Add walker to principal menu
+ */
+add_filter( 'wp_nav_menu_args', 'blankslate_child_nav_menu_args' );
+function blankslate_child_nav_menu_args( $args ) {
+	if ( 'principal' === $args['menu'] || isset( $args['menu'] ) && is_object( $args['menu'] ) && 'principal' === $args['menu']->name ) {
+		$args['walker'] = new Blankslate_Child_Nav_Walker();
+	}
+	return $args;
+}
 
 /**
  * Register footer widget areas
@@ -88,6 +115,51 @@ use Carbon_Fields\Field;
 // Register theme options fields after Carbon Fields is loaded
 add_action( 'carbon_fields_loaded', function() {
 	Container::make( 'theme_options', __( 'Theme Options' ) )
+		->add_tab( __( 'Header' ), array(
+			Field::make( 'text', 'crb_header_title', __( 'Título' ) ),
+			Field::make( 'complex', 'crb_header_email', __( 'Email' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'text', __( 'Email' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 )
+				->set_max( 1 )
+				->set_default_value( array( array( 'text' => '', 'link' => '' ) ) ),			
+			Field::make( 'complex', 'crb_header_phone', __( 'Teléfonos' ) )	
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'phone', __( 'Teléfono' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) ),
+			Field::make( 'complex', 'crb_header_address', __( 'Dirección' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'address', __( 'Dirección' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 )
+				->set_max( 1 )
+				->set_default_value( array( array( 'address' => '', 'link' => '' ) ) ),	
+			Field::make( 'image', 'crb_header_logo', __( 'Logo Header' ) ),
+			Field::make( 'complex', 'crb_header_whatsapp', __( 'WhatsApp' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'text', __( 'Texto' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 )
+				->set_max( 1 )
+				->set_default_value( array( array( 'text' => '', 'link' => '' ) ) ),			
+		) )
 		->add_tab( __( 'Redes Sociales' ), array(
 			Field::make( 'complex', 'crb_social_media', __( 'Social Media Links' ) )
 				->set_layout( 'grid' )
