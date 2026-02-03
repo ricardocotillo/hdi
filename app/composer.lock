@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0aed82742c582f02ed2f7960e3ed18d0",
+    "content-hash": "1a336d0a550246a2aa70cbf81207d81e",
     "packages": [
         {
             "name": "composer/installers",
@@ -1247,6 +1247,24 @@
             "homepage": "https://wordpress.org/plugins/woocommerce/"
         },
         {
+            "name": "wpackagist-theme/blankslate",
+            "version": "2026",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/blankslate/",
+                "reference": "2026"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/blankslate.2026.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/blankslate/"
+        },
+        {
             "name": "wpackagist-theme/generatepress",
             "version": "3.6.1",
             "source": {
@@ -1360,5 +1378,5 @@
         "php": ">=8.1"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }

@@ -53,7 +53,8 @@
     "mnsami/composer-custom-directory-installer": "^2.0",
     "htmlburger/carbon-fields": "^3.6",
     "wpackagist-plugin/ubigeo-peru": "^4.7",
-    "wpackagist-theme/generatepress": "^3.6"
+    "wpackagist-theme/generatepress": "^3.6",
+    "wpackagist-theme/blankslate": "^2026.0"
   },
   "require-dev": {
     "laravel/pint": "^1.18"
