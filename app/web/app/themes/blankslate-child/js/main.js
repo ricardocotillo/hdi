@@ -3,8 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	if (!headerSticky) return;
 	
+	const messageTop = document.querySelector('#message-top');
+	
 	window.addEventListener('scroll', function() {
-		if (window.scrollY > 50) {
+		const messageTopHeight = messageTop ? messageTop.offsetHeight : 60;
+		if (window.scrollY > messageTopHeight) {
 			headerSticky.classList.add('sticky');
 		} else {
 			headerSticky.classList.remove('sticky');
