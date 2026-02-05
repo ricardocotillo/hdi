@@ -202,3 +202,46 @@ add_action( 'carbon_fields_loaded', function() {
 
 
 
+/**
+ * Add Carbon Fields to Custom Post Type: Catálogo
+ */
+add_action( 'carbon_fields_loaded', function() {
+	Container::make( 'post_meta', __( 'Detalles del Catálogo' ) )
+		->where( 'post_type', '=', 'newcatalogo' )
+		->add_fields( array(
+			Field::make( 'file', 'crb_catalogo_pdf', __( 'Archivo PDF' ) )
+				->set_width( 50 )
+				->set_help_text( 'Carga un archivo PDF para este catálogo' ),
+			Field::make( 'date', 'crb_catalogo_fecha', __( 'Fecha' ) )
+				->set_width( 50 )
+				->set_help_text( 'Selecciona una fecha para este catálogo' ),
+		) );
+} );
+
+/**
+ * Add Carbon Fields to Page: Header Image
+ */
+add_action( 'carbon_fields_loaded', function() {
+	Container::make( 'post_meta', __( 'Imagen de Cabecera' ) )
+		->where( 'post_type', '=', 'page' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_page_header_image', __( 'Imagen de Cabecera' ) )
+				->set_help_text( 'Carga una imagen para mostrar en la cabecera de esta página' ),
+		) );
+} );
+
+
+
+/**
+ * Increase upload file size limit
+ */
+add_filter( 'upload_size_limit', function() {
+	return 100 * 1024 * 1024; // 100MB
+} );
+
+add_filter( 'import_upload_size_limit', function() {
+	return 100 * 1024 * 1024; // 100MB
+} );
+
+
+
