@@ -12,6 +12,9 @@ if ( have_posts() ) :
 			<header class="w-full">
 				<?php echo wp_get_attachment_image( $header_image, 'full', false, array( 'class' => 'page-header-image w-full h-auto', 'alt' => get_the_title() ) ); ?>
 			</header>
+			<section class="container">
+				<?php the_content(); ?>
+			</section>
 		<?php endif; ?>
 		<?php
 		
