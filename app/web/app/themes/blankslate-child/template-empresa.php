@@ -16,10 +16,10 @@ if ( have_posts() ) :
                 <?php echo wp_get_attachment_image( $header_image, 'full', false, array( 'class' => 'page-header-image w-full h-auto', 'alt' => get_the_title() ) ); ?>
             </header>
         <?php endif; ?>
-            <section class="w-full">
+            <section class="w-full empresa-content">
 				<section class="container">
                     <div class="flex flex-wrap">
-                        <div class="w-1/2 flex flex-col p-4">
+                        <div class="w-1/2 flex flex-col p-10">
                             <?php echo wp_kses_post( (string) carbon_get_post_meta( get_the_ID(), 'crb_page_company_text' ) ); ?>
                         </div>
                         <div class="w-1/2 p-4">
@@ -63,13 +63,13 @@ if ( have_posts() ) :
                     </div>
                 </section>
                 <section class="container">
-                    <div class="w-full p-4 text-center">
+                    <div class="w-full p-4 flex flex-col justify-center items-center text-center">
                         <?php echo wp_kses_post( (string) carbon_get_post_meta( get_the_ID(), 'crb_page_policy_sig_text' ) ); ?>
                         <?php 
                             $policy_link = carbon_get_post_meta( get_the_ID(), 'crb_page_policy_sig_pdf' ) ? wp_get_attachment_url( carbon_get_post_meta( get_the_ID(), 'crb_page_policy_sig_pdf' ) ) : '';
                             $policy_button_text = carbon_get_post_meta( get_the_ID(), 'crb_page_button_text' );
-                            if ( $policy_link && $policy_button_text ) {
-                                echo '<a href="' . esc_url( $policy_link ) . '" target="_blank" rel="noopener noreferrer" class="btn">' . esc_html( $policy_button_text ) . '</a>';
+                            if ($policy_button_text ) {
+                                echo '<a href="' . esc_url( $policy_link ) . '" target="_blank" rel="noopener noreferrer" class="btn-descarga-aqui">' . esc_html( $policy_button_text ) . '</a>';
                             }
                         ?>
                     </div>

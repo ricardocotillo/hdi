@@ -632,3 +632,45 @@ figure.news-image img{
 	}
 }
 /*novedades*/
+/*empresa*/
+.empresa-content {
+	font-family: 'Roboto', sans-serif;
+}
+.empresa-content h2{
+	font-size: 30px;
+	font-weight: 600;
+	padding-bottom: 20px;
+}
+.empresa-content p{
+	font-size: 15px;
+	line-height: 24px;
+	font-weight: 400;
+	color: #000000;
+	padding: 0;
+	margin:0;
+	margin-bottom: 20px !important;
+	text-align: justify;
+}
+.mision-vision {
+	font-size: 15px;
+	line-height: 24px;
+	font-weight: 400;
+	color: #000000;
+	padding: 0;
+	margin:0;
+	margin-bottom: 20px !important;
+	text-align: left;	
+}
+.btn-descarga-aqui{
+	display: inline-flex;
+	background-color: #0170B9;
+	color: #FFFFFF !important;
+	padding: 10px 20px;
+	border-radius: 3px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px !important;
+	font-weight: 500 !important;
+	text-decoration: none;
+	margin-top: 20px;
+	width: fit-content;
+}
