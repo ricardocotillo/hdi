@@ -102,7 +102,7 @@ if ( have_posts() ) :
                         <?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_page_values_title' ) ); ?>
                     </h2>
                     <section>
-                        <div class="flex flex-start">
+                        <div class="flex flex-start values-list">
                             <?php 
                             $values = carbon_get_post_meta( get_the_ID(), 'crb_page_values_list' );
                             if ( $values ) {
