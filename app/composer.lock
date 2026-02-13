@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a336d0a550246a2aa70cbf81207d81e",
+    "content-hash": "71183a2f589cd0735ea2c916f803a9f0",
     "packages": [
         {
             "name": "composer/installers",
@@ -1236,6 +1236,24 @@
                 }
             ],
             "time": "2025-12-27T19:49:13+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/better-search-replace",
+            "version": "1.4.10",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/better-search-replace/",
+                "reference": "tags/1.4.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/better-search-replace.1.4.10.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/better-search-replace/"
         },
         {
             "name": "wpackagist-plugin/ubigeo-peru",
