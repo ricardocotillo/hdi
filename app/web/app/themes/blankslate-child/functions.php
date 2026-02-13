@@ -13,6 +13,7 @@ function blankslate_child_enqueue_assets() {
 	// Enqueue header and footer styles
 	wp_enqueue_style( 'blankslate-child-header', get_stylesheet_directory_uri() . '/header-styles.css', array(), '1.0.0' );
 	wp_enqueue_style( 'blankslate-child-footer', get_stylesheet_directory_uri() . '/footer-styles.css', array(), '1.0.0' );
+	wp_enqueue_style( 'blankslate-child-empresa', get_stylesheet_directory_uri() . '/empresa-styles.css', array(), '1.0.0' );
 	
 	// Enqueue main stylesheet
 	wp_enqueue_style( 'blankslate-child', get_stylesheet_uri(), array(), '1.0.0' );
@@ -198,6 +199,156 @@ add_action( 'carbon_fields_loaded', function() {
 				) ),
 			Field::make( 'text', 'crb_copyright', __( 'Copyright Text' ) ),	
 		) );
+} );
+
+
+
+
+
+/**
+ * Add Carbon Fields to Custom Post Type: Catálogo
+ */
+add_action( 'carbon_fields_loaded', function() {
+	Container::make( 'post_meta', __( 'Detalles del Catálogo' ) )
+		->where( 'post_type', '=', 'newcatalogo' )
+		->add_fields( array(
+			Field::make( 'file', 'crb_catalogo_pdf', __( 'Archivo PDF' ) )
+				->set_width( 50 )
+				->set_help_text( 'Carga un archivo PDF para este catálogo' ),
+			Field::make( 'date', 'crb_catalogo_fecha', __( 'Fecha' ) )
+				->set_width( 50 )
+				->set_help_text( 'Selecciona una fecha para este catálogo' ),
+		) );
+} );
+
+/**
+ * Add Carbon Fields to Page: Header Image
+ */
+add_action( 'carbon_fields_loaded', function() {
+	Container::make( 'post_meta', __( 'Imagen de Cabecera' ) )
+		->where( 'post_type', '=', 'page' )
+		->set_priority( 'high' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_page_header_image', __( 'Imagen de Cabecera' ) )
+				->set_help_text( 'Carga una imagen para mostrar en la cabecera de esta página' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Texto de Empresa' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_page_company_text', __( 'Texto de Empresa' ) )
+				->set_help_text( 'Agrega contenido de texto para la sección de empresa de esta página' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Imagen de Empresa' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_page_company_image', __( 'Imagen de Empresa' ) )
+				->set_help_text( 'Carga una imagen para mostrar en la sección de empresa de esta página' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Texto de Misión' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_page_mission_text', __( 'Texto de Misión' ) )
+				->set_help_text( 'Agrega contenido de texto para la sección de misión de esta página' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Imagen de Misión' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_page_mission_image', __( 'Imagen de Misión' ) )
+				->set_help_text( 'Carga una imagen para mostrar en la sección de misión de esta página' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Texto de Visión' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_page_vision_text', __( 'Texto de Visión' ) )
+				->set_help_text( 'Agrega contenido de texto para la sección de visión de esta página' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Imagen de Visión' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_page_vision_image', __( 'Imagen de Visión' ) )
+				->set_help_text( 'Carga una imagen para mostrar en la sección de visión de esta página' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Texto Política SIG' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_page_policy_sig_text', __( 'Texto Política SIG' ) )
+				->set_help_text( 'Agrega el texto para la sección de política SIG' ),
+		) );
+
+	Container::make( 'post_meta', __( 'PDF Política SIG' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'file', 'crb_page_policy_sig_pdf', __( 'PDF Política SIG' ) )
+				->set_help_text( 'Carga el PDF de la política SIG' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Texto Botón' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_page_button_text', __( 'Texto Botón' ) )
+				->set_help_text( 'Agrega el texto del botón para esta página' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Video Corporativo' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_page_video_title', __( 'Título de Video Corporativo' ) )
+				->set_help_text( 'Agrega el título del video corporativo' ),
+			Field::make( 'text', 'crb_page_video_url', __( 'URL de Video (YouTube)' ) )
+				->set_help_text( 'Pega el link de YouTube para mostrar el video' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Valores Corporativos' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-empresa.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_page_values_title', __( 'Título de Valores Corporativos' ) )
+				->set_help_text( 'Agrega el título de la sección de valores corporativos' ),
+			Field::make( 'complex', 'crb_page_values_list', __( 'Valores Corporativos' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'icon', __( 'Icono (clase CSS o nombre)' ) )
+						->set_width( 30 ),
+					Field::make( 'textarea', 'text', __( 'Texto de Valor' ) )
+						->set_width( 70 ),
+				) )
+				->set_min( 1 ),
+		) );
+
+	
+
+} );
+
+
+
+
+
+/**
+ * Increase upload file size limit
+ */
+add_filter( 'upload_size_limit', function() {
+	return 100 * 1024 * 1024; // 100MB
+} );
+
+add_filter( 'import_upload_size_limit', function() {
+	return 100 * 1024 * 1024; // 100MB
 } );
 
 
