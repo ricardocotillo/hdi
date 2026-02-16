@@ -46,6 +46,7 @@ if ( have_posts() ) :
 
                         <div class="flex flex-col p-10 w-1/2 servicios-text servicios-text-1">
                             <?php echo wp_kses_post( (string) carbon_get_post_meta( get_the_ID(), 'crb_page_laboratory_text' ) ); ?>
+                            <a href="#cotizar" class="btn-cotizar"><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_page_laboratory_button_text' ) ); ?></a>
                         </div>
                     </div>
                 </section>
@@ -56,6 +57,7 @@ if ( have_posts() ) :
 
                             <div class="flex flex-col p-10 w-1/2 text-right servicios-text servicios-text-2">
                                 <?php echo wp_kses_post( (string) carbon_get_post_meta( get_the_ID(), 'crb_page_field_services_text' ) ); ?>
+                                <a href="#cotizar" class="btn-cotizar" style="margin-left: auto;"><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_page_field_services_button_text' ) ); ?></a>
                             </div>                    
 
                             <div class="gallery-container w-1/2">
@@ -116,7 +118,18 @@ if ( have_posts() ) :
 
                         <div class="flex flex-col p-10 w-1/2 servicios-text servicios-text-3">
                             <?php echo wp_kses_post( (string) carbon_get_post_meta( get_the_ID(), 'crb_page_field_red_services_text' ) ); ?>
+                            <a href="#cotizar" class="btn-cotizar"><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_page_field_red_services_button_text' ) ); ?></a>
                         </div>
+                    </div>
+                </section>
+                <section class="w-full services-campo footer-services-campo">
+                    <div class="footer-servicios-container">
+                        <div class="form-servicios-container" id="cotizar">
+                            <h3>¿Problemas con tu sistema de inyección diésel?</h3>
+                            <p>Consúltale a los especialistas</p>            
+                            <?php echo do_shortcode('[contact-form-7 id="9b5ec04" title="Contact Servicios"]'); ?>
+                        </div>
+                        <p class="text-center text-servicios-form">Especialistas en evaluación, diagnóstico, mantenimiento<br> y reparación de Sistemas de <span class="texto-azul">Inyección Diésel</span></p>
                     </div>
                 </section>                
 			</section>

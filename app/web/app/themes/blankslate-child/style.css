@@ -742,8 +742,79 @@ figure.news-image img{
 .container-servicios{
 	padding: 40px 0;
 }
+.form-servicios-container{
+	max-width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #FFFFFF;
+	box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 30px 30px 30px 30px;
+	border-radius: 10px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.form-servicios-container .flex > .form-field{
+	width: calc(50% - 10px);
+}
+.footer-servicios-container{
+	margin:0 auto;
+	max-width: 50%;
+}
+.text-servicios-form{
+	font-size: 21px;
+}
+.texto-azul{
+	color: #336db4;
+}
+.footer-services-campo{
+	padding: 40px 0;
+}
+.btn-cotizar{
+	display: inline-flex;
+	background-color: #0170B9;
+	color: #FFFFFF !important;
+	padding: 10px 20px;
+	border-radius: 3px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px !important;
+	font-weight: 500 !important;
+	margin-top: 20px;
+	width: fit-content;
+	text-decoration: none !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+	width: 100%;
+	padding: 0 10px;
+	height: 40px;
+	border-radius: 0 !important;
+}
 
 @media (max-width: 767px) {
+	.footer-servicios-container{
+		max-width: calc(100% - 40px);
+		padding: 20px;
+	}
+	.form-field{
+		display: flex;
+		flex-direction: row !important;
+		width: 100% !important;
+	}
+	.form-field p{
+		width: 100%;
+		display: flex;
+	}
+
+	.wpcf7-form-control-wrap, 
+	.wpcf7-form-control{
+		display: flex;
+		width: 100% !important;
+	}
 	.container-servicios {
 		padding-left: 20px;
 		padding-right: 20px;

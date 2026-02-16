@@ -42,5 +42,18 @@ document.addEventListener('DOMContentLoaded', function() {
 			});
 		}
 	});
+
+	// Smooth scroll for cotizar buttons
+	const cotizarLinks = document.querySelectorAll('a.btn-cotizar[href^="#"]');
+	cotizarLinks.forEach(link => {
+		link.addEventListener('click', function(e) {
+			const targetId = link.getAttribute('href');
+			const target = targetId ? document.querySelector(targetId) : null;
+			if (!target) return;
+
+			e.preventDefault();
+			target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		});
+	});
 });
 
