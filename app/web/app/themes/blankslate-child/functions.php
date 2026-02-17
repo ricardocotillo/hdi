@@ -434,6 +434,36 @@ add_action( 'carbon_fields_loaded', function() {
 		) );		
 
 /* servicios */
+/* equipamiento */
+Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
+	->where( 'post_type', '=', 'page' )
+	->where('post_template', '=', 'template-equipamiento.php' )
+	->add_fields( array(
+		Field::make( 'complex', 'crb_page_equipment_gallery', __( 'Galería de Equipamiento' ) )
+			->set_layout( 'grid' )
+			->add_fields( array(
+				Field::make( 'image', 'image', __( 'Imagen' ) ),
+			) )
+			->set_min( 2 )
+			->set_max( 2 ),
+	) );
+
+	Container::make( 'post_meta', __( 'Contenido de Equipamiento' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-equipamiento.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_page_equipment_content', __( 'Contenido de Equipamiento' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) )
+						->set_width( 50 ),
+					Field::make( 'rich_text', 'content', __( 'Contenido' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+		) );
+
+/* equipamiento */
 } );
 
 
