@@ -129,7 +129,7 @@ if ( have_posts() ) :
                             <p>Consúltale a los especialistas</p>            
                             <?php echo do_shortcode('[contact-form-7 id="9b5ec04" title="Contact Servicios"]'); ?>
                         </div>
-                        <p class="text-center text-servicios-form">Especialistas en evaluación, diagnóstico, mantenimiento<br> y reparación de Sistemas de <span class="texto-azul">Inyección Diésel</span></p>
+                        <p class="text-center text-servicios-form">Especialistas en evaluación, diagnóstico, mantenimiento<br> y reparación de <span class="texto-azul">Sistemas de Inyección Diésel</span></p>
                     </div>
                 </section>                
 			</section>
