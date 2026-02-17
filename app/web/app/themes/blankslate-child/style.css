@@ -795,6 +795,10 @@ textarea {
 	border-radius: 0 !important;
 }
 
+.equipment-gallery {
+	padding-top: 20px;
+}
+
 .equipment-gallery .gallery-item {
 	max-width: 50%;
 	width: 100%;
@@ -840,7 +844,7 @@ textarea {
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px !important;
 	font-weight: 500 !important;
-	text-decoration: none;
+	text-decoration: none !important;
 	margin-top: 20px;	
 	width: fit-content;
 }
