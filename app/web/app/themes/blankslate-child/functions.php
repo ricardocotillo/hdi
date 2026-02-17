@@ -20,6 +20,14 @@ function blankslate_child_enqueue_assets() {
 	
 	// Enqueue main script
 	wp_enqueue_script( 'blankslate-child-main', get_stylesheet_directory_uri() . '/js/main.js', array(), '1.0.0', true );
+
+	// Owl Carousel assets for Servicios template
+	if ( is_page_template( 'template-servicios.php' ) ) {
+		wp_enqueue_style( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4' );
+		wp_enqueue_style( 'owl-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array( 'owl-carousel' ), '2.3.4' );
+		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
+		wp_enqueue_script( 'servicios-carousel', get_stylesheet_directory_uri() . '/js/servicios-carousel.js', array( 'jquery', 'owl-carousel' ), '1.0.0', true );
+	}
 	
 	// Enqueue livereload script para desarrollo
 	if ( defined( 'WP_ENV' ) && 'development' === WP_ENV || isset( $_ENV['WP_ENV'] ) && 'development' === $_ENV['WP_ENV'] ) {
@@ -332,8 +340,130 @@ add_action( 'carbon_fields_loaded', function() {
 				->set_min( 1 ),
 		) );
 
-	
+/* servicios */
+	Container::make( 'post_meta', __( 'Galería de Laboratorio' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_page_laboratory_gallery', __( 'Galería de Laboratorio' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) ),
+				) )
+				->set_min( 1 ),
+		) );
 
+
+	Container::make( 'post_meta', __( 'Texto de Laboratorio' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_page_laboratory_text', __( 'Texto de Laboratorio' ) )
+				->set_help_text( 'Agrega contenido de texto para la sección de laboratorio de esta página' ),
+		) );
+
+		
+	Container::make( 'post_meta', __( 'Texto de boton de Laboratorio' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_page_laboratory_button_text', __( 'Texto de Botón de Laboratorio' ) )
+				->set_help_text( 'Agrega el texto del botón para la sección de laboratorio de esta página' ),
+		) );
+		
+
+	Container::make( 'post_meta', __( 'Galería de Servicios de Campo' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_page_field_services_gallery', __( 'Galería de Servicios de Campo' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) ),
+				) )
+				->set_min( 1 ),
+		) );
+
+
+	Container::make( 'post_meta', __( 'Texto de Servicios de Campo' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_page_field_services_text', __( 'Texto de Servicios de Campo' ) )
+				->set_help_text( 'Agrega contenido de texto para la sección de servicios de campo de esta página' ),
+		) );
+
+		
+	Container::make( 'post_meta', __( 'Texto de boton de Servicios de Campo' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_page_field_services_button_text', __( 'Texto de Botón de Servicios de Campo' ) )
+				->set_help_text( 'Agrega el texto del botón para la sección de servicios de campo de esta página' ),
+		) );
+		
+		
+	Container::make( 'post_meta', __( 'Galería de red de Servicios' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_page_field_red_services_gallery', __( 'Galería de Red de Servicios' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) ),
+				) )
+				->set_min( 1 ),
+		) );
+
+
+	Container::make( 'post_meta', __( 'Texto de Red de Servicios' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_page_field_red_services_text', __( 'Texto de Red de Servicios' ) )
+				->set_help_text( 'Agrega contenido de texto para la sección de red de servicios de esta página' ),
+		) );
+
+		
+	Container::make( 'post_meta', __( 'Texto de boton de Red de Servicios' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-servicios.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_page_field_red_services_button_text', __( 'Texto de Botón de Red de Servicios' ) )
+				->set_help_text( 'Agrega el texto del botón para la sección de red de servicios de esta página' ),
+		) );		
+
+/* servicios */
+/* equipamiento */
+Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
+	->where( 'post_type', '=', 'page' )
+	->where('post_template', '=', 'template-equipamiento.php' )
+	->add_fields( array(
+		Field::make( 'complex', 'crb_page_equipment_gallery', __( 'Galería de Equipamiento' ) )
+			->set_layout( 'grid' )
+			->add_fields( array(
+				Field::make( 'image', 'image', __( 'Imagen' ) ),
+			) )
+			->set_min( 2 )
+			->set_max( 2 ),
+	) );
+
+	Container::make( 'post_meta', __( 'Contenido de Equipamiento' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-equipamiento.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_page_equipment_content', __( 'Contenido de Equipamiento' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) )
+						->set_width( 50 ),
+					Field::make( 'rich_text', 'content', __( 'Contenido' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+		) );
+
+/* equipamiento */
 } );
 
 
