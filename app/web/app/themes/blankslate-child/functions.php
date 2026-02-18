@@ -463,7 +463,64 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 				->set_min( 1 ),
 		) );
 
+
+
 /* equipamiento */
+/* equipamiento hartridge */
+	Container::make( 'post_meta', __( 'Contenido Hartridge' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-hartridge.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_hartridge_title', __( 'Titulo Hartridge' ) )
+				->set_help_text( 'Agrega el titulo de la seccion Hartridge' ),
+			Field::make( 'rich_text', 'crb_hartridge_text', __( 'Texto Hartridge' ) )
+				->set_help_text( 'Agrega el texto de la seccion Hartridge' ),
+			Field::make( 'image', 'crb_hartridge_image', __( 'Imagen Hartridge' ) )
+				->set_help_text( 'Carga la imagen de la seccion Hartridge' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Items de Equipamiento' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-hartridge.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_page_equipment_items', __( 'Items de Equipamiento' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'logo', __( 'Logo' ) )
+						->set_width( 25 ),
+					Field::make( 'text', 'title', __( 'Titulo' ) )
+						->set_width( 25 ),
+					Field::make( 'rich_text', 'content', __( 'Contenido' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+		) );
+
+	Container::make( 'post_meta', __( 'Nuestros Productos' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-hartridge.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_hartridge_products', __( 'Nuestros Productos' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+		) );
+
+	Container::make( 'post_meta', __( 'Banners Hartridge' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-hartridge.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_hartridge_banner_1', __( 'Banner 1' ) ),
+			Field::make( 'image', 'crb_hartridge_banner_3', __( 'Banner 3' ) ),
+		) );
+
+
+/* equipamiento hartridge */
 } );
 
 
