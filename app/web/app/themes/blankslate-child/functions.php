@@ -614,6 +614,7 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		->where('post_template', '=', 'template-home.php' )
 		->add_fields( array(
 			Field::make( 'text', 'crb_home_equipment_title', __( 'Título' ) ),
+			Field::make( 'image', 'crb_home_equipment_background', __( 'Imagen de Fondo' ) ),
 			Field::make( 'image', 'crb_home_equipment_image', __( 'Imagen' ) ),
 			Field::make( 'rich_text', 'crb_home_equipment_text', __( 'Texto' ) ),
 		) );

@@ -7,6 +7,47 @@
 	background-color: #EFEFEF;
 }
 
+/* Equipment Section Positioning */
+.equipment-image-wrapper {
+	position: relative;
+	width: 50%;
+	overflow: hidden;
+}
+
+.equipment-image-wrapper img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.equipment-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 2rem;
+	color: white;
+	z-index: 10;
+}
+
+.equipment-overlay h2 {
+	font-family: Roboto, sans-serif;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 800;
+	color: white;
+}
+
+.texto-blanco {
+    color: white !important;
+}
+
 /* Brands Description */
 .brands-description {
 	text-align: center;
@@ -273,7 +314,27 @@
 }
 
 .home-bestsellers-section .btn-ver-mas-home {
-    margin-top: 40px;
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    width: fit-content;
+    text-decoration: none !important;
+    font-weight: 600;
+    margin: 40px auto 0 auto;
+}
+
+.btn-ver-mas-blanco {
+    color: #2563eb;
+    background-color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    width: fit-content;
+    text-decoration: none !important;
+    font-weight: 600;
+    margin-top:20px;
 }
 
 .product-card img {

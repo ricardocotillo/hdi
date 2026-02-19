@@ -242,30 +242,36 @@ if ( have_posts() ) :
 						?>
 					</div>
 
-                    <a href="/productos-mas-vendidos" class="btn-ver-mas btn-ver-mas-home">Ver más</a>
+                    <a href="/productos-mas-vendidos" class="btn-ver-mas-home">Ver más</a>
 				</div>
 			</section>
 
 			<!-- Section 6: Find Best Equipment -->
-			<section class="home-equipment-section py-12 bg-white">
-				<div class="container">
+			<section class="home-equipment-section">
+				<div class="w-full">
 					<?php
 					$equipment_title = carbon_get_post_meta( get_the_ID(), 'crb_home_equipment_title' );
+					$equipment_background = carbon_get_post_meta( get_the_ID(), 'crb_home_equipment_background' );
 					$equipment_image = carbon_get_post_meta( get_the_ID(), 'crb_home_equipment_image' );
 					$equipment_text = carbon_get_post_meta( get_the_ID(), 'crb_home_equipment_text' );
-					$equipment_image_url = ! empty( $equipment_image ) ? wp_get_attachment_image_url( $equipment_image, 'large' ) : '';
+					$equipment_image_url = ! empty( $equipment_image ) ? wp_get_attachment_image_url( $equipment_image, 'full' ) : '';
+					$equipment_background_url = ! empty( $equipment_background ) ? wp_get_attachment_image_url( $equipment_background, 'full' ) : '';
 					?>
 
-					<h2 class="text-3xl font-bold mb-8"><?php echo esc_html( $equipment_title ); ?></h2>
+					
 
-					<div class="flex flex-col md:flex-row gap-8 items-center">
-						<div class="md:w-1/2">
-							<?php echo wp_kses_post( $equipment_text ); ?>
+					<div class="flex flex-row">
+						<div class="equipment-image-wrapper">
+                            <img src="<?php echo esc_url( $equipment_background_url ); ?>" alt="<?php echo esc_attr( $equipment_title ); ?>" class="w-full">
+							<div class="equipment-overlay">
+                                <h2 class="text-3xl font-bold mb-8 text-left texto-blanco"><?php echo esc_html( $equipment_title ); ?></h2>
+                                <?php echo wp_kses_post( $equipment_text ); ?>
+                            </div>
 						</div>
 
 						<?php if ( $equipment_image_url ) : ?>
-							<div class="md:w-1/2">
-								<img src="<?php echo esc_url( $equipment_image_url ); ?>" alt="<?php echo esc_attr( $equipment_title ); ?>" class="w-full h-auto rounded-lg">
+							<div class="w-1/2">
+								<img src="<?php echo esc_url( $equipment_image_url ); ?>" alt="<?php echo esc_attr( $equipment_title ); ?>" class="w-full">
 							</div>
 						<?php endif; ?>
 					</div>
