@@ -774,8 +774,17 @@
 		padding: 1.5rem;
 	}
 
+	.search-form .flex-row {
+		flex-direction: column !important;
+	}
+
 	.news-card {
 		margin-bottom: 1rem;
+		width: 100% !important;
+	}
+
+	.home-news-section .flex {
+		flex-direction: column !important;
 	}
 
 	.owl-carousel .owl-nav button {
@@ -815,6 +824,10 @@
 		padding: 1rem;
 	}
 
+	.search-form .flex-row {
+		flex-direction: column !important;
+	}
+
 	.search-form input,
 	.search-form select {
 		padding: 0.625rem 0.75rem;
@@ -825,11 +838,19 @@
 	.news-card,
 	.tip-card {
 		margin-bottom: 1rem;
+		width: 100% !important;
+	}
+
+	.home-news-section .flex {
+		flex-direction: column !important;
 	}
 
     .parts-item-image{
         width: 100% !important;
         height: auto !important;
+    }
+    .brands-description{
+        font: 16px sans-serif;
     }
 }
 
