@@ -623,7 +623,7 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		->where( 'post_type', '=', 'page' )
 		->where('post_template', '=', 'template-home.php' )
 		->add_fields( array(
-			Field::make( 'text', 'crb_home_news_title', __( 'Título' ) ),
+			Field::make( 'rich_text', 'crb_home_news_title', __( 'Título' ) ),
 			Field::make( 'text', 'crb_home_news_limit', __( 'Cantidad de Posts' ) )
 				->set_default_value( '6' ),
 		) );
@@ -632,6 +632,7 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		->where( 'post_type', '=', 'page' )
 		->where('post_template', '=', 'template-home.php' )
 		->add_fields( array(
+			Field::make( 'rich_text', 'crb_home_parts_title', __( 'Título' ) ),
 			Field::make( 'complex', 'crb_home_parts_gallery', __( 'Galería de Partes y Piezas' ) )
 				->set_layout( 'grid' )
 				->add_fields( array(

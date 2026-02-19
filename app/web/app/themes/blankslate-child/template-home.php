@@ -287,26 +287,29 @@ if ( have_posts() ) :
 					$news_limit = ! empty( $news_limit ) ? intval( $news_limit ) : 6;
 					?>
 
-					<h2 class="text-3xl font-bold text-center mb-8"><?php echo esc_html( $news_title ); ?></h2>
+                    <div class="title-home-novedades">
+                        <?php echo wp_kses_post( $news_title ); ?>
+                    </div>
 
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						<?php
-						$news = new WP_Query( array(
-							'post_type' => 'post',
-							'posts_per_page' => $news_limit,
-							'orderby' => 'date',
-							'order' => 'DESC',
-						) );
 
-						if ( $news->have_posts() ) :
-							while ( $news->have_posts() ) :
-								$news->the_post();
-								?>
-								<article class="news-card bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<div class="h-48 overflow-hidden">
-											<?php the_post_thumbnail( 'medium', array( 'class' => 'w-full h-full object-cover' ) ); ?>
-										</div>
+                <div class="flex gap-6">
+					<?php
+					$news = new WP_Query( array(
+						'post_type' => 'post',
+						'posts_per_page' => $news_limit,
+						'orderby' => 'date',
+						'order' => 'DESC',
+					) );
+
+					if ( $news->have_posts() ) :
+						while ( $news->have_posts() ) :
+							$news->the_post();
+							?>
+							<article class="news-card w-1/3 bg-white overflow-hidden shadow hover:shadow-lg">
+								<?php if ( has_post_thumbnail() ) : ?>
+									<div class="news-card-image-wrapper">
+										<?php the_post_thumbnail( 'medium', array( 'class' => 'w-full' ) ); ?>
+									</div>
 									<?php endif; ?>
 
 									<div class="p-4">
@@ -320,13 +323,8 @@ if ( have_posts() ) :
 											</a>
 										</h3>
 
-										<p class="text-gray-600 mb-4">
-											<?php echo wp_trim_words( get_the_excerpt(), 20 ); ?>
-										</p>
 
-										<a href="<?php the_permalink(); ?>" class="text-blue-600 hover:text-blue-700 font-semibold">
-											Leer más →
-										</a>
+
 									</div>
 								</article>
 								<?php
@@ -339,9 +337,13 @@ if ( have_posts() ) :
 			</section>
 
 			<!-- Section 8: Parts and Pieces -->
-			<section class="home-parts-section py-12 bg-white">
+			<section class="home-parts-section bg-white">
 				<div class="container">
-					<h2 class="text-3xl font-bold text-center mb-8">Partes y Piezas</h2>
+					<?php 
+                    $parts_title = carbon_get_post_meta( get_the_ID(), 'crb_home_parts_title' );
+                    if ( ! empty( $parts_title ) ) :
+                        ?>
+                            <?php echo wp_kses_post( $parts_title ); ?>   
 
 					<div class="owl-carousel owl-theme home-parts-carousel">
 						<?php
@@ -352,7 +354,7 @@ if ( have_posts() ) :
 								?>
 								<div class="parts-item">
 									<?php if ( $part_image ) : ?>
-										<img src="<?php echo esc_url( $part_image ); ?>" alt="Parte/Pieza" class="w-full h-auto rounded-lg">
+										<img src="<?php echo esc_url( $part_image ); ?>" alt="Parte/Pieza" class="parts-item-image">
 									<?php endif; ?>
 								</div>
 								<?php
@@ -361,6 +363,7 @@ if ( have_posts() ) :
 						?>
 					</div>
 				</div>
+                    <?php endif; ?>
 			</section>
 
 			<!-- Section 9: Tips/Consejos -->

@@ -104,34 +104,28 @@ margin: 15
 
 // Home Parts Carousel
 if ($('.home-parts-carousel').length) {
-console.log('✓ Inicializando parts carousel');
-$('.home-parts-carousel').owlCarousel({
-items: 3,
-loop: true,
-nav: true,
-dots: true,
-autoplay: true,
-autoplayTimeout: 3000,
-autoplayHoverPause: true,
-navText: [
-'<i class="fas fa-chevron-left"></i>',
-'<i class="fas fa-chevron-right"></i>'
-],
-responsive: {
-0: {
-items: 1
-},
-480: {
-items: 2
-},
-768: {
-items: 2
-},
-1024: {
-items: 3
-}
-}
-});
+	console.log('✓ Inicializando parts carousel');
+	$('.home-parts-carousel').owlCarousel({
+		items: 7,
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		autoplayHoverPause: true,
+		navText: [
+			'<i class="fas fa-chevron-left"></i>',
+			'<i class="fas fa-chevron-right"></i>'
+		],
+		responsive: {
+			0: {
+				items: 4
+			},
+			768: {
+				items: 7
+			}
+		}
+	});
 }
 
 });
