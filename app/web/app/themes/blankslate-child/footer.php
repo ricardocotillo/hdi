@@ -52,10 +52,11 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
                         <p class="footer-title">
                             <?php if($telefono['link']) : ?>
                                 <a class="address" href="<?php echo esc_url( $telefono['link'] ); ?>" target="_blank" rel="noopener">
-                                    <?php endif; ?>
-                                    <i aria-hidden="true" class="fas fa-phone-alt"></i> <?php echo esc_html( $telefono['phone'] ); ?>
+                            <?php endif; ?>
+                                    <i aria-hidden="true" class="fas fa-phone-alt"></i> 
                                     <?php echo esc_html( $telefono['label'] ); ?>
-                                    <?php if($telefono['link']) : ?>
+                                    <?php echo esc_html( $telefono['phone'] ); ?>
+                            <?php if($telefono['link']) : ?>
                                 </a>
                             <?php endif; ?>
                         </p>
