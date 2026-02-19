@@ -827,3 +827,11 @@
 		margin-bottom: 1rem;
 	}
 }
+
+/* Grayscale Map */
+.grayscale-map {
+	filter: grayscale(100%);
+}
+.consejo-container {
+    padding-bottom: 60px;
+}

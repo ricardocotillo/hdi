@@ -365,42 +365,42 @@ if ( have_posts() ) :
 				</div>
                     <?php endif; ?>
 			</section>
+            
+            <section class="consejo-container w-full">
+                <div class="container">
+                    <?php 
+                    $tip1 = carbon_get_post_meta( get_the_ID(), 'image_consejo_1' );
+                    $tip2 = carbon_get_post_meta( get_the_ID(), 'image_consejo_2' );
+                    $tip3 = carbon_get_post_meta( get_the_ID(), 'image_consejo_3' );
+                    $link_tip2 = carbon_get_post_meta( get_the_ID(), 'image_consejo_2_link' );
+                    ?>
+                    <div class="flex gap-6">
+                        <?php if ( $tip1 ) : ?>
+                            <div class="w-3/4">
+                                <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip1, 'full' ) ); ?>" alt="Consejo 1" class="w-full h-auto">
+                            </div>
+                        <?php endif; ?>
 
-			<!-- Section 9: Tips/Consejos -->
-			<section class="home-tips-section py-12 bg-gray-50">
-				<div class="container">
-					<?php
-					$tips_title = carbon_get_post_meta( get_the_ID(), 'crb_home_tips_title' );
-					?>
+                        <?php if ( $tip2 ) : ?>
+                            <div class="w-1/4">
+                                <a href="<?php echo esc_url( $link_tip2 ); ?>" >
+                                    <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip2, 'full' ) ); ?>" alt="Consejo 2" class="w-full h-auto">
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
-					<h2 class="text-3xl font-bold text-center mb-8"><?php echo esc_html( $tips_title ); ?></h2>
-
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						<?php
-						$tips_gallery = carbon_get_post_meta( get_the_ID(), 'crb_home_tips_gallery' );
-						if ( ! empty( $tips_gallery ) ) :
-							foreach ( $tips_gallery as $tip ) :
-								$tip_image = ! empty( $tip['image'] ) ? wp_get_attachment_image_url( $tip['image'], 'medium' ) : '';
-								$tip_link = ! empty( $tip['link'] ) ? $tip['link'] : '#';
-								?>
-								<a href="<?php echo esc_url( $tip_link ); ?>" class="tip-card block bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
-									<?php if ( $tip_image ) : ?>
-										<div class="h-40 overflow-hidden">
-											<img src="<?php echo esc_url( $tip_image ); ?>" alt="Consejo" class="w-full h-full object-cover">
-										</div>
-									<?php endif; ?>
-									<div class="p-4 text-center">
-										<p class="text-gray-700 font-semibold">Ver Consejo →</p>
-									</div>
-								</a>
-								<?php
-							endforeach;
-						endif;
-						?>
-					</div>
-				</div>
-			</section>
-
+                    <div class="flex gap-6 mt-6">
+                        <?php if ( $tip3 ) : ?>
+                            <div class="w-full">
+                                <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip3, 'full' ) ); ?>" alt="Consejo 3" class="w-full h-auto">
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </section>
+            <section class="w-full grayscale-map">
+                <iframe src="https://www.google.com/maps?ll=-12.064608,-77.033909&z=16&t=m&hl=es-ES&gl=US&mapclient=embed&cid=14255099076876164140&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>                
 		</article>
 
 		<?php

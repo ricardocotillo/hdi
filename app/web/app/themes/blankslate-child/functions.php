@@ -584,9 +584,6 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 				->set_layout( 'grid' )
 				->add_fields( array(
 					Field::make( 'image', 'image', __( 'Logo de Marca' ) )
-						->set_width( 50 ),
-					Field::make( 'text', 'link', __( 'Link' ) )
-						->set_width( 50 ),
 				) )
 				->set_min( 1 ),
 		) );
@@ -645,16 +642,10 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		->where( 'post_type', '=', 'page' )
 		->where('post_template', '=', 'template-home.php' )
 		->add_fields( array(
-			Field::make( 'text', 'crb_home_tips_title', __( 'Título' ) ),
-			Field::make( 'complex', 'crb_home_tips_gallery', __( 'Galería de Consejos' ) )
-				->set_layout( 'grid' )
-				->add_fields( array(
-					Field::make( 'image', 'image', __( 'Imagen' ) )
-						->set_width( 50 ),
-					Field::make( 'text', 'link', __( 'Link' ) )
-						->set_width( 50 ),
-				) )
-				->set_min( 1 ),
+				Field::make( 'image', 'image_consejo_1', __( 'Imagen 1' ) )->set_width( 30 ),
+				Field::make( 'image', 'image_consejo_2', __( 'Imagen 2' ) )->set_width( 30 ),
+				Field::make( 'image', 'image_consejo_3', __( 'Imagen 3' ) )->set_width( 30 ),
+				Field::make( 'text', 'image_consejo_2_link', __( 'Imagen 2 Link' ) )->set_width( 100 ),
 		) );
 
 /* HOME TEMPLATE */
