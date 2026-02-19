@@ -11,6 +11,13 @@
 </head>
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
+	<div id="menu-lateral-overlay" class="menu-lateral-overlay"></div>
+	<div id="menu-lateral">
+        <div class="menu-lateral-close">
+            <button id="menu-lateral-close-btn" aria-label="Cerrar menú">&times;</button>
+        </div>
+        <?php wp_nav_menu( array( 'menu' => 'productos', 'container' => false ) ); ?>
+    </div>
 	
 	<header id="site-header" class="site-header">
 		<div id="message-top">
@@ -56,7 +63,7 @@
 						</a>
 					</div>
 					<div class="menu-search">
-						<div class="menu-products">
+						<div class="menu-products" id="menu-products-toggle">
 							<i aria-hidden="true" class="fas fa-align-justify"></i>
 							<span>Productos</span>
 						</div>

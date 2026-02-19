@@ -36,12 +36,14 @@ function blankslate_child_enqueue_assets() {
 	wp_enqueue_style( 'blankslate-child-header', get_stylesheet_directory_uri() . '/header-styles.css', array(), '1.0.0' );
 	wp_enqueue_style( 'blankslate-child-footer', get_stylesheet_directory_uri() . '/footer-styles.css', array(), '1.0.0' );
 	wp_enqueue_style( 'blankslate-child-empresa', get_stylesheet_directory_uri() . '/empresa-styles.css', array(), '1.0.0' );
+	wp_enqueue_style( 'blankslate-child-menu-lateral', get_stylesheet_directory_uri() . '/menu-lateral.css', array(), '1.0.0' );
 	
 	// Enqueue main stylesheet
 	wp_enqueue_style( 'blankslate-child', get_stylesheet_uri(), array(), '1.0.0' );
 	
 	// Enqueue main script
 	wp_enqueue_script( 'blankslate-child-main', get_stylesheet_directory_uri() . '/js/main.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'blankslate-child-menu-lateral', get_stylesheet_directory_uri() . '/menu-lateral.js', array(), '1.0.0', true );
 
 	// Owl Carousel assets for Servicios template
 	if ( is_page_template( 'template-servicios.php' ) ) {
