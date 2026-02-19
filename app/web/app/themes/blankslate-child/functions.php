@@ -4,6 +4,28 @@
  */
 
 /**
+ * Helper: Get terms safely using database query
+ * Used for taxonomies registered by Custom Post Type UI that may not work with get_terms()
+ */
+function blankslate_child_get_terms_safe( $taxonomy ) {
+	global $wpdb;
+	
+	// Use $wpdb->prepare() to safely query the database
+	$results = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT t.term_id, t.name, t.slug, tt.term_group
+			FROM {$wpdb->terms} t
+			INNER JOIN {$wpdb->term_taxonomy} tt ON t.term_id = tt.term_id
+			WHERE tt.taxonomy = %s
+			ORDER BY t.name ASC",
+			$taxonomy
+		)
+	);
+	
+	return ! empty( $results ) ? $results : array();
+}
+
+/**
  * Enqueue styles and scripts
  */
 function blankslate_child_enqueue_assets() {
@@ -27,6 +49,15 @@ function blankslate_child_enqueue_assets() {
 		wp_enqueue_style( 'owl-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array( 'owl-carousel' ), '2.3.4' );
 		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
 		wp_enqueue_script( 'servicios-carousel', get_stylesheet_directory_uri() . '/js/servicios-carousel.js', array( 'jquery', 'owl-carousel' ), '1.0.0', true );
+	}
+
+	// Owl Carousel assets and styles for Home template
+	if ( is_page_template( 'template-home.php' ) ) {
+		wp_enqueue_style( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4' );
+		wp_enqueue_style( 'owl-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array( 'owl-carousel' ), '2.3.4' );
+		wp_enqueue_style( 'blankslate-child-home', get_stylesheet_directory_uri() . '/home-styles.css', array(), '2.1.1' );
+		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
+		wp_enqueue_script( 'home-carousel', get_stylesheet_directory_uri() . '/js/home-carousel.js', array( 'jquery', 'owl-carousel' ), '2.1.1', true );
 	}
 	
 	// Enqueue livereload script para desarrollo
@@ -519,8 +550,112 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 			Field::make( 'image', 'crb_hartridge_banner_3', __( 'Banner 3' ) ),
 		) );
 
-
 /* equipamiento hartridge */
+
+/* HOME TEMPLATE */
+	Container::make( 'post_meta', __( 'Home - Carrusel de Imágenes' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_home_image_carousel', __( 'Carrusel de Imágenes' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+		) );
+
+	Container::make( 'post_meta', __( 'Home - Buscador de Vehículos' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_home_brands_description', __( 'Descripción de marcas' ) )
+				->set_help_text( 'Texto que aparece antes de las marcas' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Home - Carrusel de Marcas' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_home_brands_carousel', __( 'Carrusel de Marcas' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Logo de Marca' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+		) );
+
+	Container::make( 'post_meta', __( 'Home - Nuestros Servicios' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_home_services_title', __( 'Título' ) ),
+			Field::make( 'image', 'crb_home_services_image', __( 'Imagen' ) ),
+			Field::make( 'rich_text', 'crb_home_services_text', __( 'Texto' ) ),
+		) );
+
+	Container::make( 'post_meta', __( 'Home - Lo Más Vendido' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_home_bestsellers_title', __( 'Título' ) ),
+			Field::make( 'text', 'crb_home_bestsellers_limit', __( 'Cantidad de Productos' ) )
+				->set_default_value( '8' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Home - Encuentra Mejores Equipos' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_home_equipment_title', __( 'Título' ) ),
+			Field::make( 'image', 'crb_home_equipment_image', __( 'Imagen' ) ),
+			Field::make( 'rich_text', 'crb_home_equipment_text', __( 'Texto' ) ),
+		) );
+
+	Container::make( 'post_meta', __( 'Home - Novedades' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_home_news_title', __( 'Título' ) ),
+			Field::make( 'text', 'crb_home_news_limit', __( 'Cantidad de Posts' ) )
+				->set_default_value( '6' ),
+		) );
+
+	Container::make( 'post_meta', __( 'Home - Partes y Piezas' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_home_parts_gallery', __( 'Galería de Partes y Piezas' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) ),
+				) )
+				->set_min( 1 ),
+		) );
+
+	Container::make( 'post_meta', __( 'Home - Consejos' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-home.php' )
+		->add_fields( array(
+			Field::make( 'text', 'crb_home_tips_title', __( 'Título' ) ),
+			Field::make( 'complex', 'crb_home_tips_gallery', __( 'Galería de Consejos' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+		) );
+
+/* HOME TEMPLATE */
 } );
 
 
