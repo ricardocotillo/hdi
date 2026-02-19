@@ -826,6 +826,11 @@
 	.tip-card {
 		margin-bottom: 1rem;
 	}
+
+    .parts-item-image{
+        width: 100% !important;
+        height: auto !important;
+    }
 }
 
 /* Grayscale Map */
