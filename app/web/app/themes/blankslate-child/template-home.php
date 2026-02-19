@@ -374,10 +374,14 @@ if ( have_posts() ) :
                     $tip3 = carbon_get_post_meta( get_the_ID(), 'image_consejo_3' );
                     $link_tip2 = carbon_get_post_meta( get_the_ID(), 'image_consejo_2_link' );
                     ?>
-                    <div class="flex gap-6">
+                    <div class="flex">
                         <?php if ( $tip1 ) : ?>
-                            <div class="w-3/4">
+                            <div class="w-3/4 form-inicio-container">
                                 <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip1, 'full' ) ); ?>" alt="Consejo 1" class="w-full h-auto">
+								<div id="form-inicio">
+									<h2>CONTÁCTANOS</h2>
+									<?php echo do_shortcode( '[contact-form-7 id="282fa29" title="Contacto Inicio"]' ); ?>
+								</div>
                             </div>
                         <?php endif; ?>
 
