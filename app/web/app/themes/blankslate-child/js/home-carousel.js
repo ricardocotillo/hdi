@@ -44,7 +44,7 @@ items: 6,
 slideBy: 6,
 loop: true,
 nav: true,
-dots: true,
+dots: false,
 autoplay: true,
 autoplayTimeout: 3000,
 autoplayHoverPause: true,
@@ -119,7 +119,7 @@ if ($('.home-parts-carousel').length) {
 		],
 		responsive: {
 			0: {
-				items: 4
+				items: 2
 			},
 			768: {
 				items: 7

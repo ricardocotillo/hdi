@@ -50,6 +50,12 @@ function blankslate_child_enqueue_assets() {
 		wp_enqueue_style( 'blankslate-child-taxonomy', get_stylesheet_directory_uri() . '/taxonomy-styles.css', array(), '1.0.0' );
 		wp_enqueue_script( 'blankslate-child-taxonomy', get_stylesheet_directory_uri() . '/js/taxonomy.js', array(), '1.0.0', true );
 		
+		// Owl Carousel assets for taxonomy pages
+		wp_enqueue_style( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4' );
+		wp_enqueue_style( 'owl-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array( 'owl-carousel' ), '2.3.4' );
+		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
+		wp_enqueue_script( 'home-carousel', get_stylesheet_directory_uri() . '/js/home-carousel.js', array( 'jquery', 'owl-carousel' ), '2.1.1', true );
+		
 		$current_term = get_queried_object();
 		wp_localize_script( 'blankslate-child-taxonomy', 'taxonomyData', array(
 			'nonce' => wp_create_nonce( 'load_more_productos_nonce' ),
@@ -348,6 +354,9 @@ add_action( 'carbon_fields_loaded', function() {
 				) )
 				->set_min( 1 ),
 		) )
+
+
+
 		->add_tab( __( 'Footer' ), array(
 			Field::make( 'complex', 'crb_distribution', __( 'Direcciones' ) )
 				->set_layout( 'grid' )
@@ -372,6 +381,14 @@ add_action( 'carbon_fields_loaded', function() {
 						->set_width( 34 ),
 				) ),
 			Field::make( 'text', 'crb_copyright', __( 'Copyright Text' ) ),	
+		) )
+		->add_tab( __( 'Productos' ), array(
+			Field::make( 'complex', 'crb_distribuidor_grid', __( 'Lista de logos de distribuidor oficial se muestra en la sección de productos' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) ),
+				) )
+				->set_min( 1 ),
 		) );
 } );
 

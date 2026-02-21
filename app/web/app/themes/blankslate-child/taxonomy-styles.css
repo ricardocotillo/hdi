@@ -390,6 +390,27 @@
     .producto-image {
         height: 150px;
     }
+
+    /* Carousel responsive styles */
+    .home-brands-carousel .owl-nav button,
+    .home-parts-carousel .owl-nav button {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .parts-item-image {
+        width: 100px !important;
+    }
+
+    .brand-carousel-item {
+        height: 120px;
+        padding: 10px;
+    }
+
+    .brand-carousel-item img {
+        height: 80px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -404,6 +425,32 @@
 
     .btn-ver-mas-productos {
         width: 100%;
+    }
+
+    /* Carousel mobile styles */
+    .parts-item-image {
+        width: 80px !important;
+    }
+
+    .brand-carousel-item {
+        height: 100px;
+        padding: 8px;
+    }
+
+    .brand-carousel-item img {
+        height: 60px;
+    }
+
+    .home-brands-carousel .owl-nav button,
+    .home-parts-carousel .owl-nav button {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    .home-parts-section {
+        padding: 40px 0;
+        font-size: 15px;
     }
 }
 
@@ -424,4 +471,173 @@
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+}
+
+/* Brands Carousel Section */
+.home-brands-carousel-section {
+    width: 100%;
+    background-color: #f3f4f6 !important;
+    padding: 2rem 0 !important;
+}
+
+.brands-description {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.home-brands-carousel {
+    margin: 0;
+    position: relative;
+    background: transparent !important;
+}
+
+.brand-carousel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    padding: 20px;
+}
+
+.brand-carousel-item img {
+    max-width: 100%;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Brands Carousel Navigation */
+.home-brands-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.home-brands-carousel .owl-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: all;
+    background-color: rgba(59, 130, 246, 0.9);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.home-brands-carousel .owl-nav button:first-child {
+    left: -20px;
+}
+
+.home-brands-carousel .owl-nav button:last-child {
+    right: -20px;
+}
+
+.home-brands-carousel .owl-nav button:hover {
+    background-color: #2563eb;
+}
+
+.home-brands-carousel .owl-nav button:focus {
+    outline: none;
+}
+
+/* Parts Carousel Section */
+.home-parts-section {
+    width: 100%;
+    padding: 60px 0;
+    font-family: "Roboto", Sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    background-color: white;
+}
+
+.home-parts-carousel {
+    margin: 0;
+    position: relative;
+}
+
+.parts-item {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+}
+
+.parts-item img {
+    width: 100%;
+    height: 280px;
+    display: block;
+    object-fit: cover;
+}
+
+.parts-item-image {
+    width: 126px !important;
+    height: auto !important;
+}
+
+/* Parts Carousel Navigation */
+.home-parts-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.home-parts-carousel .owl-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: all;
+    background-color: rgba(59, 130, 246, 0.9);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.home-parts-carousel .owl-nav button:first-child {
+    left: -20px;
+}
+
+.home-parts-carousel .owl-nav button:last-child {
+    right: -20px;
+}
+
+.home-parts-carousel .owl-nav button:hover {
+    background-color: #2563eb;
+}
+
+.home-parts-carousel .owl-nav button:focus {
+    outline: none;
 }

@@ -106,6 +106,80 @@ get_header(); ?>
             <?php endif; ?>
         </main>
     </div>
+    
+
+
+    <div class="w-full">
+        <section class="container">
+            <section class="repuestos text-center">
+                <h2>Contamos con repuestos originales de marcas lideres en sistemas de inyección diesel</h2>
+                <p>Repuestos originales de Sistemas de Inyección para el after market y equipos homologados (OEM)
+para diagnóstico, mantenimiento y reparación de equipos Diesel.</p>
+            </section>
+    <!-- Section: Brands Carousel -->
+        <section class="w-full">
+            <div class="container">
+                <?php
+                $brands_description = carbon_get_theme_option( 'crb_home_brands_description' );
+                if ( ! empty( $brands_description ) ) :
+                    ?>
+                    <div class="brands-description">
+                        <?php echo wp_kses_post( $brands_description ); ?>
+                    </div>
+                    <?php
+                endif;
+                ?>
+                
+                <div class="owl-carousel owl-theme home-brands-carousel">
+                    <?php
+                    $brands_carousel = carbon_get_theme_option( 'crb_distribuidor_grid' );
+                    if ( ! empty( $brands_carousel ) ) :
+                        foreach ( $brands_carousel as $brand ) :
+                            $logo_url = ! empty( $brand['image'] ) ? wp_get_attachment_image_url( $brand['image'], 'medium' ) : '';
+                            $link = ! empty( $brand['link'] ) ? $brand['link'] : '#';
+                            ?>
+                            <div class="brand-carousel-item text-center">
+                                <?php if ( $logo_url ) : ?>
+                                    <img src="<?php echo esc_url( $logo_url ); ?>" alt="Brand Logo" class="h-24 mx-auto">
+                                <?php endif; ?>
+                            </div>
+                            <?php
+                        endforeach;
+                    endif;
+                    ?>
+                </div>
+            </div>
+        </section>
+        <!-- Section: Parts and Pieces -->
+        <section class="home-parts-section bg-white">
+            <div class="container text-center">
+                <?php 
+                $parts_title = 'Distribuidor oficial de autopartes para'; //carbon_get_post_meta( get_option('page_on_front'), 'crb_home_parts_title' );
+                if ( ! empty( $parts_title ) ) :
+                    ?>
+                        <?php echo wp_kses_post( $parts_title ); ?>   
+
+                    <div class="owl-carousel owl-theme home-parts-carousel">
+                        <?php
+                        $parts_gallery = carbon_get_post_meta( get_option('page_on_front'), 'crb_home_parts_gallery' );
+                        if ( ! empty( $parts_gallery ) ) :
+                            foreach ( $parts_gallery as $part ) :
+                                $part_image = ! empty( $part['image'] ) ? wp_get_attachment_image_url( $part['image'], 'medium' ) : '';
+                                ?>
+                                <div class="parts-item">
+                                    <?php if ( $part_image ) : ?>
+                                        <img src="<?php echo esc_url( $part_image ); ?>" alt="Parte/Pieza" class="parts-item-image">
+                                    <?php endif; ?>
+                                </div>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
+    </div>
 </div>
 
 <?php get_footer(); ?>
