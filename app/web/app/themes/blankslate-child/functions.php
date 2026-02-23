@@ -81,6 +81,15 @@ function blankslate_child_enqueue_assets() {
 		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
 		wp_enqueue_script( 'home-carousel', get_stylesheet_directory_uri() . '/js/home-carousel.js', array( 'jquery', 'owl-carousel' ), '2.1.1', true );
 	}
+
+	// Owl Carousel assets and styles for Single Producto page
+	if ( is_singular( 'productos' ) ) {
+		wp_enqueue_style( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4' );
+		wp_enqueue_style( 'owl-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array( 'owl-carousel' ), '2.3.4' );
+		wp_enqueue_style( 'blankslate-child-single-productos', get_stylesheet_directory_uri() . '/single-productos-styles.css', array(), '1.0.0' );
+		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
+		wp_enqueue_script( 'product-single-carousel', get_stylesheet_directory_uri() . '/js/product-single-carousel.js', array( 'jquery', 'owl-carousel' ), '1.0.0', true );
+	}
 	
 	// Enqueue livereload script para desarrollo
 	if ( defined( 'WP_ENV' ) && 'development' === WP_ENV || isset( $_ENV['WP_ENV'] ) && 'development' === $_ENV['WP_ENV'] ) {
