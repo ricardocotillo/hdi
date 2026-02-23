@@ -1,0 +1,16 @@
+#garantia-content ul,
+#garantia-content ol {
+	list-style: initial;
+	margin-left: 1.5rem;
+	padding-left: 1.5rem;
+}
+
+#garantia-content ul li,
+#garantia-content ol li {
+	margin-bottom: 0.5rem;
+	line-height: 1.6;
+}
+
+#garantia-content li {
+	display: list-item;
+}

@@ -90,6 +90,11 @@ function blankslate_child_enqueue_assets() {
 		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
 		wp_enqueue_script( 'product-single-carousel', get_stylesheet_directory_uri() . '/js/product-single-carousel.js', array( 'jquery', 'owl-carousel' ), '1.0.0', true );
 	}
+
+	// Estilos para template de Garantía
+	if ( is_page_template( 'template-garantia.php' ) ) {
+		wp_enqueue_style( 'blankslate-child-garantia', get_stylesheet_directory_uri() . '/template-garantia-styles.css', array(), '1.0.0' );
+	}
 	
 	// Enqueue livereload script para desarrollo
 	if ( defined( 'WP_ENV' ) && 'development' === WP_ENV || isset( $_ENV['WP_ENV'] ) && 'development' === $_ENV['WP_ENV'] ) {
