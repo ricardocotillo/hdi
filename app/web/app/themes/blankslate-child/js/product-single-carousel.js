@@ -87,6 +87,44 @@ jQuery(document).ready(function($) {
 		}
 	}
 
+	// Image Modal Functionality
+	var modal = $('#imageModal');
+	var modalImg = $('#modalImage');
+	var captionText = $('#modalCaption');
+
+	// Click on main carousel images to open modal
+	$(document).on('click', '.product-gallery-image', function() {
+		var imgSrc = $(this).attr('src');
+		var imgAlt = $(this).attr('alt');
+		
+		modal.addClass('active');
+		modalImg.attr('src', imgSrc);
+		captionText.text(imgAlt);
+		$('body').css('overflow', 'hidden');
+	});
+
+	// Close modal on click
+	$('.modal-close').on('click', function() {
+		modal.removeClass('active');
+		$('body').css('overflow', '');
+	});
+
+	// Close modal when clicking outside the image
+	modal.on('click', function(e) {
+		if (e.target === this || $(e.target).hasClass('modal-close')) {
+			modal.removeClass('active');
+			$('body').css('overflow', '');
+		}
+	});
+
+	// Close modal with Escape key
+	$(document).on('keydown', function(e) {
+		if (e.key === 'Escape' && modal.hasClass('active')) {
+			modal.removeClass('active');
+			$('body').css('overflow', '');
+		}
+	});
+
 	// Related Products Carousel
 	if ($('.related-products-carousel').length) {
 		console.log('✓ Inicializando related products carousel');

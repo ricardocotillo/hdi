@@ -332,6 +332,15 @@ if ( have_posts() ) :
 		<?php
 	endwhile;
 endif;
+?>
 
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+	<span class="modal-close">&times;</span>
+	<img class="modal-content" id="modalImage" alt="">
+	<div class="modal-caption" id="modalCaption"></div>
+</div>
+
+<?php
 get_footer();
 
