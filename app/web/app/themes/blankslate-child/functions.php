@@ -410,6 +410,19 @@ add_action( 'carbon_fields_loaded', function() {
 				) )
 				->set_min( 2 )
 				->set_max( 2 ),
+		) )
+		
+		->add_tab( __( 'Detalle Producto' ), array(
+			Field::make( 'text', 'crb_producto_boton_cotizar', __( 'Texto Botón Cotizar' ) )
+				->set_help_text( 'Texto que aparecerá en el botón de cotizar' )
+				->set_default_value( 'Cotizar' ),
+			Field::make( 'text', 'crb_producto_boton_cotizar_link', __( 'Link de Botón Cotizar' ) )
+				->set_help_text( 'Texto que aparecerá en el botón de cotizar' )
+				->set_default_value( 'Cotizar' ),			
+			Field::make( 'image', 'crb_producto_icono_delivery', __( 'Imagen de Delivery' ) )
+				->set_help_text( 'Sube la imagen para el icono de delivery' ),
+			Field::make( 'image', 'crb_producto_icono_factura', __( 'Imagen de Boleta/Factura' ) )
+				->set_help_text( 'Sube la imagen para el icono de boleta/factura' ),
 		) );
 } );
 

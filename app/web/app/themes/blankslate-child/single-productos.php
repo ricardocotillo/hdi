@@ -114,7 +114,58 @@ if ( have_posts() ) :
 							</div>
 						<?php endif; ?>
 						
-						<!-- Share Links -->
+						<!-- Quote Button -->
+						<?php
+						$boton_cotizar_text = carbon_get_theme_option( 'crb_producto_boton_cotizar' );
+						if ( $boton_cotizar_text ) :
+						?>
+							<div class="product-quote-section">
+								<a href="#cotizar" class="btn-cotizar-producto">
+									<?php echo esc_html( $boton_cotizar_text ); ?>
+								</a>
+							</div>
+						<?php endif; ?>
+						
+						<!-- Availability -->
+						<div class="product-availability">
+							<p class="availability-status in-stock">Disponible</p>
+                            <p class="delivery-payment-title">Despacho y métodos de pagos</p>
+						</div>
+						
+						<!-- Shipping & Payment Info -->
+						<div class="product-delivery-payment flex flex-row">
+							<div class="delivery-info">
+								<?php
+								$icono_delivery_id = carbon_get_theme_option( 'crb_producto_icono_delivery' );
+								$icono_delivery_url = $icono_delivery_id ? wp_get_attachment_image_url( $icono_delivery_id, 'thumbnail' ) : '';
+								?>
+								<h4>
+									<?php if ( $icono_delivery_url ) : ?>
+										<img src="<?php echo esc_url( $icono_delivery_url ); ?>" alt="Delivery">
+									<?php else : ?>
+										<i class="fas fa-shipping-fast"></i>
+									<?php endif; ?>
+									EXPRESS
+                                    <br>24 A 48 HORAS
+								</h4>
+							</div>
+							
+							<div class="payment-info">
+								<?php
+								$icono_factura_id = carbon_get_theme_option( 'crb_producto_icono_factura' );
+								$icono_factura_url = $icono_factura_id ? wp_get_attachment_image_url( $icono_factura_id, 'thumbnail' ) : '';
+								?>
+								<h4>
+									<?php if ( $icono_factura_url ) : ?>
+										<img src="<?php echo esc_url( $icono_factura_url ); ?>" alt="Factura">
+									<?php else : ?>
+										<i class="fas fa-receipt"></i>
+									<?php endif; ?>
+									COMPRA CON
+                                    <br>BOLETA O FACTURA
+								</h4>
+							</div>					</div>
+											<!-- Share Links -->
 						<div class="product-share-section">
 							<h3>Compartir</h3>
 							<div class="share-links share-links-product">
