@@ -129,7 +129,7 @@ jQuery(document).ready(function($) {
 	if ($('.related-products-carousel').length) {
 		console.log('✓ Inicializando related products carousel');
 		$('.related-products-carousel').owlCarousel({
-			items: 4,
+			items: 5,
 			margin: 15,
 			loop: true,
 			nav: true,
@@ -155,7 +155,7 @@ jQuery(document).ready(function($) {
 					margin: 15
 				},
 				1024: {
-					items: 4,
+					items: 5,
 					margin: 15
 				}
 			}

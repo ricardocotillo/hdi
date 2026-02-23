@@ -169,11 +169,11 @@ if ( have_posts() ) :
 						<div class="product-share-section">
 							<h3>Compartir</h3>
 							<div class="share-links share-links-product">
+                                <a class="share share-whatsapp" href="<?php echo esc_url( $whatsapp_share ); ?>" target="_blank" rel="noopener noreferrer" title="Compartir en WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
 								<a class="share share-facebook" href="<?php echo esc_url( $facebook_share ); ?>" target="_blank" rel="noopener noreferrer" title="Compartir en Facebook">
 									<i class="fab fa-facebook"></i>
-								</a>
-								<a class="share share-whatsapp" href="<?php echo esc_url( $whatsapp_share ); ?>" target="_blank" rel="noopener noreferrer" title="Compartir en WhatsApp">
-									<i class="fab fa-whatsapp"></i>
 								</a>
 								<a class="share share-email" href="<?php echo esc_url( $email_share ); ?>" target="_blank" rel="noopener noreferrer" title="Compartir por Email">
 									<i class="fas fa-envelope"></i>
