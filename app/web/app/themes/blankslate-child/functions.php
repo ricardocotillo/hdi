@@ -45,6 +45,26 @@ function blankslate_child_enqueue_assets() {
 	wp_enqueue_script( 'blankslate-child-main', get_stylesheet_directory_uri() . '/js/main.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'blankslate-child-menu-lateral', get_stylesheet_directory_uri() . '/menu-lateral.js', array(), '1.0.0', true );
 
+	// Taxonomy page assets
+	if ( is_tax() ) {
+		wp_enqueue_style( 'blankslate-child-taxonomy', get_stylesheet_directory_uri() . '/taxonomy-styles.css', array(), '1.0.0' );
+		wp_enqueue_script( 'blankslate-child-taxonomy', get_stylesheet_directory_uri() . '/js/taxonomy.js', array(), '1.0.0', true );
+		
+		// Owl Carousel assets for taxonomy pages
+		wp_enqueue_style( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4' );
+		wp_enqueue_style( 'owl-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array( 'owl-carousel' ), '2.3.4' );
+		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
+		wp_enqueue_script( 'home-carousel', get_stylesheet_directory_uri() . '/js/home-carousel.js', array( 'jquery', 'owl-carousel' ), '2.1.1', true );
+		
+		$current_term = get_queried_object();
+		wp_localize_script( 'blankslate-child-taxonomy', 'taxonomyData', array(
+			'nonce' => wp_create_nonce( 'load_more_productos_nonce' ),
+			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			'currentTermId' => $current_term ? $current_term->term_id : '',
+			'currentTaxonomy' => $current_term ? $current_term->taxonomy : ''
+		) );
+	}
+
 	// Owl Carousel assets for Servicios template
 	if ( is_page_template( 'template-servicios.php' ) ) {
 		wp_enqueue_style( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4' );
@@ -60,6 +80,20 @@ function blankslate_child_enqueue_assets() {
 		wp_enqueue_style( 'blankslate-child-home', get_stylesheet_directory_uri() . '/home-styles.css', array(), '2.1.1' );
 		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
 		wp_enqueue_script( 'home-carousel', get_stylesheet_directory_uri() . '/js/home-carousel.js', array( 'jquery', 'owl-carousel' ), '2.1.1', true );
+	}
+
+	// Owl Carousel assets and styles for Single Producto page
+	if ( is_singular( 'productos' ) ) {
+		wp_enqueue_style( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array(), '2.3.4' );
+		wp_enqueue_style( 'owl-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array( 'owl-carousel' ), '2.3.4' );
+		wp_enqueue_style( 'blankslate-child-single-productos', get_stylesheet_directory_uri() . '/single-productos-styles.css', array(), '1.0.0' );
+		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
+		wp_enqueue_script( 'product-single-carousel', get_stylesheet_directory_uri() . '/js/product-single-carousel.js', array( 'jquery', 'owl-carousel' ), '1.0.0', true );
+	}
+
+	// Estilos para template de Garantía
+	if ( is_page_template( 'template-garantia.php' ) ) {
+		wp_enqueue_style( 'blankslate-child-garantia', get_stylesheet_directory_uri() . '/template-garantia-styles.css', array(), '1.0.0' );
 	}
 	
 	// Enqueue livereload script para desarrollo
@@ -150,6 +184,125 @@ function blankslate_child_register_widgets() {
 }
 add_action( 'widgets_init', 'blankslate_child_register_widgets' );
 
+/**
+ * AJAX Handler: Filter Productos
+ */
+function blankslate_child_filter_productos() {
+	// Verify nonce
+	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'load_more_productos_nonce' ) ) {
+		wp_send_json_error( 'Nonce verification failed' );
+	}
+
+	$paged = isset( $_POST['paged'] ) ? intval( $_POST['paged'] ) : 1;
+	$fabricantes = isset( $_POST['fabricantes'] ) ? sanitize_text_field( $_POST['fabricantes'] ) : '';
+	$marcas = isset( $_POST['marcas'] ) ? sanitize_text_field( $_POST['marcas'] ) : '';
+	$sku = isset( $_POST['sku'] ) ? sanitize_text_field( $_POST['sku'] ) : '';
+	$cod_fabricante = isset( $_POST['cod_fabricante'] ) ? sanitize_text_field( $_POST['cod_fabricante'] ) : '';
+	$current_term_id = isset( $_POST['current_term_id'] ) ? intval( $_POST['current_term_id'] ) : 0;
+	$current_taxonomy = isset( $_POST['current_taxonomy'] ) ? sanitize_text_field( $_POST['current_taxonomy'] ) : '';
+
+	$args = array(
+		'posts_per_page' => 12,
+		'paged'          => $paged,
+	);
+
+	// Build tax_query for taxonomies
+	$tax_query = array( 'relation' => 'AND' );
+	
+	// Add current taxonomy filter (categoria-producto or other)
+	if ( ! empty( $current_term_id ) && ! empty( $current_taxonomy ) ) {
+		$tax_query[] = array(
+			'taxonomy' => $current_taxonomy,
+			'field'    => 'term_id',
+			'terms'    => $current_term_id,
+		);
+	}
+	
+	if ( ! empty( $fabricantes ) ) {
+		$tax_query[] = array(
+			'taxonomy' => 'fabricantes',
+			'field'    => 'term_id',
+			'terms'    => intval( $fabricantes ),
+		);
+	}
+	
+	if ( ! empty( $marcas ) ) {
+		$tax_query[] = array(
+			'taxonomy' => 'marcas',
+			'field'    => 'term_id',
+			'terms'    => intval( $marcas ),
+		);
+	}
+
+	if ( count( $tax_query ) > 1 ) {
+		$args['tax_query'] = $tax_query;
+	}
+
+	// Build meta_query for meta fields
+	$meta_query = array( 'relation' => 'AND' );
+	
+	if ( ! empty( $sku ) ) {
+		$meta_query[] = array(
+			'key'     => 'sku',
+			'value'   => $sku,
+			'compare' => 'LIKE',
+		);
+	}
+	
+	if ( ! empty( $cod_fabricante ) ) {
+		$meta_query[] = array(
+			'key'     => 'cod-fabricante',
+			'value'   => $cod_fabricante,
+			'compare' => 'LIKE',
+		);
+	}
+
+	if ( count( $meta_query ) > 1 ) {
+		$args['meta_query'] = $meta_query;
+	}
+
+	$query = new WP_Query( $args );
+	$html = '';
+
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			ob_start();
+			?>
+			<article class="producto-item">
+				<div class="producto-image">
+					<?php if ( has_post_thumbnail() ) : ?>
+						<?php the_post_thumbnail( 'medium' ); ?>
+					<?php endif; ?>
+				</div>
+				<h3 class="producto-title"><?php the_title(); ?></h3>
+				<a href="<?php the_permalink(); ?>" class="btn-ver-mas">Ver más</a>
+			</article>
+			<?php
+			$html .= ob_get_clean();
+		}
+		wp_reset_postdata();
+	}
+
+	$has_more = ( $paged * 12 ) < $query->found_posts;
+
+	wp_send_json_success( array(
+		'html'     => $html,
+		'has_more' => $has_more,
+	) );
+}
+add_action( 'wp_ajax_filter_productos', 'blankslate_child_filter_productos' );
+add_action( 'wp_ajax_nopriv_filter_productos', 'blankslate_child_filter_productos' );
+
+/**
+ * AJAX Handler: Load More Productos (deprecated, kept for compatibility)
+ */
+function blankslate_child_load_more_productos() {
+	blankslate_child_filter_productos();
+}
+add_action( 'wp_ajax_load_more_productos', 'blankslate_child_load_more_productos' );
+add_action( 'wp_ajax_nopriv_load_more_productos', 'blankslate_child_load_more_productos' );
+
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
@@ -215,6 +368,9 @@ add_action( 'carbon_fields_loaded', function() {
 				) )
 				->set_min( 1 ),
 		) )
+
+
+
 		->add_tab( __( 'Footer' ), array(
 			Field::make( 'complex', 'crb_distribution', __( 'Direcciones' ) )
 				->set_layout( 'grid' )
@@ -239,6 +395,39 @@ add_action( 'carbon_fields_loaded', function() {
 						->set_width( 34 ),
 				) ),
 			Field::make( 'text', 'crb_copyright', __( 'Copyright Text' ) ),	
+		) )
+
+
+		->add_tab( __( 'Productos' ), array(
+			Field::make( 'complex', 'crb_distribuidor_grid', __( 'Lista de logos de distribuidor oficial se muestra en la sección de productos' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'image', __( 'Imagen' ) ),
+				) )
+				->set_min( 1 ),
+			Field::make( 'rich_text', 'crb_repuestos_originals_text', __( 'Texto de repuestos originales' ) ),
+			Field::make( 'rich_text', 'crb_distribuidor_official_text', __( 'Texto de distribuidor oficial para' ) ),
+			Field::make( 'complex', 'crb_cuadros_azules', __( 'Cuadros Azules' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'texto', __( 'Texto' ) ),
+					Field::make( 'text', 'link', __( 'Link' ) ),
+				) )
+				->set_min( 2 )
+				->set_max( 2 ),
+		) )
+		
+		->add_tab( __( 'Detalle Producto' ), array(
+			Field::make( 'text', 'crb_producto_boton_cotizar', __( 'Texto Botón Cotizar' ) )
+				->set_help_text( 'Texto que aparecerá en el botón de cotizar' )
+				->set_default_value( 'Cotizar' ),
+			Field::make( 'text', 'crb_producto_boton_cotizar_link', __( 'Link de Botón Cotizar' ) )
+				->set_help_text( 'Texto que aparecerá en el botón de cotizar' )
+				->set_default_value( 'Cotizar' ),			
+			Field::make( 'image', 'crb_producto_icono_delivery', __( 'Imagen de Delivery' ) )
+				->set_help_text( 'Sube la imagen para el icono de delivery' ),
+			Field::make( 'image', 'crb_producto_icono_factura', __( 'Imagen de Boleta/Factura' ) )
+				->set_help_text( 'Sube la imagen para el icono de boleta/factura' ),
 		) );
 } );
 
