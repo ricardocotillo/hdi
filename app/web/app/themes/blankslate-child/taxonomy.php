@@ -112,23 +112,17 @@ get_header(); ?>
     <div class="w-full">
         <section class="container">
             <section class="repuestos text-center">
-                <h2>Contamos con repuestos originales de marcas lideres en sistemas de inyección diesel</h2>
-                <p>Repuestos originales de Sistemas de Inyección para el after market y equipos homologados (OEM)
-para diagnóstico, mantenimiento y reparación de equipos Diesel.</p>
+                <?php
+                $repuestos_text = carbon_get_theme_option( 'crb_repuestos_originals_text' );
+                if ( ! empty( $repuestos_text ) ) :
+                    echo wp_kses_post( $repuestos_text );
+                endif;
+                ?>
             </section>
     <!-- Section: Brands Carousel -->
         <section class="w-full">
             <div class="container">
-                <?php
-                $brands_description = carbon_get_theme_option( 'crb_home_brands_description' );
-                if ( ! empty( $brands_description ) ) :
-                    ?>
-                    <div class="brands-description">
-                        <?php echo wp_kses_post( $brands_description ); ?>
-                    </div>
-                    <?php
-                endif;
-                ?>
+
                 
                 <div class="owl-carousel owl-theme home-brands-carousel">
                     <?php
@@ -152,9 +146,9 @@ para diagnóstico, mantenimiento y reparación de equipos Diesel.</p>
         </section>
         <!-- Section: Parts and Pieces -->
         <section class="home-parts-section bg-white">
-            <div class="container text-center">
+            <div class="container text-center text-distribuidor-official">
                 <?php 
-                $parts_title = 'Distribuidor oficial de autopartes para'; //carbon_get_post_meta( get_option('page_on_front'), 'crb_home_parts_title' );
+                $parts_title = carbon_get_theme_option( 'crb_distribuidor_official_text' );
                 if ( ! empty( $parts_title ) ) :
                     ?>
                         <?php echo wp_kses_post( $parts_title ); ?>   
@@ -177,6 +171,24 @@ para diagnóstico, mantenimiento y reparación de equipos Diesel.</p>
                         ?>
                     </div>
                 <?php endif; ?>
+            </div>
+        </section>
+        <section class="w-full">
+            <div class="cuadros-container">
+                <?php
+                $cuadros_azules = carbon_get_theme_option( 'crb_cuadros_azules' );
+                if ( ! empty( $cuadros_azules ) ) :
+                    foreach ( $cuadros_azules as $cuadro ) :
+                        $texto = ! empty( $cuadro['texto'] ) ? $cuadro['texto'] : '';
+                        $link = ! empty( $cuadro['link'] ) ? $cuadro['link'] : '#';
+                        ?>
+                        <div class="cuadro-azul">
+                            <a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $texto ); ?></a>
+                        </div>
+                        <?php
+                    endforeach;
+                endif;
+                ?>
             </div>
         </section>
     </div>

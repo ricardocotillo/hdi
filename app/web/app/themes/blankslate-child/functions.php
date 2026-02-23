@@ -382,6 +382,8 @@ add_action( 'carbon_fields_loaded', function() {
 				) ),
 			Field::make( 'text', 'crb_copyright', __( 'Copyright Text' ) ),	
 		) )
+
+
 		->add_tab( __( 'Productos' ), array(
 			Field::make( 'complex', 'crb_distribuidor_grid', __( 'Lista de logos de distribuidor oficial se muestra en la sección de productos' ) )
 				->set_layout( 'grid' )
@@ -389,6 +391,16 @@ add_action( 'carbon_fields_loaded', function() {
 					Field::make( 'image', 'image', __( 'Imagen' ) ),
 				) )
 				->set_min( 1 ),
+			Field::make( 'rich_text', 'crb_repuestos_originals_text', __( 'Texto de repuestos originales' ) ),
+			Field::make( 'rich_text', 'crb_distribuidor_official_text', __( 'Texto de distribuidor oficial para' ) ),
+			Field::make( 'complex', 'crb_cuadros_azules', __( 'Cuadros Azules' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'texto', __( 'Texto' ) ),
+					Field::make( 'text', 'link', __( 'Link' ) ),
+				) )
+				->set_min( 2 )
+				->set_max( 2 ),
 		) );
 } );
 

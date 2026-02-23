@@ -641,3 +641,64 @@
 .home-parts-carousel .owl-nav button:focus {
     outline: none;
 }
+/* Cuadros Azules */
+.cuadros-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.cuadro-azul {
+    background-color: #0170B9;
+    color: white;
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 150px;
+    font-family: Roboto, sans-serif;
+}
+
+.cuadro-azul a {
+    margin: 0;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+.repuestos h2{
+    font-family: Roboto, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    max-width: 80%;
+    margin:0 auto;
+    padding-bottom: 20px;
+}
+.repuestos *{
+    max-width: 80%;
+    margin: 0 auto;
+}
+.text-distribuidor-official {
+    font-family: Roboto, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    max-width: 80%;
+    margin:0 auto;
+}   
+
+@media (min-width: 768px) {
+    .cuadros-container {
+        flex-direction: row;
+    }
+
+    .cuadro-azul {
+        flex: 1;
+    }
+}
