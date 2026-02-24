@@ -383,7 +383,6 @@ add_action( 'carbon_fields_loaded', function() {
 						->set_width( 34 ),
 				) )
 				->set_min( 1 ),
-			Field::make( 'image', 'crb_footer_logo', __( 'Logo Footer' ) ),
 			Field::make( 'complex', 'crb_footer_contacts', __( 'Teléfonos' ) )
 				->set_layout( 'grid' )
 				->add_fields( array(
@@ -738,7 +737,57 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		->where('post_template', '=', 'template-hartridge.php' )
 		->add_fields( array(
 			Field::make( 'image', 'crb_hartridge_banner_1', __( 'Banner 1' ) ),
-			Field::make( 'image', 'crb_hartridge_banner_3', __( 'Banner 3' ) ),
+			Field::make( 'image', 'crb_hartridge_banner_2', __( 'Banner 2' ) ),
+			Field::make( 'text', 'crb_hartridge_novedades_title', __( 'Título de Novedades' ) ),
+			Field::make( 'complex', 'crb_hartridge_news', __( 'Novedades Hartridge' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'title', __( 'Título' ) )
+						->set_width( 33 ),
+					Field::make( 'image', 'image', __( 'Imagen' ) )
+						->set_width( 33 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 34 ),
+				) )
+				->set_min( 0 ),
+			Field::make( 'text', 'crb_hartridge_videos_title', __( 'Título de Videos' ) ),
+			Field::make( 'complex', 'crb_hartridge_videos', __( 'Videos Hartridge' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'url', __( 'URL de Video' ) )
+						->set_width( 100 ),
+				) )
+				->set_min( 0 ),
+			Field::make( 'text', 'crb_hartridge_demo_title', __( 'Título Agenda tu Demo' ) ),
+			Field::make( 'text', 'crb_hartridge_demo_phone', __( 'Celular' ) ),
+			Field::make( 'text', 'crb_hartridge_demo_link_phone', __( 'Celular Link' ) ),
+			Field::make( 'text', 'crb_hartridge_demo_email', __( 'Correo' ) ),
+			Field::make( 'text', 'crb_hartridge_demo_address', __( 'Dirección' ) ),
+			Field::make( 'text', 'crb_hartridge_form_title', __( 'Título del Formulario' ) ),
+			Field::make( 'image', 'crb_footer_logo', __( 'Logo Footer' ) ),
+			Field::make( 'textarea', 'crb_footer_text', __( 'Texto Footer' ) ),
+			Field::make( 'text', 'crb_footer_phone', __( 'Teléfono Footer' ) ),
+			Field::make( 'text', 'crb_footer_phone_link', __( 'Link Teléfono Footer' ) ),
+			Field::make( 'text', 'crb_footer_email', __( 'Email Footer' ) ),
+			Field::make( 'text', 'crb_footer_address', __( 'Dirección Footer' ) ),
+			Field::make( 'text', 'crb_footer_address_link', __( 'Link Dirección Footer' ) ),
+			Field::make( 'image', 'crb_hdi_logo_footer', __( 'HDI Logo Footer' ) ),
+			Field::make( 'complex', 'crb_footer_social_media', __( 'Redes Sociales Footer' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'icon', __( 'Ícono' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 0 ),
+			Field::make( 'text', 'crb_hartridge_footer_copyright', __( 'Todos los Derechos Reservados' ) ),
+			
+
+
+
+
+			
 		) );
 
 /* equipamiento hartridge */

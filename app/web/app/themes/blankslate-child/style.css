@@ -890,6 +890,222 @@ textarea {
 	text-align: left;
 	padding-right: 10%;
 }
+.nuestros-productos-hartridge{
+	padding: 60px 0;
+	font-family: 'Roboto', sans-serif;
+}
+.nuestros-productos-hartridge h2{
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;
+	font-weight: 600;
+	color: #006380;
+}
+.hartridge-products{
+	margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+	.hartridge-products {
+		flex-direction: column;
+	}
+}
+.fondo-plomo{
+	background-color: #E3EDEE;
+}
+#equipos-hartridge{
+	padding: 60px 0;
+}
+#equipos-hartridge h2{
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	color: #006380;
+}
+#equipos-hartridge .productos-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	margin-top: 40px;
+}
+#equipos-hartridge .producto-item {
+	background-color: #E3EDEE;
+	border-radius: 8px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #9B9B9B;
+}
+#equipos-hartridge .producto-image {
+	background-color: #016380;
+	height: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#equipos-hartridge .producto-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+#equipos-hartridge .producto-content {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+#equipos-hartridge .producto-title {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	color: #000;
+	margin: 0;
+	text-align: left;
+}
+#equipos-hartridge .btn-ver-mas {
+	align-self: flex-end;
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	background-color: transparent;
+	border: 2px solid #016380;
+	border-radius: 5px;
+	padding: 8px 12px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	color: #016380;
+	font-size: 14px;
+}
+#equipos-hartridge .btn-ver-mas:hover {
+	background-color: #016380;
+	color: #fff;
+}
+#equipos-hartridge .btn-ver-mas svg {
+	width: 27px;
+	height: 27px;
+	fill: #016380;
+	transition: fill 0.3s ease;
+}
+#equipos-hartridge .btn-ver-mas:hover svg {
+	fill: #fff;
+}
+@media (max-width: 1024px) {
+	#equipos-hartridge .productos-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media (max-width: 768px) {
+	#equipos-hartridge .productos-grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+
+	.productos-grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+}
+@media (max-width: 480px) {
+	#equipos-hartridge {
+		padding: 60px 20px;
+	}
+
+	#equipos-hartridge .productos-grid {
+		grid-template-columns: 1fr;
+	}
+
+	#equipos-hartridge .producto-title {
+		font-size: 14px;
+	}
+
+	.productos-grid {
+		grid-template-columns: 1fr !important;
+	}
+}
+
+/* Novedades Hartridge */
+#novedades-hartridge{
+	padding: 60px 0 60px 0;
+}
+#novedades-hartridge .novedades-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin-top: 30px;
+}
+
+#novedades-hartridge .novedad-item {
+	position: relative;
+}
+
+#novedades-hartridge .novedad-item-image-wrapper {
+	display: block;
+	position: relative;
+	text-decoration: none;
+	overflow: hidden;
+	border-radius: 10px;
+	height: 100%;
+}
+
+#novedades-hartridge .novedad-item-image {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 10px;
+	transition: transform 0.3s ease;
+}
+
+#novedades-hartridge .novedad-item-image-wrapper:hover .novedad-item-image {
+	transform: scale(1.05);
+}
+
+#novedades-hartridge h2{
+	color: #006380;
+    font-family: "Roboto", Sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+	margin-top:0;
+	padding-top: 0;
+}
+
+#novedades-hartridge .novedad-item-title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: #fff;
+	padding: 20px;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+	text-align: left;
+	line-height: 1.4;
+}
+.fondo-verde{
+	background-color: #016380;
+	padding:20px 0;
+	font-family: "Roboto", Sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+@media (max-width: 1024px) {
+	#novedades-hartridge .novedades-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	#novedades-hartridge .novedades-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	#novedades-hartridge {
+		padding: 60px 20px;
+	}
+}
+
 @media (max-width: 767px) {
 	.equipamiento-content .container {
 		display: flex;
@@ -993,5 +1209,455 @@ textarea {
 
 	.servicios-text-3 {
 		text-align: left;
+	}
+}
+
+/* Videos Grid Hartridge */
+.videos-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin: 30px 0;
+}
+
+.video-item {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.video-item iframe {
+	border-radius: 8px;
+	width: 350px;
+	height: 200px;
+}
+
+@media (max-width: 1024px) {
+	.videos-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.videos-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	.video-item iframe {
+		width: 280px;
+		height: 160px;
+	}
+}
+
+/* Hartridge Demo Section */
+.hartridge-demo-section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+	align-items: start;
+	padding: 40px 0;
+}
+
+.hartridge-demo-left {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	justify-content: center;
+	height: 100%;
+}
+
+.hartridge-demo-title {
+	font-family: 'Roboto', sans-serif;
+	font-size: 32px;
+	font-weight: 700;
+	color: #016380;
+	margin: 0;
+	line-height: 1.2;
+}
+
+.hartridge-demo-contact-item {
+	display: flex;
+	gap: 15px;
+	align-items: flex-start;
+}
+
+.hartridge-demo-contact-item i {
+	font-size: 24px;
+	color: #016380;
+	width: 30px;
+	text-align: center;
+	flex-shrink: 0;
+}
+
+.hartridge-demo-contact-value {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color: #000;
+	margin: 0 0 5px 0;
+}
+
+.hartridge-demo-contact-label {
+	font-family: 'Roboto', sans-serif;
+	font-size: 13px;
+	color: #666;
+	margin: 0;
+}
+
+.hartridge-demo-right {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.hartridge-demo-form-title {
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	color: #016380;
+	margin: 0;
+	line-height: 1.4;
+}
+.footer-hartridge a{
+	color: #FFF !important;
+}
+
+/*formulario cliente*/
+    #crmWebToEntityForm {
+        max-width: 500px;
+        margin: 30px auto;
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0px 10px 35px rgba(0,0,0,0.1);
+        background-color: #fff;
+        font-family: sans-serif;
+    }
+
+    .zcwf_title {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+        background-color: #f2f2f2 !important;
+        border: 1px solid transparent !important;
+        border-radius: 10px !important;
+        padding: 12px 15px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        background-color: #fff !important;
+        border-color: #0076b6 !important;
+        box-shadow: 0 0 0 0.25rem rgba(0, 118, 182, 0.1);
+    }
+
+    .error-tooltip {
+        position: absolute;
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        background: white;
+        border: 1px solid #ced4da;
+        padding: 8px 15px;
+        border-radius: 6px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        margin-top: 8px;
+        left: 15px;
+    }
+
+    /* Triángulo del globo */
+    .error-tooltip::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 15px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid white;
+    }
+
+    .error-icon {
+        background-color: #ff9800;
+        color: white;
+        font-weight: bold;
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    /* Botón redondeado azul */
+    .btn-send {
+        background-color: #0076b6 !important;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 40px;
+        font-weight: bold;
+        float: right;
+    }
+
+    /* Clase para resaltar campo con error */
+    .is-invalid-custom {
+        border: 1px solid #dc3545 !important;
+        background-color: #fff5f5 !important;
+    }
+/*formulario cliente*/
+
+/* ===========================
+   FORMULARIO HARTRIDGE
+   =========================== */
+
+.hartridge-form-wrapper {
+	margin-top: 20px;
+}
+
+.hartridge-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.hartridge-form-title {
+	font-size: 18px;
+	font-weight: 700;
+	color: #333;
+	margin: 0 0 10px 0;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.hartridge-form-group {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.hartridge-form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
+input.hartridge-form-control, textarea.hartridge-form-control {
+	padding: 12px 16px;
+	border-color: transparent !important;
+	border-radius: 10px !important;
+	background-color: #f0f0f0;
+	color: #333;
+	font-size: 14px;
+	font-family: inherit;
+	transition: background-color 0.3s ease;
+}
+
+.hartridge-form-control::placeholder {
+	color: #999;
+}
+
+.hartridge-form-control:focus {
+	outline: none;
+	background-color: #e8e8e8;
+}
+
+.hartridge-form-control.hartridge-field-error {
+	background-color: #ffe6e6;
+	border-left: 3px solid #d32f2f;
+}
+
+textarea.hartridge-form-control {
+	resize: vertical;
+	min-height: 100px;
+	font-family: inherit;
+}
+
+.hartridge-error-tooltip {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	margin-top: 4px;
+	padding: 8px 12px;
+	background-color: #d32f2f;
+	color: white;
+	font-size: 12px;
+	border-radius: 3px;
+	z-index: 10;
+	white-space: nowrap;
+}
+
+.hartridge-error-tooltip::before {
+	content: '';
+	position: absolute;
+	bottom: 100%;
+	left: 10px;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #d32f2f;
+}
+
+.hartridge-error-text {
+	font-weight: 500;
+}
+
+.hartridge-form-footer {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 10px;
+}
+
+.hartridge-btn-send {
+	padding: 12px 40px;
+	border: none;
+	border-radius: 25px;
+	background-color: #016380;
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	font-family: inherit;
+}
+
+.hartridge-btn-send:hover:not(:disabled) {
+	background-color: #014d61;
+	transform: translateY(-2px);
+}
+
+.hartridge-btn-send:active:not(:disabled) {
+	transform: translateY(0);
+}
+
+.hartridge-btn-send:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+.fondo-negro{
+	background-color: #000000;
+	font-family: 'Roboto', sans-serif;
+	color: #FFFFFF;
+}
+.footer-hartridge{
+	padding: 40px 0;
+}
+
+@media (max-width: 1024px) {
+	.hartridge-demo-section {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+	
+	.hartridge-form-row {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 768px) {
+	.hartridge-demo-title {
+		font-size: 24px;
+	}
+	
+	.hartridge-form-title {
+		font-size: 16px;
+	}
+	
+	.hartridge-form-control {
+		font-size: 16px;
+	}
+}
+
+/* ===========================
+   MAPA HARTRIDGE
+   =========================== */
+
+.hartridge-map-section {
+	padding: 0;
+	margin: 0;
+}
+
+.hartridge-map-container {
+	width: 100%;
+	overflow: hidden;
+	filter: grayscale(100%);
+}
+
+.hartridge-map-container iframe {
+	width: 100%;
+	height: 450px;
+	border: none !important;
+	display: block;
+}
+
+/* Footer Social Media */
+.footer-social-media {
+	display: flex;
+	gap: 10px;
+	margin-top: 15px;
+}
+
+.footer-social-icon {
+	color: #fff;
+	font-size: 20px !important;
+	transition: opacity 0.3s ease;
+}
+
+.footer-social-icon i {
+	font-size: 20px !important;
+}
+
+.footer-social-icon:hover {
+	opacity: 0.7;
+}
+
+.footer-text-hartridge {
+	color: #FFFFFF;
+	font-family: "Poppins", Sans-serif;
+	font-weight: 400;
+	line-height: 1.3em;
+}
+
+/* Hartridge Items - Mobile Responsive */
+.hartridge-items {
+	flex-wrap: nowrap;
+}
+
+.hartridge-items > * {
+	flex: 1 1 0;
+	min-width: 0;
+}
+
+@media (max-width: 1024px) {
+	.hartridge-items > * {
+		flex: 0 0 100%;
+		width: 100%;
+	}
+
+	.hartridge-items {
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+}
+
+@media (max-width: 768px) {
+	.hartridge-about {
+		flex-direction: column;
+	}
+
+	.hartridge-about-text,
+	.hartridge-about-image {
+		width: 100% !important;
+	}
+
+	.nuestros-productos-hartridge {
+		grid-template-columns: 1fr !important;
 	}
 }
