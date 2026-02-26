@@ -921,60 +921,14 @@
 
 #form-inicio {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: #ffffff;
-	padding: 20px 20px;
-	border-radius: 8px;
-	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+	padding: 0;
 	text-align: left;
 	width: min(70%, 400px);
 	height: var(--form-inicio-height);
 	z-index: 2;
-}
-
-#form-inicio h2 {
-	margin: 0 0 16px 0;
-	font-family: "Roboto", sans-serif;
-	font-size: 22px;
-	font-weight: 700;
-	color: #1f2937;
-}
-#form-inicio input, #form-inicio textarea {
-	width: 100%;
-    background-color: #F3F3F3;
-    border-width: 0px 0px 0px 0px;
-    border-radius: 5px 5px 5px 5px;
-	font-size: 14px;
-	font-family: 'Roboto', sans-serif;
-}
-#form-inicio textarea{
-	height: 80px;
-	padding: 10px;
-}
-
-/* Two-column layout for telefono/correo on desktop */
-#form-inicio .form-row {
-	display: flex;
-	gap: 10px;
-}
-
-#form-inicio .form-row .form-field {
-	width: 50%;
-}
-#form-inicio input[type="submit"] {
-	background-color: #2563eb;
-	color: #ffffff;
-	padding: 10px 20px;
-	border-radius: 5px;
-	border: none;
-	cursor: pointer;
-	font-weight: 600;
-	transition: all 0.3s ease;
-	margin-top: 20px;
-	width: fit-content;
-	float: right;
 }
 
 @media (max-width: 768px) {

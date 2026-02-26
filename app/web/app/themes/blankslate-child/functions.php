@@ -383,7 +383,6 @@ add_action( 'carbon_fields_loaded', function() {
 						->set_width( 34 ),
 				) )
 				->set_min( 1 ),
-			Field::make( 'image', 'crb_footer_logo', __( 'Logo Footer' ) ),
 			Field::make( 'complex', 'crb_footer_contacts', __( 'Teléfonos' ) )
 				->set_layout( 'grid' )
 				->add_fields( array(
@@ -428,7 +427,14 @@ add_action( 'carbon_fields_loaded', function() {
 				->set_help_text( 'Sube la imagen para el icono de delivery' ),
 			Field::make( 'image', 'crb_producto_icono_factura', __( 'Imagen de Boleta/Factura' ) )
 				->set_help_text( 'Sube la imagen para el icono de boleta/factura' ),
+		) )
+		
+		->add_tab( __( 'Formulario 1' ), array(
+			Field::make( 'textarea', 'crb_formulario1', __( 'Formulario 1' ) )
+    ->set_rows( 20 ),
 		) );
+
+
 } );
 
 
@@ -738,10 +744,162 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		->where('post_template', '=', 'template-hartridge.php' )
 		->add_fields( array(
 			Field::make( 'image', 'crb_hartridge_banner_1', __( 'Banner 1' ) ),
-			Field::make( 'image', 'crb_hartridge_banner_3', __( 'Banner 3' ) ),
+			Field::make( 'image', 'crb_hartridge_banner_2', __( 'Banner 2' ) ),
+			Field::make( 'text', 'crb_hartridge_novedades_title', __( 'Título de Novedades' ) ),
+			Field::make( 'complex', 'crb_hartridge_news', __( 'Novedades Hartridge' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'title', __( 'Título' ) )
+						->set_width( 33 ),
+					Field::make( 'image', 'image', __( 'Imagen' ) )
+						->set_width( 33 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 34 ),
+				) )
+				->set_min( 0 ),
+			Field::make( 'text', 'crb_hartridge_videos_title', __( 'Título de Videos' ) ),
+			Field::make( 'complex', 'crb_hartridge_videos', __( 'Videos Hartridge' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'url', __( 'URL de Video' ) )
+						->set_width( 100 ),
+				) )
+				->set_min( 0 ),
+			Field::make( 'text', 'crb_hartridge_demo_title', __( 'Título Agenda tu Demo' ) ),
+			Field::make( 'text', 'crb_hartridge_demo_phone', __( 'Celular' ) ),
+			Field::make( 'text', 'crb_hartridge_demo_link_phone', __( 'Celular Link' ) ),
+			Field::make( 'text', 'crb_hartridge_demo_email', __( 'Correo' ) ),
+			Field::make( 'text', 'crb_hartridge_demo_address', __( 'Dirección' ) ),
+			Field::make( 'text', 'crb_hartridge_form_title', __( 'Título del Formulario' ) ),
+			Field::make( 'image', 'crb_footer_logo', __( 'Logo Footer' ) ),
+			Field::make( 'textarea', 'crb_footer_text', __( 'Texto Footer' ) ),
+			Field::make( 'text', 'crb_footer_phone', __( 'Teléfono Footer' ) ),
+			Field::make( 'text', 'crb_footer_phone_link', __( 'Link Teléfono Footer' ) ),
+			Field::make( 'text', 'crb_footer_email', __( 'Email Footer' ) ),
+			Field::make( 'text', 'crb_footer_address', __( 'Dirección Footer' ) ),
+			Field::make( 'text', 'crb_footer_address_link', __( 'Link Dirección Footer' ) ),
+			Field::make( 'image', 'crb_hdi_logo_footer', __( 'HDI Logo Footer' ) ),
+			Field::make( 'complex', 'crb_footer_social_media', __( 'Redes Sociales Footer' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'text', 'icon', __( 'Ícono' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'link', __( 'Link' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 0 ),
+			Field::make( 'text', 'crb_hartridge_footer_copyright', __( 'Todos los Derechos Reservados' ) ),
+			
+
+
+
+
+			
 		) );
 
 /* equipamiento hartridge */
+
+
+/* equipamiento jaltest */
+	Container::make( 'post_meta', __( 'Banners Jaltest' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_jaltest_banner_1', __( 'Banner 1' ) ),
+			Field::make( 'image', 'crb_jaltest_banner_2', __( 'Banner 2' ) ),
+			Field::make( 'image', 'crb_jaltest_banner_3', __( 'Banner 3' ) ),
+			Field::make( 'image', 'crb_jaltest_banner_4', __( 'Banner 4' ) ),
+			
+	) );
+
+	Container::make( 'post_meta', __( 'Modelos Disponibles' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_imagen_modelos_disponibles', __( 'Imagen de fondo' ) ),
+			Field::make( 'text', 'crb_titulo_modelos_disponibles', __( 'Título' ) ),
+			
+	) );	
+
+	Container::make( 'post_meta', __( 'Items de Equipamiento' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_page_equipment_items', __( 'Items de Equipamiento' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'logo', __( 'Logo' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'title', __( 'Titulo' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+	) );
+
+	Container::make( 'post_meta', __( 'Beneficios' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_titulo_beneficios', __( 'Texto' ) ),
+			Field::make( 'complex', 'crb_page_beneficios_items', __( 'Items de Beneficios' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'logo', __( 'Logo' ) )
+						->set_width( 50 ),
+					Field::make( 'rich_text', 'title', __( 'texto' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+			
+	) );
+	
+	
+	Container::make( 'post_meta', __( 'Productos más vendidos' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_titulo_productos_mas_vendidos', __( 'Texto' ) ),
+			
+	) );
+	
+
+	Container::make( 'post_meta', __( 'Novedades' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(			
+			Field::make( 'text', 'crb_jaltest_novedades_title', __( 'Título de Novedades' ) ),
+					Field::make( 'complex', 'crb_jaltest_news', __( 'Novedades' ) )
+						->set_layout( 'grid' )
+						->add_fields( array(
+							Field::make( 'text', 'title', __( 'Título' ) )
+								->set_width( 33 ),
+							Field::make( 'image', 'image', __( 'Imagen' ) )
+								->set_width( 33 ),
+							Field::make( 'text', 'link', __( 'Link' ) )
+								->set_width( 34 ),
+						) )
+						->set_min( 0 ),
+	) );
+
+	Container::make( 'post_meta', __( 'Footer' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_footer_logo_jaltest', __( 'Logo Footer' ) ),
+			Field::make( 'textarea', 'crb_footer_text', __( 'Texto Footer' ) ),
+			Field::make( 'text', 'crb_footer_phone', __( 'Teléfono Footer' ) ),
+			Field::make( 'text', 'crb_footer_phone_link', __( 'Link Teléfono Footer' ) ),
+			Field::make( 'text', 'crb_footer_email', __( 'Email Footer' ) ),
+			Field::make( 'text', 'crb_footer_address', __( 'Dirección Footer' ) ),
+			Field::make( 'text', 'crb_footer_address_link', __( 'Link Dirección Footer' ) ),
+			Field::make( 'image', 'crb_hdi_logo_footer', __( 'HDI Logo Footer' ) ),	
+			Field::make( 'text', 'crb_jaltest_footer_copyright', __( 'Todos los Derechos Reservados' ) ),		
+		) );
+	
+	
+						
+
+		/* equipamiento jaltest */
 
 /* HOME TEMPLATE */
 	Container::make( 'post_meta', __( 'Home - Carrusel de Imágenes' ) )

@@ -45,7 +45,7 @@
 
 /* Filters Panel */
 .filters-panel {
-    flex: 0 0 280px;
+    flex: 0 0 250px;
     background-color: #f8f9fa;
     border-radius: 8px;
     height: fit-content;
@@ -117,7 +117,8 @@
     background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     padding: 30px 20px;
     margin: 40px 0 0 0;
-    border-radius: 0 0 8px 8px;
+    border-radius: 8px;
+    border-top: 40px solid #ffffff;
 }
 
 .filter-contact h4 {
