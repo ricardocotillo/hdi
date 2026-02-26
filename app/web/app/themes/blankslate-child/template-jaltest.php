@@ -227,10 +227,13 @@ if ( have_posts() ) :
                     <a href="#todos-modelos" class="btn-ver-mas btn-ver-todos">Ver Todos</a>
                 </section>
         </section>
-        <?php if ( $banner_3 ) : ?>
-            <section class="w-full jaltest-beneficios-section relative">
-                <?php echo wp_get_attachment_image( $banner_3, 'full', false, array( 'class' => 'page-header-image w-full h-auto', 'alt' => get_the_title() ) ); ?>
-
+        <?php if ( $banner_3 ) : 
+            $banner_3_url = wp_get_attachment_image_src( $banner_3, 'full' );
+            if ( $banner_3_url ) {
+                $banner_3_url = $banner_3_url[0];
+            }    
+        ?>
+            <section class="w-full jaltest-beneficios-section relative" style="background-image: url('<?php echo esc_url( $banner_3_url ); ?>'); background-size: cover; background-position: center;">
                 <?php
                 $beneficios_titulo = carbon_get_post_meta( get_the_ID(), 'crb_titulo_beneficios' );
                 $beneficios_items = carbon_get_post_meta( get_the_ID(), 'crb_page_beneficios_items' );
