@@ -222,6 +222,7 @@
 /* Services Section */
 .home-services-section {
 	width: 100%;
+	background-color: #0170B9;
 }
 
 .home-services-section h2 {
@@ -246,7 +247,7 @@
 
 .home-services-section a {
 	background-color: #ffffff;
-	color: #2563eb;
+	color: #0170B9;
 	padding: 10px 20px;
 	border-radius: 5px;
 	display: inline-block;
@@ -301,7 +302,7 @@
     font-family: 'Roboto', sans-serif;
 }
 .product-card .btn-ver-mas, .home-bestsellers-section .btn-ver-mas {
-    background-color: #2563eb;
+    background-color: #0170B9;
     color: #ffffff;
     padding: 8px 15px;
     border-radius: 5px;
@@ -313,7 +314,7 @@
 }
 
 .home-bestsellers-section .btn-ver-mas-home {
-    background-color: #2563eb;
+    background-color: #0170B9;
     color: #ffffff;
     padding: 8px 15px;
     border-radius: 5px;
@@ -325,7 +326,7 @@
 }
 
 .btn-ver-mas-blanco {
-    color: #2563eb;
+    color: #336DB4;
     background-color: #ffffff;
     padding: 8px 15px;
     border-radius: 5px;
@@ -429,11 +430,10 @@
 	background-color: #ffffff;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease;
-	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	height: 380px;
+	height: fit-content;
 }
 
 .news-card:hover {
@@ -443,8 +443,7 @@
 
 .news-card-image-wrapper {
 	width: 100%;
-	height: 200px;
-	overflow: hidden;
+	height: auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -453,8 +452,7 @@
 
 .news-card img {
 	width: 100%;
-	height: 100%;
-	object-fit: contain;
+	height: auto;
 	display: block;
 }
 
