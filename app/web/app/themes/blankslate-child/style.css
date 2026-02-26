@@ -2143,6 +2143,10 @@ textarea.hartridge-form-control {
 .jaltest-beneficios-item img{
 	margin-top: 20px;
 }
+.jaltest-beneficios-section > img{
+	width: 100% !important;
+	max-height: 700px !important;
+}
 #todos-modelos h2{
 	color: #027DBA;
 	font-family: "Roboto", Sans-serif;
