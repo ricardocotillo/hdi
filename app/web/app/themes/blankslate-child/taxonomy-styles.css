@@ -45,7 +45,7 @@
 
 /* Filters Panel */
 .filters-panel {
-    flex: 0 0 280px;
+    flex: 0 0 250px;
     background-color: #f8f9fa;
     border-radius: 8px;
     height: fit-content;
