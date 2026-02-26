@@ -361,6 +361,7 @@
 /* Equipment Section */
 .home-equipment-section {
 	width: 100%;
+	max-height: 400px;
 }
 
 .home-equipment-section h2 {

@@ -270,9 +270,7 @@ if ( have_posts() ) :
 						</div>
 
 						<?php if ( $equipment_image_url ) : ?>
-							<div class="w-1/2">
-								<img src="<?php echo esc_url( $equipment_image_url ); ?>" alt="<?php echo esc_attr( $equipment_title ); ?>" class="w-full">
-							</div>
+							<div class="w-1/2" style="background-image: url('<?php echo esc_url( $equipment_image_url ); ?>'); background-size: cover; background-position: center;"></div>
 						<?php endif; ?>
 					</div>
 				</div>
