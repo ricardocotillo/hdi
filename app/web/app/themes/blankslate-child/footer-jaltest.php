@@ -101,5 +101,6 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
 	</footer>
 
 	<?php wp_footer(); ?>
+    <script type="text/javascript">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"siqe7b8814a522ca952b6efa7949a84c938c1f79d0767a08402c975273014b747df", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
 </body>
 </html>
