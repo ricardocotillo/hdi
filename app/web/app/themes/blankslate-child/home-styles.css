@@ -7,6 +7,13 @@
 	background-color: #EFEFEF;
 }
 
+.h-stretch{
+	height: stretch;
+}
+.imagen-suscribete{
+	margin-top: 20px;
+}
+
 /* Equipment Section Positioning */
 .equipment-image-wrapper {
 	position: relative;

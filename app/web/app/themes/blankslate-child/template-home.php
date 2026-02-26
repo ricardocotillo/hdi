@@ -492,12 +492,13 @@ if ( have_posts() ) :
                         <?php if ( $tip2 ) : ?>
                             <div class="w-1/4">
                                 <a href="<?php echo esc_url( $link_tip2 ); ?>" >
-                                    <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip2, 'full' ) ); ?>" alt="Consejo 2" class="w-full h-auto">
+                                    <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip2, 'full' ) ); ?>" alt="Consejo 2" class="w-full h-stretch">
+								</a>
                             </div>
                         <?php endif; ?>
                     </div>
 
-                    <div class="flex gap-6 mt-6">
+                    <div class="flex gap-6 imagen-suscribete">
                         <?php if ( $tip3 ) : ?>
                             <div class="w-full">
                                 <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip3, 'full' ) ); ?>" alt="Consejo 3" class="w-full h-auto">
