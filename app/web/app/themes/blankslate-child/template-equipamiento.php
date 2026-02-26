@@ -24,40 +24,29 @@ if ( have_posts() ) :
 			<section class="container">
 				<?php
 				$gallery_images = carbon_get_post_meta( get_the_ID(), 'crb_page_equipment_gallery' );
+				$equipment_content = carbon_get_post_meta( get_the_ID(), 'crb_page_equipment_content' );
 				if ( $gallery_images ) :
 					?>
 					<div class="equipment-gallery flex gap-5">
-						<?php foreach ( $gallery_images as $image_item ) : ?>
+						<?php foreach ( $gallery_images as $key => $image_item ) : $content_item = $equipment_content[ $key ] ?? null; ?>
 							<?php if ( isset( $image_item['image'] ) && $image_item['image'] ) : ?>
 								<div class="gallery-item">
 									<?php echo wp_get_attachment_image( $image_item['image'], 'full', false, array( 'class' => 'gallery-image' ) ); ?>
+
+									<div class="equipment-content-item">
+										<?php if ( ! empty( $content_item['image'] ) ) : ?>
+											<div class="equipment-content-image">
+												<?php echo wp_get_attachment_image( $content_item['image'], 'full', false, array( 'class' => 'w-full h-auto' ) ); ?>
+											</div>
+										<?php endif; ?>
+										<?php if ( ! empty( $content_item['content'] ) ) : ?>
+											<div class="equipment-content-text">
+												<?php echo wp_kses_post( (string) $content_item['content'] ); ?>
+											</div>
+										<?php endif; ?>
+									</div>									
 								</div>
 							<?php endif; ?>
-						<?php endforeach; ?>
-					</div>
-					<?php
-				endif;
-				?>
-			</section>
-			<section class="container tipos-equipamiento">
-				<?php
-				$equipment_content = carbon_get_post_meta( get_the_ID(), 'crb_page_equipment_content' );
-				if ( $equipment_content ) :
-					?>
-					<div class="equipment-content">
-						<?php foreach ( $equipment_content as $content_item ) : ?>
-							<div class="equipment-content-item">
-								<?php if ( ! empty( $content_item['image'] ) ) : ?>
-									<div class="equipment-content-image">
-										<?php echo wp_get_attachment_image( $content_item['image'], 'full', false, array( 'class' => 'w-full h-auto' ) ); ?>
-									</div>
-								<?php endif; ?>
-								<?php if ( ! empty( $content_item['content'] ) ) : ?>
-									<div class="equipment-content-text">
-										<?php echo wp_kses_post( (string) $content_item['content'] ); ?>
-									</div>
-								<?php endif; ?>
-							</div>
 						<?php endforeach; ?>
 					</div>
 					<?php
