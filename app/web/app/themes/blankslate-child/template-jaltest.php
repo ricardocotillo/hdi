@@ -268,13 +268,101 @@ if ( have_posts() ) :
                     </div>
                 <?php endif; ?>
             </section>
-        <?php endif; ?>                
+        <?php endif; ?>
+        <section class="w-full">
+            <section class="container" id="todos-modelos">
+                <?php
+                $titulo_productos_mas_vendidos = carbon_get_post_meta( get_the_ID(), 'crb_titulo_productos_mas_vendidos' );
+                if ( ! empty( $titulo_productos_mas_vendidos ) ) :
+                    ?>
+                    <div class="text-center">
+                        <?php echo wp_kses_post( $titulo_productos_mas_vendidos ); ?>
+                    </div>
+                    <?php
+                endif;
+                ?>
+            </section>
+                <section class="container text-center" id="equipos-scanner">
+                    <?php
+                    // Buscar productos con categoría scanner
+                    $hartridge_productos_args = array(
+                        'post_type' => 'productos',
+                        'posts_per_page' => -1,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'categorias-de-producto',
+                                'field' => 'slug',
+                                'terms' => 'scanner',
+                            ),
+                        ),
+                    );
+                    $hartridge_productos_query = new WP_Query( $hartridge_productos_args );
+                    
+                    if ( $hartridge_productos_query->have_posts() ) :
+                        ?>
+                        <div class="productos-grid">
+                            <?php
+                            while ( $hartridge_productos_query->have_posts() ) :
+                                $hartridge_productos_query->the_post();
+                                ?>
+                                <article class="producto-item">
+                                    <div class="producto-image">
+                                        <?php if ( has_post_thumbnail() ) : ?>
+                                            <?php the_post_thumbnail( 'medium' ); ?>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="producto-content">
+                                        <h3 class="producto-title"><?php the_title(); ?></h3>
+                                        <a href="<?php the_permalink(); ?>" class="btn-ver-mas" aria-label="Ver más detalles de <?php the_title_attribute(); ?>">
+                                           VER MÁS
+                                        </a>
+                                    </div>
+                                </article>
+                            <?php endwhile; ?>
+                        </div>
+                        <?php
+                        wp_reset_postdata();
+                    endif;
+                    ?>
+                </section>            
+        </section>                
 		<?php if ( $banner_4 ) : ?>
 			<section class="w-full">
 				<?php echo wp_get_attachment_image( $banner_4, 'full', false, array( 'class' => 'page-header-image w-full h-auto', 'alt' => get_the_title() ) ); ?>
 
 			</section>
-        <?php endif; ?>        
+        <?php endif; ?> 
+            <section class="w-full">
+                <section class="container" id="novedades-jaltest">
+                    <h2><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_jaltest_novedades_title' ) ); ?></h2>
+                    <section class="novedades-grid" id="novedades-jaltest-items">
+                        <?php
+                        $novedades_items = carbon_get_post_meta( get_the_ID(), 'crb_jaltest_news' );
+                        if ( ! empty( $novedades_items ) ) :
+                            ?>
+                                <?php foreach ( $novedades_items as $item ) : ?>
+                                    <div class="novedad-item">
+                                        <?php
+                                        $image_id = isset( $item['image'] ) ? $item['image'] : 0;
+                                        $title = isset( $item['title'] ) ? $item['title'] : '';
+                                        $link = isset( $item['link'] ) ? $item['link'] : '';
+                                        ?>
+                                        <?php if ( $image_id ) : ?>
+                                            <a href="<?php echo esc_url( $link ); ?>" class="novedad-item-image-wrapper" <?php echo $link ? 'target="_blank" rel="noopener"' : ''; ?>>
+                                                <?php echo wp_get_attachment_image( $image_id, 'full', false, array( 'class' => 'novedad-item-image', 'alt' => esc_attr( $title ) ) ); ?>
+                                                <?php if ( ! empty( $title ) ) : ?>
+                                                    <h3 class="novedad-item-title"><?php echo esc_html( $title ); ?></h3>
+                                                <?php endif; ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php
+                        endif;
+                        ?>
+                    </section>
+                </section>
+            </section>               
         <section class="w-full hartridge-map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15606.773360171788!2d-77.033909!3d-12.064608000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c954ef5b57bb%3A0xc5d449156b33dc2c!2sHDI%20Diesel%20Turbo%20%26%20Autoparts!5e0!3m2!1ses!2sus!4v1771966709996!5m2!1ses!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            
         </section>
@@ -282,4 +370,4 @@ if ( have_posts() ) :
 	endwhile;
 endif;
 
-get_footer('hartridge');
+get_footer('jaltest');

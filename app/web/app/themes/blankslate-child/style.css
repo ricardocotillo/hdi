@@ -1235,6 +1235,84 @@ textarea {
 	}
 }
 
+/* Novedades Jaltest */
+#novedades-jaltest{
+	padding: 60px 0 60px 0;
+}
+#novedades-jaltest .novedades-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin-top: 30px;
+}
+
+#novedades-jaltest .novedad-item {
+	position: relative;
+}
+
+#novedades-jaltest .novedad-item-image-wrapper {
+	display: block;
+	position: relative;
+	text-decoration: none;
+	overflow: hidden;
+	border-radius: 10px;
+	height: 100%;
+}
+
+#novedades-jaltest .novedad-item-image {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 10px;
+	transition: transform 0.3s ease;
+}
+
+#novedades-jaltest .novedad-item-image-wrapper:hover .novedad-item-image {
+	transform: scale(1.05);
+}
+
+#novedades-jaltest h2{
+	color: #000000;
+    font-family: "Roboto", Sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+	margin-top:0;
+	padding-top: 0;
+}
+
+#novedades-jaltest .novedad-item-title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: #fff;
+	padding: 20px;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+	text-align: left;
+	line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+	#novedades-jaltest .novedades-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	#novedades-jaltest .novedades-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	#novedades-jaltest {
+		padding: 60px 20px;
+	}
+}
+
 @media (max-width: 767px) {
 	.equipamiento-content .container {
 		display: flex;
@@ -1879,6 +1957,11 @@ textarea.hartridge-form-control {
 }
 .jaltest-beneficios-item img{
 	margin-top: 20px;
+}
+#todos-modelos h2{
+	color: #027DBA;
+	font-family: "Roboto", Sans-serif;
+	font-size: 30px !important;
 }
 @media (max-width: 768px) {
 	.jaltest-beneficios-section{
