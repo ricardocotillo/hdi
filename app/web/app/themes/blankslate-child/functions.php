@@ -427,7 +427,14 @@ add_action( 'carbon_fields_loaded', function() {
 				->set_help_text( 'Sube la imagen para el icono de delivery' ),
 			Field::make( 'image', 'crb_producto_icono_factura', __( 'Imagen de Boleta/Factura' ) )
 				->set_help_text( 'Sube la imagen para el icono de boleta/factura' ),
+		) )
+		
+		->add_tab( __( 'Formulario 1' ), array(
+			Field::make( 'textarea', 'crb_formulario1', __( 'Formulario 1' ) )
+    ->set_rows( 20 ),
 		) );
+
+
 } );
 
 
@@ -791,6 +798,63 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		) );
 
 /* equipamiento hartridge */
+
+
+/* equipamiento jaltest */
+	Container::make( 'post_meta', __( 'Banners Jaltest' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_jaltest_banner_1', __( 'Banner 1' ) ),
+			Field::make( 'image', 'crb_jaltest_banner_2', __( 'Banner 2' ) ),
+			Field::make( 'image', 'crb_jaltest_banner_3', __( 'Banner 3' ) ),
+			Field::make( 'image', 'crb_jaltest_banner_4', __( 'Banner 4' ) ),
+			
+	) );
+
+	Container::make( 'post_meta', __( 'Modelos Disponibles' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'image', 'crb_imagen_modelos_disponibles', __( 'Imagen de fondo' ) ),
+			Field::make( 'text', 'crb_titulo_modelos_disponibles', __( 'Título' ) ),
+			
+	) );	
+
+	Container::make( 'post_meta', __( 'Items de Equipamiento' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'complex', 'crb_page_equipment_items', __( 'Items de Equipamiento' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'logo', __( 'Logo' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'title', __( 'Titulo' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+	) );
+
+	Container::make( 'post_meta', __( 'Beneficios' ) )
+		->where( 'post_type', '=', 'page' )
+		->where('post_template', '=', 'template-jaltest.php' )
+		->add_fields( array(
+			Field::make( 'rich_text', 'crb_titulo_beneficios', __( 'Texto' ) ),
+			Field::make( 'complex', 'crb_page_beneficios_items', __( 'Items de Beneficios' ) )
+				->set_layout( 'grid' )
+				->add_fields( array(
+					Field::make( 'image', 'logo', __( 'Logo' ) )
+						->set_width( 50 ),
+					Field::make( 'rich_text', 'title', __( 'texto' ) )
+						->set_width( 50 ),
+				) )
+				->set_min( 1 ),
+			
+	) );	
+						
+
+		/* equipamiento jaltest */
 
 /* HOME TEMPLATE */
 	Container::make( 'post_meta', __( 'Home - Carrusel de Imágenes' ) )

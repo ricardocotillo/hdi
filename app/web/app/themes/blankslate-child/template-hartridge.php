@@ -328,66 +328,66 @@ if ( have_posts() ) :
                                 </form>
                             </div>
 
-                <script>
-                    function validateSequentially() {
-                        const fields = [
-                            { id: 'NAME', msg: 'Por favor, ingresa tu nombre' },
-                            { id: 'COBJ6CF2', msg: 'El teléfono es obligatorio' },
-                            { id: 'Email', msg: 'El correo es obligatorio', isEmail: true }
-                        ];
+                            <script>
+                                function validateSequentially() {
+                                    const fields = [
+                                        { id: 'NAME', msg: 'Por favor, ingresa tu nombre' },
+                                        { id: 'COBJ6CF2', msg: 'El teléfono es obligatorio' },
+                                        { id: 'Email', msg: 'El correo es obligatorio', isEmail: true }
+                                    ];
 
-                        // 1. Limpiar todos los errores previos
-                        fields.forEach(f => hideError(f.id));
+                                    // 1. Limpiar todos los errores previos
+                                    fields.forEach(f => hideError(f.id));
 
-                        // 2. Validar uno por uno
-                        for (let i = 0; i < fields.length; i++) {
-                            const field = fields[i];
-                            const input = document.getElementById(field.id);
-                            const value = input.value.trim();
+                                    // 2. Validar uno por uno
+                                    for (let i = 0; i < fields.length; i++) {
+                                        const field = fields[i];
+                                        const input = document.getElementById(field.id);
+                                        const value = input.value.trim();
 
-                            // Verificar si está vacío
-                            if (value === "") {
-                                showError(field.id, field.msg);
-                                input.focus();
-                                return; // Se detiene en el primer error
-                            }
+                                        // Verificar si está vacío
+                                        if (value === "") {
+                                            showError(field.id, field.msg);
+                                            input.focus();
+                                            return; // Se detiene en el primer error
+                                        }
 
-                            // Verificar formato de email
-                            if (field.isEmail) {
-                                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                if (!emailRegex.test(value)) {
-                                    showError(field.id, "Ingresa un correo electrónico válido");
-                                    input.focus();
-                                    return; // Se detiene aquí
+                                        // Verificar formato de email
+                                        if (field.isEmail) {
+                                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                            if (!emailRegex.test(value)) {
+                                                showError(field.id, "Ingresa un correo electrónico válido");
+                                                input.focus();
+                                                return; // Se detiene aquí
+                                            }
+                                        }
+                                    }
+
+                                    // Si pasa todas las validaciones
+                                    const submitBtn = document.querySelector('.hartridge-btn-send');
+                                    submitBtn.disabled = true;
+                                    submitBtn.textContent = 'Enviando...';
+                                    
+                                    document.getElementById('webform5991704000039491574').submit();
                                 }
-                            }
-                        }
 
-                        // Si pasa todas las validaciones
-                        const submitBtn = document.querySelector('.hartridge-btn-send');
-                        submitBtn.disabled = true;
-                        submitBtn.textContent = 'Enviando...';
-                        
-                        document.getElementById('webform5991704000039491574').submit();
-                    }
+                                function showError(id, msg) {
+                                    const tooltip = document.getElementById('err-' + id);
+                                    const input = document.getElementById(id);
+                                    if (tooltip) {
+                                        tooltip.querySelector('.hartridge-error-text').innerText = msg;
+                                        tooltip.style.display = 'block';
+                                        input.classList.add('hartridge-field-error');
+                                    }
+                                }
 
-                    function showError(id, msg) {
-                        const tooltip = document.getElementById('err-' + id);
-                        const input = document.getElementById(id);
-                        if (tooltip) {
-                            tooltip.querySelector('.hartridge-error-text').innerText = msg;
-                            tooltip.style.display = 'block';
-                            input.classList.add('hartridge-field-error');
-                        }
-                    }
-
-                    function hideError(id) {
-                        const tooltip = document.getElementById('err-' + id);
-                        const input = document.getElementById(id);
-                        if (tooltip) tooltip.style.display = 'none';
-                        if (input) input.classList.remove('hartridge-field-error');
-                    }
-                </script>                            
+                                function hideError(id) {
+                                    const tooltip = document.getElementById('err-' + id);
+                                    const input = document.getElementById(id);
+                                    if (tooltip) tooltip.style.display = 'none';
+                                    if (input) input.classList.remove('hartridge-field-error');
+                                }
+                            </script>                            
                         </div>
                     </div>
                 </section>

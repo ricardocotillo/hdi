@@ -870,6 +870,30 @@ textarea {
 	font-weight: 600;
 	color: #006380
 }
+
+/* Jaltest Item Styles */
+.jaltest-item{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
+	line-height: 1.5em;
+	color: #767676;
+	border:1px solid #000;
+	border-radius: 10px;
+}
+
+.jaltest-item h3{
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	color: #000000;
+	width: 50%;
+	margin-top:10px;
+}
+
 .que-es-hartridge{
 	padding: 40px 0;
 	background-color:#006380;
@@ -1018,6 +1042,111 @@ textarea {
 
 	.productos-grid {
 		grid-template-columns: 1fr !important;
+	}
+}
+
+/* Equipos Scanner Styles */
+#equipos-scanner{
+	padding: 0 0 60px 0;
+}
+#equipos-scanner h2{
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	color: #006380;
+}
+#equipos-scanner .productos-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	margin-top: 40px;
+}
+#equipos-scanner .producto-item {
+	/* background-color: #E3EDEE; */
+	border-radius: 8px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #9B9B9B;
+}
+#equipos-scanner .producto-image {
+	height: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#equipos-scanner .producto-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+#equipos-scanner .producto-content {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+#equipos-scanner .producto-title {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	color: #027DBA;
+	margin: 0;
+	text-align: left;
+}
+#equipos-scanner .btn-ver-mas {
+	align-self: center;
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	background-color: #027DBA;
+	color: #FFFFFF !important;
+	border-radius: 5px;
+	padding: 8px 12px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	color: #016380;
+	font-size: 14px;
+}
+.btn-ver-mas.btn-ver-todos{
+	display: block;
+	width: fit-content;
+	margin: 60px 0 0 0;
+}
+#equipos-scanner .btn-ver-mas:hover {
+	color: #fff;
+}
+#equipos-scanner .btn-ver-mas svg {
+	width: 27px;
+	height: 27px;
+	fill: #016380;
+	transition: fill 0.3s ease;
+}
+#equipos-scanner .btn-ver-mas:hover svg {
+	fill: #fff;
+}
+@media (max-width: 1024px) {
+	#equipos-scanner .productos-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media (max-width: 768px) {
+	#equipos-scanner .productos-grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+}
+@media (max-width: 480px) {
+	#equipos-scanner {
+		padding: 60px 20px;
+	}
+
+	#equipos-scanner .productos-grid {
+		grid-template-columns: 1fr;
+	}
+
+	#equipos-scanner .producto-title {
+		font-size: 14px;
 	}
 }
 
@@ -1647,6 +1776,55 @@ textarea.hartridge-form-control {
 	}
 }
 
+/* Jaltest Items - Mobile Responsive */
+.jaltest-items {
+	flex-wrap: nowrap;
+	padding:60px 0;
+}
+
+.jaltest-items > * {
+	flex: 1 1 0;
+	min-width: 0;
+}
+.relative {
+	position: relative;
+}
+
+@media (max-width: 1024px) {
+	.jaltest-items > * {
+		flex: 0 0 100%;
+		width: 100%;
+	}
+
+	.jaltest-items {
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+}
+
+/* Modelos Titulo */
+.modelos-disponibles-container {
+	margin: 40px 0;
+}
+.modelos-titulo {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+
+}
+.modelos-titulo *{
+	color: #FFFFFF;
+    font-family: "Roboto", Sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+	font-size: 30px !important;
+}
+
 @media (max-width: 768px) {
 	.hartridge-about {
 		flex-direction: column;
@@ -1659,5 +1837,114 @@ textarea.hartridge-form-control {
 
 	.nuestros-productos-hartridge {
 		grid-template-columns: 1fr !important;
+	}
+}
+
+/* Jaltest Template - Form Overlay */
+.jaltest-banner-container {
+	position: relative;
+}
+
+.jaltest-form-overlay {
+	position: absolute;
+	top: 50%;
+	right: 5%;
+	transform: translateY(-50%);
+	z-index: 10;
+	max-width: 400px;
+}
+
+/* Jaltest Beneficios Overlay */
+.jaltest-beneficios-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	background-color: rgba(2, 125, 186, 0.89);
+	padding:60px;
+	z-index: 2;
+	color: #FFFFFF;
+}
+.jaltest-beneficios-title{
+	width: 50%;
+	font-family: "Roboto", sans-serif;
+	font-size: 25px;
+	font-weight: 400;
+}
+.jaltest-beneficios-item{
+	display: flex;
+	gap: 15px;
+	margin-top: 40px;
+}
+.jaltest-beneficios-item img{
+	margin-top: 20px;
+}
+@media (max-width: 768px) {
+	.jaltest-beneficios-section{
+		height: 100vh;
+	}
+	.jaltest-beneficios-section img{
+		height: 100% !important;
+	}
+	.jaltest-beneficios-item{
+		display: flex;
+		gap: unset;
+		margin-top: 40px;
+		flex-direction: column;
+		text-align:center;
+		align-items: center;
+	}
+
+	.jaltest-beneficios-item img{
+		width: 50px;
+	}
+
+	.jaltest-beneficios-overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(2, 125, 186, 0.89);
+		padding:20px;
+		z-index: 2;
+		color: #FFFFFF;
+	}
+
+	.jaltest-beneficios-title{
+		width: 100%;
+		font-family: "Roboto", sans-serif;
+		font-size: 20px;
+		font-weight: 400;
+		text-align: center;
+	}
+
+	.jaltest-banner-container {
+		max-height: 540px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.jaltest-banner-container .page-header-image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		top: 0;
+		left: 0;
+	}
+
+	.jaltest-form-overlay {
+		position: relative;
+		top: auto;
+		right: auto;
+		transform: none;
+		margin: 20px auto;
+				padding: 20px 0;
+		max-width: 90%;
+		z-index: 10;
 	}
 }
