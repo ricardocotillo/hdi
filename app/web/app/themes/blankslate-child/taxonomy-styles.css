@@ -21,6 +21,17 @@
     }
 }
 
+.filter-contact-mobile {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .filter-contact-mobile {
+        display: block;
+        margin-bottom: 40px !important;
+    }
+}
+
 .taxonomy-container {
     padding: 60px 20px !important;
 }
