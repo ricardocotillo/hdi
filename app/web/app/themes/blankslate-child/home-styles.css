@@ -6,6 +6,9 @@
 .bg-light-gray {
 	background-color: #EFEFEF;
 }
+.imagen-consejos{
+	height: 460px !important;
+}
 
 .h-stretch{
 	height: stretch;
@@ -938,6 +941,9 @@
 }
 
 @media (max-width: 768px) {
+	.imagen-consejos{
+		height: auto !important;
+	}
 	#form-inicio {
 		position: static;
 		transform: none;
