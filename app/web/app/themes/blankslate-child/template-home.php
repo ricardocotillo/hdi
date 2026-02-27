@@ -171,7 +171,7 @@ if ( have_posts() ) :
 			</section>
 
 			<!-- Section 4: Our Services -->
-			<section class="home-services-section py-12 bg-blue-600">
+			<section class="home-services-section py-12">
 				<div class="w-full text-white">
 					<?php
 					$services_title = carbon_get_post_meta( get_the_ID(), 'crb_home_services_title' );
@@ -183,7 +183,7 @@ if ( have_posts() ) :
 					<div class="flex flex-row gap-8 items-center">
 						<?php if ( $services_image_url ) : ?>
 							<div class="w-2/3">
-								<img src="<?php echo esc_url( $services_image_url ); ?>" alt="<?php echo esc_attr( $services_title ); ?>" class="w-full object-cover">
+								<img src="<?php echo esc_url( $services_image_url ); ?>" alt="<?php echo esc_attr( $services_title ); ?>" class="w-full h-auto">
 							</div>
 						<?php endif; ?>
 
@@ -270,9 +270,7 @@ if ( have_posts() ) :
 						</div>
 
 						<?php if ( $equipment_image_url ) : ?>
-							<div class="w-1/2">
-								<img src="<?php echo esc_url( $equipment_image_url ); ?>" alt="<?php echo esc_attr( $equipment_title ); ?>" class="w-full">
-							</div>
+							<div class="w-1/2" style="background-image: url('<?php echo esc_url( $equipment_image_url ); ?>'); background-size: cover; background-position: center;"></div>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -308,7 +306,7 @@ if ( have_posts() ) :
 							<article class="news-card w-1/3 bg-white overflow-hidden shadow hover:shadow-lg">
 								<?php if ( has_post_thumbnail() ) : ?>
 									<div class="news-card-image-wrapper">
-										<?php the_post_thumbnail( 'medium', array( 'class' => 'w-full' ) ); ?>
+										<?php the_post_thumbnail( 'full', array( 'class' => 'w-full' ) ); ?>
 									</div>
 									<?php endif; ?>
 
@@ -492,12 +490,13 @@ if ( have_posts() ) :
                         <?php if ( $tip2 ) : ?>
                             <div class="w-1/4">
                                 <a href="<?php echo esc_url( $link_tip2 ); ?>" >
-                                    <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip2, 'full' ) ); ?>" alt="Consejo 2" class="w-full h-auto">
+                                    <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip2, 'full' ) ); ?>" alt="Consejo 2" class="w-full h-stretch">
+								</a>
                             </div>
                         <?php endif; ?>
                     </div>
 
-                    <div class="flex gap-6 mt-6">
+                    <div class="flex gap-6 imagen-suscribete">
                         <?php if ( $tip3 ) : ?>
                             <div class="w-full">
                                 <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip3, 'full' ) ); ?>" alt="Consejo 3" class="w-full h-auto">

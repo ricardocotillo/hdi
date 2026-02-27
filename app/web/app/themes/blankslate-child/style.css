@@ -35,6 +35,10 @@ strong{
 	font-weight: bold;
 }
 
+#menu-principal .current-menu-item a {
+	color: #0170B9 !important;
+}
+
 
 .site-main {
 	max-width: 100%;
@@ -814,7 +818,7 @@ textarea {
 }
 
 .equipment-content-item {
-	width: calc(50% - 10px);
+	margin-top:40px;
 	display: flex;
 	flex-direction: column;
 }
@@ -2119,14 +2123,13 @@ textarea.hartridge-form-control {
 
 /* Jaltest Beneficios Overlay */
 .jaltest-beneficios-overlay {
-	position: absolute;
+	position: relative;
 	top: 0;
-	right: 0;
+	left: 50%;
 	width: 50%;
-	height: 100%;
+	height: fit-content;
 	background-color: rgba(2, 125, 186, 0.89);
 	padding:60px;
-	z-index: 2;
 	color: #FFFFFF;
 }
 .jaltest-beneficios-title{
@@ -2142,6 +2145,10 @@ textarea.hartridge-form-control {
 }
 .jaltest-beneficios-item img{
 	margin-top: 20px;
+}
+.jaltest-beneficios-section > img{
+	width: 100% !important;
+	max-height: 700px !important;
 }
 #todos-modelos h2{
 	color: #027DBA;
@@ -2169,9 +2176,9 @@ textarea.hartridge-form-control {
 	}
 
 	.jaltest-beneficios-overlay {
-		position: absolute;
+		position: relative;
 		top: 0;
-		right: 0;
+		left: 0;
 		width: 100%;
 		height: 100vh;
 		background-color: rgba(2, 125, 186, 0.89);
