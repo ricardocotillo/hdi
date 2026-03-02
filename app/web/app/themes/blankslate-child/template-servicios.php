@@ -137,7 +137,7 @@ if ( have_posts() ) :
 
         <div class="row g-3 mb-3">
             <div class="col-md-6 position-relative">
-                <select class="form-select" id="COBJ7CF3" name="COBJ7CF3">
+                <select class="form-select" id="COBJ7CF3" required name="COBJ7CF3">
                     <option value="-None-">Seleccionar</option>
                     <option value="Laboratorio">Laboratorio</option>
                     <option value="Servicio de campo">Servicio de campo</option>
@@ -145,7 +145,7 @@ if ( have_posts() ) :
                 </select>
             </div>
             <div class="col-md-6 position-relative">
-                <input type="text" class="form-control" id="NAME" name="NAME" placeholder="Nombres y Apellidos">
+                <input type="text" class="form-control" id="NAME" required name="NAME" placeholder="Nombres y Apellidos">
             </div>
         </div>
 
@@ -155,7 +155,7 @@ if ( have_posts() ) :
 
         <div class="row g-3 mb-4">
             <div class="col-md-6 position-relative">
-                <input type="text" class="form-control" id="COBJ7CF2" name="COBJ7CF2" placeholder="Teléfono">
+                <input type="text" class="form-control" id="COBJ7CF2" required name="COBJ7CF2" placeholder="Teléfono">
             </div>
             <div class="col-md-6 position-relative">
                 <input type="text" class="form-control" id="Email" name="Email" placeholder="Email">
@@ -165,13 +165,13 @@ if ( have_posts() ) :
         <div class="row mb-4">
             <div class="col-md-6 position-relative mb-3 mb-md-0">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="pol_seg">
+                    <input class="form-check-input" required type="checkbox" id="pol_seg">
                     <label class="form-check-label" for="pol_seg">Políticas de seguridad</label>
                 </div>
             </div>
             <div class="col-md-6 position-relative">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="term_cond">
+                    <input class="form-check-input" required type="checkbox" id="term_cond">
                     <label class="form-check-label" for="term_cond">Términos y condiciones</label>
                 </div>
             </div>
