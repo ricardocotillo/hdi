@@ -344,7 +344,7 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
 .opacity-100 { opacity: 1; }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
 	html {
 		font-size: 14px;
 	}
