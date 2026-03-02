@@ -380,7 +380,7 @@ if ( have_posts() ) :
 
 								    <div id="crmWebToEntityForm" class="hartridge-form-wrapper">
 										<div id="form-container">
-											<div class="zcwf_title">CONTÁCTANOS</div>
+											<div class="hartridge-form-title">CONTÁCTANOS</div>
 											<form id="zohoContactForm">
 												<input type="hidden" name="xnQsjsdp" value="0fae662cc62565f1629fb79a440f5449583f8959ff6a0d53b992dd1b437a9c39">
 												<input type="hidden" name="xmIwtLD" value="39fae2cb362aab76075e3f1d1396c2d4532f5eba900f34fd63d509d9334b570d22e3c88616f72630cf9a500f168bfb99">
@@ -389,20 +389,20 @@ if ( have_posts() ) :
 												<input type="hidden" name="aG9uZXlwb3Q" value="">
 
 												<div class="mb-3 position-relative">
-													<input type="text" class="form-control" id="NAME" name="NAME" placeholder="Nombres y Apellidos">
+													<input type="text" class="form-control hartridge-form-control" id="NAME" name="NAME" placeholder="Nombres y Apellidos">
 												</div>
 
 												<div class="row g-3 mb-3">
 													<div class="col-md-6 position-relative">
-														<input type="text" class="form-control" id="COBJ6CF2" name="COBJ6CF2" placeholder="Teléfono">
+														<input type="text" class="form-control hartridge-form-control" id="COBJ6CF2" name="COBJ6CF2" placeholder="Teléfono">
 													</div>
 													<div class="col-md-6 position-relative">
-														<input type="text" class="form-control" id="Email" name="Email" placeholder="Correo electrónico">
+														<input type="text" class="form-control hartridge-form-control" id="Email" name="Email" placeholder="Correo electrónico">
 													</div>
 												</div>
 
 												<div class="mb-4">
-													<textarea class="form-control" id="COBJ6CF1" name="COBJ6CF1" rows="3" placeholder="Comentarios"></textarea>
+													<textarea class="form-control hartridge-form-control" id="COBJ6CF1" name="COBJ6CF1" rows="3" placeholder="Comentarios"></textarea>
 												</div>
 
 												<div class="clearfix">
