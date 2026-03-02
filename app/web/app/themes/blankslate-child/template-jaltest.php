@@ -20,108 +20,122 @@ if ( have_posts() ) :
 				<?php echo wp_get_attachment_image( $banner_1, 'full', false, array( 'class' => 'page-header-image w-full h-auto', 'alt' => get_the_title() ) ); ?>
                 
                 <div class="jaltest-form-overlay">
-                    <div id="crmWebToEntityForm" class="hartridge-form-wrapper">
-                        <form id="webform5991704000039491574" action="https://crm.zoho.com/crm/WebForm" method="POST" accept-charset="UTF-8" class="hartridge-form">
-                            <input type="hidden" name="xnQsjsdp" value="0fae662cc62565f1629fb79a440f5449583f8959ff6a0d53b992dd1b437a9c39">
-                            <input type="hidden" name="zc_gad" id="zc_gad" value="">
-                            <input type="hidden" name="xmIwtLD" value="39fae2cb362aab76075e3f1d1396c2d4532f5eba900f34fd63d509d9334b570d22e3c88616f72630cf9a500f168bfb99">
-                            <input type="hidden" name="actionType" value="Q3VzdG9tTW9kdWxlNg==">
-                            <input type="hidden" name="returnURL" value="null">
-                            <input type="hidden" name="COBJ6CF3" value="principal">
-                            <input type="hidden" name="aG9uZXlwb3Q" value="">
+                    <div id="crmWebToEntityForm">
+                        <div id="form-container">
+                            <div class="hartridge-form-title">CONTÁCTANOS</div>
+                            <form id="zohoContactForm" class="flex flex-col gap-3">
+                                <input type="hidden" name="xnQsjsdp" value="0fae662cc62565f1629fb79a440f5449583f8959ff6a0d53b992dd1b437a9c39">
+                                <input type="hidden" name="xmIwtLD" value="39fae2cb362aab76075e3f1d1396c2d4532f5eba900f34fd63d509d9334b570d22e3c88616f72630cf9a500f168bfb99">
+                                <input type="hidden" name="actionType" value="Q3VzdG9tTW9kdWxlNg==">
+                                <input type="hidden" name="COBJ6CF3" value="principal">
+                                <input type="hidden" name="aG9uZXlwb3Q" value="">
 
-                            <h3 class="hartridge-form-title">CONTÁCTANOS</h3>
-
-                            <div class="hartridge-form-group">
-                                <input type="text" class="hartridge-form-control" id="NAME" name="NAME" placeholder="Nombres y Apellidos" oninput="hideError('NAME')">
-                                <div id="err-NAME" class="hartridge-error-tooltip">
-                                    <span class="hartridge-error-text">Completa este campo</span>
+                                <div class="mb-3 position-relative">
+                                    <input type="text" class="form-control hartridge-form-control" id="NAME" name="NAME" placeholder="Nombres y Apellidos">
                                 </div>
-                            </div>
 
-                            <div class="hartridge-form-row">
-                                <div class="hartridge-form-group">
-                                    <input type="text" class="hartridge-form-control" id="COBJ6CF2" name="COBJ6CF2" placeholder="Teléfono" oninput="hideError('COBJ6CF2')">
-                                    <div id="err-COBJ6CF2" class="hartridge-error-tooltip">
-                                        <span class="hartridge-error-text">Completa este campo</span>
+                                <div class="row g-3 mb-3 flex gap-2 items-center">
+                                    <div class="col-md-6 position-relative">
+                                        <input type="text" class="form-control hartridge-form-control" id="COBJ6CF2" name="COBJ6CF2" placeholder="Teléfono">
+                                    </div>
+                                    <div class="col-md-6 position-relative">
+                                        <input type="text" class="form-control hartridge-form-control" id="Email" name="Email" placeholder="Correo electrónico">
                                     </div>
                                 </div>
-                                <div class="hartridge-form-group">
-                                    <input type="text" class="hartridge-form-control" id="Email" name="Email" placeholder="Correo" oninput="hideError('Email')">
-                                    <div id="err-Email" class="hartridge-error-tooltip">
-                                        <span class="hartridge-error-text">Completa este campo</span>
-                                    </div>
+
+                                <div class="mb-4">
+                                    <textarea class="form-control hartridge-form-control" id="COBJ6CF1" name="COBJ6CF1" rows="3" placeholder="Comentarios"></textarea>
                                 </div>
-                            </div>
 
-                            <div class="hartridge-form-group">
-                                <textarea class="hartridge-form-control" id="COBJ6CF1" name="COBJ6CF1" rows="4" placeholder="Comentarios"></textarea>
-                            </div>
+                                <div class="clearfix">
+                                    <button type="button" class="btn btn-send" onclick="handleAjaxSubmit()">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
 
-                            <div class="hartridge-form-footer">
-                                <button type="button" class="hartridge-btn-send" onclick="validateSequentially()">Enviar</button>
+                        <div id="success-container" class="hidden">
+                            <div class="mb-3">
+                                <span style="font-size: 60px; color: #28a745;">✔</span>
                             </div>
-                        </form>
+                            <h3 class="fw-bold">¡Enviado con éxito!</h3>
+                            <p>Gracias por contactarnos, nos comunicaremos pronto.</p>
+                            <button class="btn btn-outline-primary mt-3" onclick="resetForm()">Enviar otro mensaje</button>
+                        </div>
                     </div>
 
                     <script>
-                        function validateSequentially() {
+                        async function handleAjaxSubmit() {
+                            const form = document.getElementById('zohoContactForm');
+                            
                             const fields = [
-                                { id: 'NAME', msg: 'Por favor, ingresa tu nombre' },
-                                { id: 'COBJ6CF2', msg: 'El teléfono es obligatorio' },
-                                { id: 'Email', msg: 'El correo es obligatorio', isEmail: true }
+                                { id: 'NAME', msg: 'Completa este campo' },
+                                { id: 'COBJ6CF2', msg: 'Completa este campo' },
+                                { id: 'Email', msg: 'Ingresa un correo válido', isEmail: true }
                             ];
 
-                            // 1. Limpiar todos los errores previos
-                            fields.forEach(f => hideError(f.id));
+                            // Limpiar errores previos
+                            document.querySelectorAll('.error-tooltip-custom').forEach(el => el.remove());
+                            document.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-invalid-custom'));
 
-                            // 2. Validar uno por uno
-                            for (let i = 0; i < fields.length; i++) {
-                                const field = fields[i];
+                            for (let field of fields) {
                                 const input = document.getElementById(field.id);
-                                const value = input.value.trim();
+                                const val = input.value.trim();
+                                let isError = false;
 
-                                // Verificar si está vacío
-                                if (value === "") {
-                                    showError(field.id, field.msg);
-                                    input.focus();
-                                    return; // Se detiene en el primer error
-                                }
+                                if (val === "") isError = true;
+                                else if (field.isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) isError = true;
 
-                                // Verificar formato de email
-                                if (field.isEmail) {
-                                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                    if (!emailRegex.test(value)) {
-                                        showError(field.id, "Ingresa un correo electrónico válido");
-                                        input.focus();
-                                        return; // Se detiene aquí
-                                    }
+                                if (isError) {
+                                    showBalloonError(input, field.msg);
+                                    return;
                                 }
                             }
 
-                            // Si pasa todas las validaciones
-                            const submitBtn = document.querySelector('.hartridge-btn-send');
-                            submitBtn.disabled = true;
-                            submitBtn.textContent = 'Enviando...';
+                            const btn = document.querySelector('.btn-send');
+                            btn.disabled = true;
+                            btn.innerText = "Enviando...";
+
+                            const formData = new FormData(form);
+
+                            try {
+                                await fetch('https://crm.zoho.com/crm/WebForm', {
+                                    method: 'POST',
+                                    mode: 'no-cors', // Evita problemas de seguridad CORS con Zoho
+                                    body: formData
+                                });
+
+                                document.getElementById('form-container').style.display = 'none';
+                                document.getElementById('success-container').style.display = 'block';
+
+                            } catch (error) {
+                                alert('Ocurrió un error al enviar. Por favor intentalo de nuevo.');
+                                btn.disabled = false;
+                                btn.innerText = "Enviar";
+                            }
+                        }
+
+                        function showBalloonError(input, msg) {
+                            const tooltip = document.createElement('div');
+                            tooltip.className = 'error-tooltip-custom';
+                            tooltip.innerHTML = `<div class="error-icon">!</div><span>${msg}</span>`;
                             
-                            document.getElementById('webform5991704000039491574').submit();
+                            input.parentElement.appendChild(tooltip);
+                            input.classList.add('is-invalid-custom');
+                            input.focus();
+
+                            input.addEventListener('input', () => {
+                                tooltip.remove();
+                                input.classList.remove('is-invalid-custom');
+                            }, { once: true });
                         }
 
-                        function showError(id, msg) {
-                            const tooltip = document.getElementById('err-' + id);
-                            const input = document.getElementById(id);
-                            if (tooltip) {
-                                tooltip.querySelector('.hartridge-error-text').innerText = msg;
-                                tooltip.style.display = 'block';
-                                input.classList.add('hartridge-field-error');
-                            }
-                        }
-
-                        function hideError(id) {
-                            const tooltip = document.getElementById('err-' + id);
-                            const input = document.getElementById(id);
-                            if (tooltip) tooltip.style.display = 'none';
-                            if (input) input.classList.remove('hartridge-field-error');
+                        function resetForm() {
+                            document.getElementById('zohoContactForm').reset();
+                            document.getElementById('form-container').style.display = 'block';
+                            document.getElementById('success-container').style.display = 'none';
+                            const btn = document.querySelector('.btn-send');
+                            btn.disabled = false;
+                            btn.innerText = "Enviar";
                         }
                     </script>
                 </div>
