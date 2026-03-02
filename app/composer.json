@@ -56,7 +56,8 @@
     "wpackagist-theme/generatepress": "^3.6",
     "wpackagist-theme/blankslate": "^2026.0",
     "wpackagist-plugin/custom-post-type-ui": "^1.18",
-    "wpackagist-plugin/contact-form-7": "^6.1"
+    "wpackagist-plugin/contact-form-7": "^6.1",
+    "wpackagist-plugin/better-search-replace": "^1.4"
   },
   "require-dev": {
     "laravel/pint": "^1.18"
