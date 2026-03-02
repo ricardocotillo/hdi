@@ -180,7 +180,7 @@ if ( have_posts() ) :
                 <?php
                 $modelos_image = carbon_get_post_meta( get_the_ID(), 'crb_imagen_modelos_disponibles' );
                 if ( $modelos_image ) :
-                    echo wp_get_attachment_image( $modelos_image, 'full', false, array( 'class' => 'w-full h-auto', 'alt' => get_the_title() ) );
+                    echo wp_get_attachment_image( $modelos_image, 'full', false, array( 'class' => 'w-full modelos-image', 'alt' => get_the_title() ) );
                 endif;
                 ?>
                 <?php
