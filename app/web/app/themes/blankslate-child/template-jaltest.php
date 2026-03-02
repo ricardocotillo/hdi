@@ -27,7 +27,7 @@ if ( have_posts() ) :
                                 <input type="hidden" name="xnQsjsdp" value="0fae662cc62565f1629fb79a440f5449583f8959ff6a0d53b992dd1b437a9c39">
                                 <input type="hidden" name="xmIwtLD" value="39fae2cb362aab76075e3f1d1396c2d4532f5eba900f34fd63d509d9334b570d22e3c88616f72630cf9a500f168bfb99">
                                 <input type="hidden" name="actionType" value="Q3VzdG9tTW9kdWxlNg==">
-                                <input type="hidden" name="COBJ6CF3" value="principal">
+                                <input type="hidden" name="COBJ6CF3" value="jaltest">
                                 <input type="hidden" name="aG9uZXlwb3Q" value="">
 
                                 <div class="mb-3 position-relative">
