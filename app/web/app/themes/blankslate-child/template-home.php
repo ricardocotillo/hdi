@@ -378,7 +378,7 @@ if ( have_posts() ) :
                                 <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip1, 'full' ) ); ?>" alt="Consejo 1" class="w-full imagen-consejos">
 								<div id="form-inicio">
 
-								    <div id="crmWebToEntityForm">
+								    <div id="crmWebToEntityForm" class="hartridge-form-wrapper">
 										<div id="form-container">
 											<div class="zcwf_title">CONTÁCTANOS</div>
 											<form id="zohoContactForm">
