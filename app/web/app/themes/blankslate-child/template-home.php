@@ -375,7 +375,7 @@ if ( have_posts() ) :
                     <div class="flex">
                         <?php if ( $tip1 ) : ?>
                             <div class="w-3/4 form-inicio-container">
-                                <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip1, 'full' ) ); ?>" alt="Consejo 1" class="w-full h-auto">
+                                <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip1, 'full' ) ); ?>" alt="Consejo 1" class="w-full imagen-consejos">
 								<div id="form-inicio">
 
 								    <div id="crmWebToEntityForm">
@@ -504,7 +504,7 @@ if ( have_posts() ) :
                         <?php if ( $tip2 ) : ?>
                             <div class="w-1/4">
                                 <a href="<?php echo esc_url( $link_tip2 ); ?>" >
-                                    <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip2, 'full' ) ); ?>" alt="Consejo 2" class="w-full h-stretch">
+                                    <img  src="<?php echo esc_url( wp_get_attachment_image_url( $tip2, 'full' ) ); ?>" alt="Consejo 2" class="w-full imagen-consejos">
 								</a>
                             </div>
                         <?php endif; ?>

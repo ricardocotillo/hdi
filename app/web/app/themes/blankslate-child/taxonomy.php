@@ -58,7 +58,7 @@ get_header(); ?>
                 $whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
             ?>
             <!-- Botón Contacto -->
-            <div class="filter-contact">
+            <div class="filter-contact hide-mobile">
                 <a href="<?php echo esc_url( $whatsapps[0]['link'] ); ?>" class="btn-contactanos"><i aria-hidden="true" class="fab fa-whatsapp"></i> Contáctanos</a>
             </div>
         </aside>
@@ -104,6 +104,21 @@ get_header(); ?>
         </main>
     </div>
     
+    <div class="w-full">
+        <div class="container">
+            <div class="filter-contact filter-contact-mobile">
+                <a href="<?php echo esc_url( $whatsapps[0]['link'] ); ?>" class="btn-contactanos"><i aria-hidden="true" class="fab fa-whatsapp"></i> Contáctanos</a>
+            </div>
+        </div>
+    </div>
+<style>
+/* Oculta elementos con la clase .hide-mobile en pantallas menores a 768px */
+@media (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+</style>
 
 
     <div class="w-full">
