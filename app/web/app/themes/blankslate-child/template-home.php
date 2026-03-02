@@ -378,10 +378,10 @@ if ( have_posts() ) :
                                 <img src="<?php echo esc_url( wp_get_attachment_image_url( $tip1, 'full' ) ); ?>" alt="Consejo 1" class="w-full imagen-consejos">
 								<div id="form-inicio">
 
-								    <div id="crmWebToEntityForm" class="hartridge-form-wrapper">
+								    <div id="crmWebToEntityForm">
 										<div id="form-container">
 											<div class="hartridge-form-title">CONTÁCTANOS</div>
-											<form id="zohoContactForm">
+											<form id="zohoContactForm" class="flex flex-col gap-3">
 												<input type="hidden" name="xnQsjsdp" value="0fae662cc62565f1629fb79a440f5449583f8959ff6a0d53b992dd1b437a9c39">
 												<input type="hidden" name="xmIwtLD" value="39fae2cb362aab76075e3f1d1396c2d4532f5eba900f34fd63d509d9334b570d22e3c88616f72630cf9a500f168bfb99">
 												<input type="hidden" name="actionType" value="Q3VzdG9tTW9kdWxlNg==">
@@ -392,7 +392,7 @@ if ( have_posts() ) :
 													<input type="text" class="form-control hartridge-form-control" id="NAME" name="NAME" placeholder="Nombres y Apellidos">
 												</div>
 
-												<div class="row g-3 mb-3">
+												<div class="row g-3 mb-3 flex gap-2 items-center">
 													<div class="col-md-6 position-relative">
 														<input type="text" class="form-control hartridge-form-control" id="COBJ6CF2" name="COBJ6CF2" placeholder="Teléfono">
 													</div>
@@ -411,7 +411,7 @@ if ( have_posts() ) :
 											</form>
 										</div>
 
-										<div id="success-container">
+										<div id="success-container" class="hidden">
 											<div class="mb-3">
 												<span style="font-size: 60px; color: #28a745;">✔</span>
 											</div>
