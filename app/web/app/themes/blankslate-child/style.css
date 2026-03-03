@@ -27,7 +27,6 @@ html {
 body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 	color: #333;
-	line-height: 1.6;
 	margin: 0;
 	padding: 0;
 }
@@ -409,6 +408,12 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
 	font-size: 18px;
 	font-weight: 400;
 	color: #000000;
+	line-height: 1.2rem;
+	margin: 0;
+}
+
+.catalogos-list h2 {
+	margin-bottom: 10px;
 }
 
 .catalogo-content {
@@ -420,6 +425,7 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
 .catalogo-content p {
 	margin: 0;
 	padding: 0;
+	line-height: 1.6rem;
 }
 
 .catalogo-content time {
@@ -427,6 +433,7 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
 	line-height: 24px;
 	font-weight: 400;
 	font-size: 15px;
+	margin-bottom: 10px;
 }
 
 .catalogo-content time i {
