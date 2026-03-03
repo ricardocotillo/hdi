@@ -241,7 +241,7 @@ if ( have_posts() ) :
     }
 </script>
                         </div>
-                        <p class="text-center text-servicios-form">Especialistas en evaluación, diagnóstico, mantenimiento<br> y reparación de <span class="texto-azul">Sistemas de Inyección Diésel</span></p>
+                        <p class="text-center text-servicios-form poppins-light">Especialistas en evaluación, diagnóstico, mantenimiento<br> y reparación de <span class="texto-azul">Sistemas de Inyección Diésel</span></p>
                     </div>
                 </section>                
 			</section>

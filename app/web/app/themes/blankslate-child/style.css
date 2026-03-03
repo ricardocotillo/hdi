@@ -763,9 +763,7 @@ figure.news-image img{
 	margin:0 auto;
 	max-width: 50%;
 }
-.text-servicios-form{
-	font-size: 21px;
-}
+
 .texto-azul{
 	color: #336db4;
 }
@@ -1781,9 +1779,9 @@ textarea {
     }
 
     .text-servicios-form {
-        font-size: 14px;
+        font-size: 1.5rem;
         color: #666;
-        margin-top: 20px;
+        margin-top: 0;
     }
 
     @media (max-width: 768px) {
@@ -2230,7 +2228,13 @@ textarea.hartridge-form-control {
     }
 }
 
-.modelos-image{
+.modelos-image {
     height: 200px;
 	object-fit: cover;
+}
+
+.poppins-light {
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	font-style: normal;
 }
