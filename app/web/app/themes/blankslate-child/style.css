@@ -459,6 +459,7 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
 	.catalogos-list {
 		gap: 20px;
 		padding: 15px;
+		padding-bottom: 32px;
 	}
 }
 /*catalogo*/
@@ -2219,7 +2220,7 @@ textarea.hartridge-form-control {
 		right: auto;
 		transform: none;
 		margin: 20px auto;
-				padding: 20px 0;
+		padding: 20px 0;
 		max-width: 90%;
 		z-index: 10;
 	}
