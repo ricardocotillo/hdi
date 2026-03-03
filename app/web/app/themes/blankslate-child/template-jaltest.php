@@ -31,24 +31,24 @@ if ( have_posts() ) :
                                 <input type="hidden" name="aG9uZXlwb3Q" value="">
 
                                 <div class="mb-3 position-relative">
-                                    <input type="text" class="form-control hartridge-form-control" id="NAME" name="NAME" placeholder="Nombres y Apellidos">
+                                    <input type="text" class="form-control hartridge-form-control" id="NAME" required name="NAME" placeholder="Nombres y Apellidos">
                                 </div>
 
                                 <div class="row g-3 mb-3 flex flex-col md:flex-row gap-2 md:items-center">
                                     <div class="col-md-6 position-relative">
-                                        <input type="text" class="form-control hartridge-form-control" id="COBJ6CF2" name="COBJ6CF2" placeholder="Teléfono">
+                                        <input type="text" class="form-control hartridge-form-control" id="COBJ6CF2" required name="COBJ6CF2" placeholder="Teléfono">
                                     </div>
                                     <div class="col-md-6 position-relative">
-                                        <input type="text" class="form-control hartridge-form-control" id="Email" name="Email" placeholder="Correo electrónico">
+                                        <input type="text" class="form-control hartridge-form-control" id="Email" required name="Email" placeholder="Correo electrónico">
                                     </div>
                                 </div>
 
                                 <div class="mb-4">
-                                    <textarea class="form-control hartridge-form-control" id="COBJ6CF1" name="COBJ6CF1" rows="3" placeholder="Comentarios"></textarea>
+                                    <textarea class="form-control hartridge-form-control" id="COBJ6CF1" required name="COBJ6CF1" rows="3" placeholder="Comentarios"></textarea>
                                 </div>
 
                                 <div class="clearfix">
-                                    <button type="button" class="btn btn-send" onclick="handleAjaxSubmit()">Enviar</button>
+                                    <button type="submit" class="btn btn-send">Enviar</button>
                                 </div>
                             </form>
                         </div>
@@ -64,7 +64,10 @@ if ( have_posts() ) :
                     </div>
 
                     <script>
-                        async function handleAjaxSubmit() {
+                        const form = document.querySelector('#zohoContactForm');
+                        form.addEventListener('submit', handleAjaxSubmit);
+                        async function handleAjaxSubmit(e) {
+                            e.preventDefault();
                             const form = document.getElementById('zohoContactForm');
                             
                             const fields = [
