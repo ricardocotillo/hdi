@@ -1,0 +1,19 @@
+{
+  "name": "blankslate-child-theme",
+  "version": "1.0.0",
+  "description": "Child theme based on BlankSlate with custom header and footer",
+  "scripts": {
+    "livereload": "livereload . -e 'php,css,js,html' -p 35729",
+    "dev": "livereload . -e 'php,css,js,html' -p 35729"
+  },
+  "devDependencies": {
+    "livereload": "^0.9.3"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "blankslate"
+  ],
+  "author": "",
+  "license": "MIT"
+}
