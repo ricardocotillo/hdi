@@ -2223,6 +2223,10 @@ textarea.hartridge-form-control {
 		max-width: 90%;
 		z-index: 10;
 	}
+
+    .producto-image {
+        height: auto !important;
+    }
 }
 
 .modelos-image{
