@@ -58,10 +58,10 @@ if ( have_posts() ) :
                         <div class="hartridge-about flex flex-row gap-8 md:flex-row md:items-center">
                             <div class="hartridge-about-text w-2/3">
                                 <?php if ( $hartridge_title ) : ?>
-                                    <h2 class="hartridge-about-title mb-4"><?php echo esc_html( $hartridge_title ); ?></h2>
+                                    <h2 class="hartridge-about-title mb-4 poppins-extrabold"><?php echo esc_html( $hartridge_title ); ?></h2>
                                 <?php endif; ?>
                                 <?php if ( $hartridge_text ) : ?>
-                                    <div class="hartridge-about-content">
+                                    <div class="hartridge-about-content poppins-regular">
                                         <?php echo wp_kses_post( $hartridge_text ); ?>
                                     </div>
                                 <?php endif; ?>
