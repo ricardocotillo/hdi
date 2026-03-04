@@ -354,7 +354,7 @@ if ( have_posts() ) :
         <?php endif; ?> 
             <section class="w-full">
                 <section class="container" id="novedades-jaltest">
-                    <h2><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_jaltest_novedades_title' ) ); ?></h2>
+                    <h2 class="text-center"><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_jaltest_novedades_title' ) ); ?></h2>
                     <section class="novedades-grid" id="novedades-jaltest-items">
                         <?php
                         $novedades_items = carbon_get_post_meta( get_the_ID(), 'crb_jaltest_news' );
