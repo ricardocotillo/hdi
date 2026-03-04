@@ -2582,7 +2582,7 @@ textarea.hartridge-form-control {
   font-family: "Roboto", Sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 30px !important;
+  font-size: 1.5rem !important;
 }
 
 @media (max-width: 768px) {
