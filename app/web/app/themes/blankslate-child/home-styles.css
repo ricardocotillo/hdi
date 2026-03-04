@@ -835,6 +835,10 @@
   .home-services-section img {
     height: 150px;
   }
+
+  .home-products-carousel .owl-item {
+    padding: 0;
+  }
 }
 
 @media (max-width: 480px) {
