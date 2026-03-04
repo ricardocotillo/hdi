@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 
-<div class="container taxonomy-container">
+<div class="taxonomy-container">
     <?php
     $term = get_queried_object();
     $fabricantes = get_terms( array(
@@ -14,83 +14,84 @@ get_header(); ?>
     ) );
     
     ?>
+    <div class="taxonomy-wrapper-container">
+        <div class="container mx-auto taxonomy-wrapper flex gap-5">
+            <!-- Panel de Filtros -->
+            <aside class="filters-panel">
+                <h3 class="filters-title">Seleccione vehículos</h3>
     
-    <div class="taxonomy-wrapper flex gap-5">
-        <!-- Panel de Filtros -->
-        <aside class="filters-panel">
-            <h3 class="filters-title">Seleccione vehículos</h3>
-
-            <!-- Fabricantes -->
-            <div class="filter-group">
-                <label for="filter-fabricantes">Fabricantes</label>
-                <select id="filter-fabricantes" class="filter-select" data-taxonomy="fabricantes">
-                    <option value="">Seleccionar...</option>
-                    <?php foreach ( $fabricantes as $fabricante ) : ?>
-                        <option value="<?php echo esc_attr( $fabricante->term_id ); ?>"><?php echo esc_html( $fabricante->name ); ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <!-- Marcas -->
-            <div class="filter-group">
-                <label for="filter-marcas">Marcas</label>
-                <select id="filter-marcas" class="filter-select" data-taxonomy="marcas">
-                    <option value="">Seleccionar...</option>
-                    <?php foreach ( $marcas as $marca ) : ?>
-                        <option value="<?php echo esc_attr( $marca->term_id ); ?>"><?php echo esc_html( $marca->name ); ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <!-- Código OEM -->
-            <div class="filter-group">
-                <label for="filter-oem">Código OEM</label>
-                <input type="text" id="filter-oem" class="filter-input" placeholder="Buscar...">
-            </div>
-
-            <!-- Códigos Fabricante -->
-            <div class="filter-group">
-                <label for="filter-fabricante-code">Códigos Fabricante</label>
-                <input type="text" id="filter-fabricante-code" class="filter-input" placeholder="Buscar...">
-            </div>
-
-            <?php 
-                $whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
-            ?>
-            <!-- Botón Contacto -->
-            <div class="filter-contact hide-mobile">
-                <a href="<?php echo esc_url( $whatsapps[0]['link'] ); ?>" class="btn-contactanos"><i aria-hidden="true" class="fab fa-whatsapp"></i> Contáctanos</a>
-            </div>
-        </aside>
-
-        <!-- Productos Grid -->
-        <main class="productos-main">
-            <div id="productos-grid" class="productos-grid">
+                <!-- Fabricantes -->
+                <div class="filter-group">
+                    <label for="filter-fabricantes">Fabricantes</label>
+                    <select id="filter-fabricantes" class="filter-select" data-taxonomy="fabricantes">
+                        <option value="">Seleccionar...</option>
+                        <?php foreach ( $fabricantes as $fabricante ) : ?>
+                            <option value="<?php echo esc_attr( $fabricante->term_id ); ?>"><?php echo esc_html( $fabricante->name ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+    
+                <!-- Marcas -->
+                <div class="filter-group">
+                    <label for="filter-marcas">Marcas</label>
+                    <select id="filter-marcas" class="filter-select" data-taxonomy="marcas">
+                        <option value="">Seleccionar...</option>
+                        <?php foreach ( $marcas as $marca ) : ?>
+                            <option value="<?php echo esc_attr( $marca->term_id ); ?>"><?php echo esc_html( $marca->name ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+    
+                <!-- Código OEM -->
+                <div class="filter-group">
+                    <label for="filter-oem">Código OEM</label>
+                    <input type="text" id="filter-oem" class="filter-input" placeholder="Buscar...">
+                </div>
+    
+                <!-- Códigos Fabricante -->
+                <div class="filter-group">
+                    <label for="filter-fabricante-code">Códigos Fabricante</label>
+                    <input type="text" id="filter-fabricante-code" class="filter-input" placeholder="Buscar...">
+                </div>
+    
                 <?php 
-                if (have_posts()) : 
-                    $count = 0;
-                    while (have_posts() && $count < 12) : 
-                        the_post();
-                        $count++;
+                    $whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
+                ?>
+                <!-- Botón Contacto -->
+                <div class="filter-contact hide-mobile">
+                    <a href="<?php echo esc_url( $whatsapps[0]['link'] ); ?>" class="btn-contactanos"><i aria-hidden="true" class="fab fa-whatsapp"></i> Contáctanos</a>
+                </div>
+            </aside>
+    
+            <!-- Productos Grid -->
+            <main class="productos-main">
+                <div id="productos-grid" class="productos-grid">
+                    <?php 
+                    if (have_posts()) : 
+                        $count = 0;
+                        while (have_posts() && $count < 12) : 
+                            the_post();
+                            $count++;
+                            ?>
+                            <article class="producto-item">
+                                <div class="producto-image">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('medium'); ?>
+                                    <?php endif; ?>
+                                </div>
+                                <h3 class="producto-title"><?php the_title(); ?></h3>
+                                <a href="<?php the_permalink(); ?>" class="btn-ver-mas">Ver más</a>
+                            </article>
+                            <?php
+                        endwhile;
+                    else : 
                         ?>
-                        <article class="producto-item">
-                            <div class="producto-image">
-                                <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('medium'); ?>
-                                <?php endif; ?>
-                            </div>
-                            <h3 class="producto-title"><?php the_title(); ?></h3>
-                            <a href="<?php the_permalink(); ?>" class="btn-ver-mas">Ver más</a>
-                        </article>
-                        <?php
-                    endwhile;
-                else : 
-                    ?>
-                    <p class="no-productos">No hay productos.</p>
-                <?php endif; ?>
-            </div>
-
-        </main>
+                        <p class="no-productos">No hay productos.</p>
+                    <?php endif; ?>
+                </div>
+    
+            </main>
+        </div>
     </div>
     <!-- Botón Ver Más -->
     <?php 
@@ -104,24 +105,24 @@ get_header(); ?>
     </div>
     <?php endif; ?>
     
-    <div class="w-full">
+    <div class="w-full container mx-auto">
         <div class="container">
             <div class="filter-contact filter-contact-mobile">
                 <a href="<?php echo esc_url( $whatsapps[0]['link'] ); ?>" class="btn-contactanos"><i aria-hidden="true" class="fab fa-whatsapp"></i> Contáctanos</a>
             </div>
         </div>
     </div>
-<style>
-/* Oculta elementos con la clase .hide-mobile en pantallas menores a 768px */
-@media (max-width: 767px) {
-    .hide-mobile {
-        display: none !important;
+    <style>
+    /* Oculta elementos con la clase .hide-mobile en pantallas menores a 768px */
+    @media (max-width: 767px) {
+        .hide-mobile {
+            display: none !important;
+        }
     }
-}
-</style>
+    </style>
 
 
-    <div class="w-full">
+    <div class="w-full container mx-auto">
         <section class="container">
             <section class="repuestos text-center">
                 <?php

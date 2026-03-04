@@ -56,7 +56,7 @@ if ( have_posts() ) :
                         <div class="flex servicios-row servicios-row-2">
 
                             <div class="flex flex-col p-10 w-1/2 text-right servicios-text servicios-text-2">
-                                <?php echo wp_kses_post( (string) carbon_get_post_meta( get_the_ID(), 'crb_page_field_services_text' ) ); ?>
+                                <p><?php echo wp_kses_post( (string) carbon_get_post_meta( get_the_ID(), 'crb_page_field_services_text' ) ); ?></p>
                                 <a href="#cotizar" class="btn-cotizar" style="margin-left: auto;"><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_page_field_services_button_text' ) ); ?></a>
                             </div>                    
 
