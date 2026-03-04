@@ -476,6 +476,14 @@ input[type="submit"]:hover {
   margin-bottom: 1.5rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
 /* Width */
 .w-full {
   width: 100%;

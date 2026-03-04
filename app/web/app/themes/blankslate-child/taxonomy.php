@@ -105,7 +105,7 @@ get_header(); ?>
         <?php endif; ?>
     </div>
     
-    <div class="w-full container mx-auto">
+    <div class="w-full container mx-auto mt-8">
         <div class="container">
             <div class="filter-contact filter-contact-mobile">
                 <a href="<?php echo esc_url( $whatsapps[0]['link'] ); ?>" class="btn-contactanos"><i aria-hidden="true" class="fab fa-whatsapp"></i> Contáctanos</a>
