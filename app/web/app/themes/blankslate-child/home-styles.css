@@ -786,7 +786,12 @@
   .home-services-section .w-2\/3,
   .home-services-section .w-1\/3 {
     width: 100% !important;
-    text-align: center;
+  }
+
+  .home-services-section .w-1\/3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .home-services-section .md\:w-1\/2,
@@ -825,6 +830,10 @@
     height: 32px;
     font-size: 14px;
   }
+
+  .home-services-section img {
+    height: 150px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -856,7 +865,6 @@
   .home-services-section .w-2\/3,
   .home-services-section .w-1\/3 {
     width: 100% !important;
-    text-align: center;
   }
 
   .home-equipment-section .equipment-image-wrapper,
