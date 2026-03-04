@@ -92,18 +92,18 @@ get_header(); ?>
     
             </main>
         </div>
+        <!-- Botón Ver Más -->
+        <?php 
+        global $wp_query;
+        if ($wp_query->found_posts > 12) :
+        ?>
+        <div class="ver-mas-container">
+            <button id="load-more-btn" class="btn-ver-mas-productos" data-paged="2" data-term-id="<?php echo $term->term_id; ?>" data-taxonomy="<?php echo $term->taxonomy; ?>">
+                Ver más
+            </button>
+        </div>
+        <?php endif; ?>
     </div>
-    <!-- Botón Ver Más -->
-    <?php 
-    global $wp_query;
-    if ($wp_query->found_posts > 12) :
-    ?>
-    <div class="ver-mas-container">
-        <button id="load-more-btn" class="btn-ver-mas-productos" data-paged="2" data-term-id="<?php echo $term->term_id; ?>" data-taxonomy="<?php echo $term->taxonomy; ?>">
-            Ver más
-        </button>
-    </div>
-    <?php endif; ?>
     
     <div class="w-full container mx-auto">
         <div class="container">
