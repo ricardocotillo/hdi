@@ -1767,7 +1767,7 @@ textarea {
 #novedades-jaltest h2 {
   color: #000000;
   font-family: "Roboto", Sans-serif;
-  font-size: 30px;
+  font-size: 1.75rem;
   font-weight: 600;
   margin-top: 0;
   padding-top: 0;
@@ -1803,6 +1803,7 @@ textarea {
 @media (max-width: 480px) {
   #novedades-jaltest {
     padding: 60px 20px;
+    padding-top: 20px;
   }
 }
 
