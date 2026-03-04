@@ -2656,9 +2656,19 @@ textarea.hartridge-form-control {
 }
 #todos-modelos h2 {
   color: #027dba;
-  font-family: "Roboto", Sans-serif;
-  font-size: 30px !important;
+  font-family: "Poppins", Sans-serif;
+  font-size: 1.75rem !important;
+  font-weight: 700;
 }
+#todos-modelos h2 span {
+  font-weight: 300;
+}
+
+#todos-modelos p {
+  font-family: "Poppins", Sans-serif;
+  font-weight: 300;
+}
+
 @media (max-width: 768px) {
   .jaltest-beneficios-section {
     min-height: 100dvh;
@@ -2751,6 +2761,10 @@ textarea.hartridge-form-control {
   font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-style: normal;
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
 }
 
 .poppins-regular {
