@@ -49,9 +49,9 @@ if ( $catalogo_query->have_posts() ) :
 				?>
 					<article class="news-entry flex flex-row">
 						<?php if ( has_post_thumbnail() ) : ?>
-							<div class="news-image">
+							<div class="news-image-wrapper">
 								<figure class="news-image">
-									<a href="<?php echo get_permalink(); ?>" rel="noopener noreferrer">
+									<a class="block" href="<?php echo get_permalink(); ?>" rel="noopener noreferrer">
 										<!-- <img src="https://placehold.co/336x280" alt="<?php echo esc_attr( get_the_title() ); ?>" class=""> -->
 										<?php the_post_thumbnail( 'full', array( 'class' => 'w-full h-auto', 'alt' => get_the_title() ) ); ?>
 									</a>
@@ -70,7 +70,7 @@ if ( $catalogo_query->have_posts() ) :
 					</article>
 				<?php endwhile; ?>
 			</section>
-			<div class="news-side-bar">
+			<div class="news-side-bar shrink-0">
 				<h2 class="font-bold mb-4">Post Recientes</h2>
 				<?php 
 					while ( $catalogo_query->have_posts() ) :
