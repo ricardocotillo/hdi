@@ -206,9 +206,9 @@ if ( have_posts() ) :
 							?>
 							<article class="news-card w-1/3 bg-white overflow-hidden shadow hover:shadow-lg">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<div class="news-card-image-wrapper">
+									<a href="<?php the_permalink(); ?>" class="news-card-image-wrapper">
 										<?php the_post_thumbnail( 'full', array( 'class' => 'w-full' ) ); ?>
-									</div>
+									</a>
 									<?php endif; ?>
 
 									<div class="p-4">
