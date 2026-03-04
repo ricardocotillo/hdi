@@ -69,6 +69,15 @@
 							<i aria-hidden="true" class="fas fa-align-justify"></i>
 							<span>Productos</span>
 						</div>
+						<div class="search-productos-container">
+							<input type="text" id="search-productos-input" class="search-productos-input" placeholder="Buscar..." autocomplete="off">
+							<button id="search-productos-btn" class="search-productos-btn" aria-label="Buscar productos">
+								<i aria-hidden="true" class="fas fa-search"></i>
+							</button>
+							<ul id="search-productos-results" class="search-productos-results hidden">
+								<li id="search-productos-loader" class="search-productos-loader"></li>
+							</ul>
+						</div>
 					</div> 
 				</div>
 				<div class="sticky-right">

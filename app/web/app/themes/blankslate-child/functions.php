@@ -45,8 +45,20 @@ function blankslate_child_enqueue_assets() {
 	wp_enqueue_script( 'blankslate-child-main', get_stylesheet_directory_uri() . '/js/main.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'blankslate-child-menu-lateral', get_stylesheet_directory_uri() . '/menu-lateral.js', array(), '1.0.0', true );
 
+	// Localize search productos script
+	wp_localize_script( 'blankslate-child-main', 'searchProductosData', array(
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+		'nonce'   => wp_create_nonce( 'search_productos_nonce' ),
+	) );
+
+	$post_type_query_var = get_query_var( 'post_type' );
+	$is_productos_search = is_search() && (
+		'productos' === $post_type_query_var ||
+		( is_array( $post_type_query_var ) && in_array( 'productos', $post_type_query_var, true ) )
+	);
+
 	// Taxonomy page assets
-	if ( is_tax() ) {
+	if ( is_tax() || $is_productos_search ) {
 		wp_enqueue_style( 'blankslate-child-taxonomy', get_stylesheet_directory_uri() . '/taxonomy-styles.css', array(), '1.0.0' );
 		wp_enqueue_script( 'blankslate-child-taxonomy', get_stylesheet_directory_uri() . '/js/taxonomy.js', array(), '1.0.0', true );
 		
@@ -56,12 +68,13 @@ function blankslate_child_enqueue_assets() {
 		wp_enqueue_script( 'owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
 		wp_enqueue_script( 'home-carousel', get_stylesheet_directory_uri() . '/js/home-carousel.js', array( 'jquery', 'owl-carousel' ), '2.1.1', true );
 		
-		$current_term = get_queried_object();
+		$current_term = is_tax() ? get_queried_object() : null;
 		wp_localize_script( 'blankslate-child-taxonomy', 'taxonomyData', array(
 			'nonce' => wp_create_nonce( 'load_more_productos_nonce' ),
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 			'currentTermId' => $current_term ? $current_term->term_id : '',
-			'currentTaxonomy' => $current_term ? $current_term->taxonomy : ''
+			'currentTaxonomy' => $current_term ? $current_term->taxonomy : '',
+			'searchQuery' => $is_productos_search ? get_search_query() : '',
 		) );
 	}
 
@@ -200,11 +213,17 @@ function blankslate_child_filter_productos() {
 	$cod_fabricante = isset( $_POST['cod_fabricante'] ) ? sanitize_text_field( $_POST['cod_fabricante'] ) : '';
 	$current_term_id = isset( $_POST['current_term_id'] ) ? intval( $_POST['current_term_id'] ) : 0;
 	$current_taxonomy = isset( $_POST['current_taxonomy'] ) ? sanitize_text_field( $_POST['current_taxonomy'] ) : '';
+	$search_query = isset( $_POST['search_query'] ) ? sanitize_text_field( wp_unslash( $_POST['search_query'] ) ) : '';
 
 	$args = array(
+		'post_type'      => 'productos',
 		'posts_per_page' => 12,
 		'paged'          => $paged,
 	);
+
+	if ( ! empty( $search_query ) ) {
+		$args['s'] = $search_query;
+	}
 
 	// Build tax_query for taxonomies
 	$tax_query = array( 'relation' => 'AND' );
@@ -302,6 +321,64 @@ function blankslate_child_load_more_productos() {
 }
 add_action( 'wp_ajax_load_more_productos', 'blankslate_child_load_more_productos' );
 add_action( 'wp_ajax_nopriv_load_more_productos', 'blankslate_child_load_more_productos' );
+
+/**
+ * AJAX Handler: Search Productos
+ */
+function blankslate_child_search_productos() {
+	// Verify nonce
+	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'search_productos_nonce' ) ) {
+		wp_send_json_error( 'Nonce verification failed' );
+	}
+
+	$search = isset( $_POST['search'] ) ? sanitize_text_field( $_POST['search'] ) : '';
+	
+	if ( empty( $search ) ) {
+		wp_send_json_success( array(
+			'items'      => array(),
+			'total'      => 0,
+			'search_url' => '',
+		) );
+	}
+
+	$args = array(
+		'post_type'      => 'productos',
+		's'              => $search,
+		'posts_per_page' => 10,
+	);
+
+	$query = new WP_Query( $args );
+	$results = array();
+
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			$results[] = array(
+				'id'       => get_the_ID(),
+				'title'    => get_the_title(),
+				'url'      => get_the_permalink(),
+				'image'    => get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' ),
+			);
+		}
+		wp_reset_postdata();
+	}
+
+	$search_url = add_query_arg(
+		array(
+			's'         => $search,
+			'post_type' => 'productos',
+		),
+		home_url( '/' )
+	);
+
+	wp_send_json_success( array(
+		'items'      => $results,
+		'total'      => intval( $query->found_posts ),
+		'search_url' => $search_url,
+	) );
+}
+add_action( 'wp_ajax_search_productos', 'blankslate_child_search_productos' );
+add_action( 'wp_ajax_nopriv_search_productos', 'blankslate_child_search_productos' );
 
 
 use Carbon_Fields\Container;
