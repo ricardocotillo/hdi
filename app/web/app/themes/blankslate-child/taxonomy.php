@@ -196,7 +196,7 @@ get_header(); ?>
                         $link = ! empty( $cuadro['link'] ) ? $cuadro['link'] : '#';
                         ?>
                         <div class="cuadro-azul">
-                            <a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $texto ); ?></a>
+                            <a href="<?php echo esc_url( $link ); ?>"><?php echo wp_kses( $texto, array( 'br' => array(), 'em' => array(), 'strong' => array(), 'span' => array( 'class' => array() ) ) ); ?></a>
                         </div>
                         <?php
                     endforeach;
