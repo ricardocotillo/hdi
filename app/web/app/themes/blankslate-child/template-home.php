@@ -213,7 +213,7 @@ if ( have_posts() ) :
 
 									<div class="p-4">
 										<div class="text-sm text-gray-500 mb-2">
-											<?php echo get_the_date( 'd/m/Y' ); ?>
+											<svg class="e-font-icon-svg e-fas-circle" aria-hidden="true" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg> <?php echo get_the_date( 'd/m/Y' ); ?>
 										</div>
 
 										<h3 class="text-xl font-semibold mb-3">

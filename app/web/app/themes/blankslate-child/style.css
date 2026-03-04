@@ -2751,3 +2751,8 @@ textarea.hartridge-form-control {
   font-weight: 400;
   font-style: normal;
 }
+
+.e-fas-circle {
+  width: 1rem;
+  height: 1rem;
+}
