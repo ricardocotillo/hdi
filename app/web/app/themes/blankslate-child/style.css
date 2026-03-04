@@ -1630,6 +1630,7 @@ textarea {
 @media (max-width: 480px) {
   #equipos-scanner {
     padding: 60px 20px;
+    padding-top: 0.25rem;
   }
 
   #equipos-scanner .productos-grid {
