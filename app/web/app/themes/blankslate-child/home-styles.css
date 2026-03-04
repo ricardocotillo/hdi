@@ -858,6 +858,9 @@
   .brands-overlay {
     height: 300px;
   }
+  .imagen-suscribete {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
