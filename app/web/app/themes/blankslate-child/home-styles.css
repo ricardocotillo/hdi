@@ -839,6 +839,18 @@
   .home-products-carousel .owl-item {
     padding: 0;
   }
+
+  .home-equipment-section {
+    max-height: none;
+  }
+
+  .home-equipment-section img {
+    height: 300px;
+  }
+
+  .brands-overlay {
+    height: 300px;
+  }
 }
 
 @media (max-width: 480px) {

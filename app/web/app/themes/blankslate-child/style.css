@@ -1416,6 +1416,10 @@ textarea {
   .hartridge-products {
     flex-direction: column;
   }
+
+  .form-servicios-container {
+    padding: 0;
+  }
 }
 .fondo-plomo {
   background-color: #e3edee;

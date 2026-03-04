@@ -171,7 +171,7 @@ if ( have_posts() ) :
 						</div>
 
 						<?php if ( $equipment_image_url ) : ?>
-							<div class="w-1/2" style="background-image: url('<?php echo esc_url( $equipment_image_url ); ?>'); background-size: cover; background-position: center;"></div>
+							<div class="w-1/2 brands-overlay" style="background-image: url('<?php echo esc_url( $equipment_image_url ); ?>'); background-size: cover; background-position: center;"></div>
 						<?php endif; ?>
 					</div>
 				</div>
