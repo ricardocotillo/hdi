@@ -423,6 +423,7 @@
 .home-news-section {
   width: 100%;
   padding: 60px 0;
+  padding-top: 40px;
 }
 
 .home-news-section h2 {
@@ -431,6 +432,8 @@
 
 .title-home-novedades {
   text-align: center;
+  line-height: 1;
+  font-size: 1rem;
 }
 .title-home-novedades h3 {
   margin-top: 10px;
@@ -439,6 +442,7 @@
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
+  line-height: 1.25rem;
 }
 
 .news-card {
