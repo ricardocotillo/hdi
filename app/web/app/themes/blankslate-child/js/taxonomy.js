@@ -41,6 +41,7 @@ function loadFilteredProducts(paged = 1) {
     // Get current taxonomy info
     const currentTermId = window.taxonomyData?.currentTermId || '';
     const currentTaxonomy = window.taxonomyData?.currentTaxonomy || '';
+    const searchQuery = window.taxonomyData?.searchQuery || '';
     
     const formData = new FormData();
     formData.append('action', 'filter_productos');
@@ -51,6 +52,7 @@ function loadFilteredProducts(paged = 1) {
     formData.append('cod_fabricante', codFabricante);
     formData.append('current_term_id', currentTermId);
     formData.append('current_taxonomy', currentTaxonomy);
+    formData.append('search_query', searchQuery);
     formData.append('nonce', window.taxonomyData?.nonce || '');
     
     // Clear grid and show loading state if first page
@@ -128,6 +130,7 @@ function loadMoreProducts() {
     // Get current taxonomy info
     const currentTermId = window.taxonomyData?.currentTermId || '';
     const currentTaxonomy = window.taxonomyData?.currentTaxonomy || '';
+    const searchQuery = window.taxonomyData?.searchQuery || '';
     
     const formData = new FormData();
     formData.append('action', 'filter_productos');
@@ -138,6 +141,7 @@ function loadMoreProducts() {
     formData.append('cod_fabricante', codFabricante);
     formData.append('current_term_id', currentTermId);
     formData.append('current_taxonomy', currentTaxonomy);
+    formData.append('search_query', searchQuery);
     formData.append('nonce', window.taxonomyData?.nonce || '');
     
     fetch(window.taxonomyData?.ajaxUrl || '/wp-admin/admin-ajax.php', {
