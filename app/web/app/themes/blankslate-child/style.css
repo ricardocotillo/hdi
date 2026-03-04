@@ -1549,7 +1549,7 @@ textarea {
 #equipos-scanner .productos-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 1.25rem;
   margin-top: 40px;
 }
 #equipos-scanner .producto-item {
