@@ -32,19 +32,19 @@
 						$emails = carbon_get_theme_option( 'crb_header_email' );
 						foreach ( $emails as $email ) :
 					?>
-						<a href="mailto:<?php echo esc_attr( $email['link'] ); ?>"><i aria-hidden="true" class="fas fa-globe"></i><?php echo esc_html( $email['text'] ); ?></a>
+						<a href="mailto:<?php echo esc_attr( $email['link'] ); ?>" target="_blank" rel="noopener"><i aria-hidden="true" class="fas fa-globe"></i><?php echo esc_html( $email['text'] ); ?></a>
 					<?php endforeach; ?>
 					<?php 
 						$phones = carbon_get_theme_option( 'crb_header_phone' );
 						foreach ( $phones as $phone ) :
 					?>
-						<a href="mailto:<?php echo esc_attr( $phone['link'] ); ?>"><i aria-hidden="true" class="fas fa-phone-alt"></i><?php echo esc_html( $phone['phone'] ); ?></a>
+						<a href="<?php echo esc_attr( $phone['link'] ); ?>" target="_blank" rel="noopener"><i aria-hidden="true" class="fas fa-phone-alt"></i><?php echo esc_html( $phone['phone'] ); ?></a>
 					<?php endforeach; ?>
 					<?php 
 						$addresses = carbon_get_theme_option( 'crb_header_address' );
 						foreach ( $addresses as $address ) :
 					?>
-						<a href="mailto:<?php echo esc_attr( $address['link'] ); ?>"><i aria-hidden="true" class="fas fa-map-marker-alt"></i><?php echo esc_html( $address['address'] ); ?></a>
+						<a href="<?php echo esc_attr( $address['link'] ); ?>" target="_blank" rel="noopener"><i aria-hidden="true" class="fas fa-map-marker-alt"></i><?php echo esc_html( $address['address'] ); ?></a>
 					<?php endforeach; ?>										
 				</div>
 			</div>
