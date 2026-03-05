@@ -58,6 +58,21 @@
 	font-weight: 600;
 }
 
+.derechos-reservados-jaltest {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 20px 20px;
+}
+
+.derechos-reservados-jaltest > * {
+	font-family: Poppins, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+}
+
 
 
 .footer-content {
@@ -279,6 +294,14 @@
 	.site-footer {
 		margin-top: 0;
 		padding: 30px 0 0;
+	}
+
+	.derechos-reservados-jaltest {
+		flex-direction: column;
+		gap: 10px;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
 	}
 }
 

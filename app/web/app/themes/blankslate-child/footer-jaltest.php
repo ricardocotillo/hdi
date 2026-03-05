@@ -27,7 +27,7 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
                     <?php wp_nav_menu( array( 'menu' => 'jaltest' ) ); ?>
                 </div>
                 <div class="col w-full md:w-auto">
-                    <p class="footer-title">Contáctanos</p>
+                    <p class="footer-title">Contacto</p>
 
                     <?php
                     $footer_phone = carbon_get_post_meta( get_the_ID(), 'crb_footer_phone' );
@@ -94,8 +94,9 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
                     ?>                   
                 </div>
             </div>
-            <div class="flex flex-row justify-center items-center mb-4 derechos-reservados">
+            <div class="flex mb-4 derechos-reservados derechos-reservados-jaltest">
                 <div class="col"><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_jaltest_footer_copyright' ) ); ?></div>
+                <a href="https://hdi.com.pe/politica-de-garantia/" target="_blank" rel="noopener">Política de garantía y Libro de reclamaciones</a>
             </div>
 		</div>
 	</footer>

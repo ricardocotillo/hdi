@@ -147,7 +147,7 @@ get_header(); ?>
                             ?>
                             <div class="brand-carousel-item text-center">
                                 <?php if ( $logo_url ) : ?>
-                                    <img src="<?php echo esc_url( $logo_url ); ?>" alt="Brand Logo" class="h-24 mx-auto">
+                                    <img src="<?php echo esc_url( $logo_url ); ?>" alt="Brand Logo" class="brand-logo-image mx-auto">
                                 <?php endif; ?>
                             </div>
                             <?php
