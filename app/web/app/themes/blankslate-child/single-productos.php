@@ -19,10 +19,12 @@ if ( have_posts() ) :
 		// Get taxonomies
 		$fabricantes = get_the_terms( get_the_ID(), 'fabricantes' );
 		$marcas = get_the_terms( get_the_ID(), 'marcas' );
+		$categorias = get_the_terms( get_the_ID(), 'categorias-de-producto' );
 		
 		$fabricante_name = ( $fabricantes && ! is_wp_error( $fabricantes ) ) ? $fabricantes[0]->name : '';
 		$marca_name = ( $marcas && ! is_wp_error( $marcas ) ) ? $marcas[0]->name : '';
 		$marca_id = ( $marcas && ! is_wp_error( $marcas ) ) ? $marcas[0]->term_id : '';
+		$categoria_id = ( $categorias && ! is_wp_error( $categorias ) ) ? $categorias[0]->term_id : '';
 		
 		$permalink = get_permalink();
 		$title = get_the_title();
@@ -120,7 +122,7 @@ if ( have_posts() ) :
 						if ( $boton_cotizar_text ) :
 						?>
 							<div class="product-quote-section">
-								<a href="#cotizar" class="btn-cotizar-producto">
+								<a href="https://wa.me/51940818542" target="_blank" class="btn-cotizar-producto">
 									<?php echo esc_html( $boton_cotizar_text ); ?>
 								</a>
 							</div>
@@ -335,16 +337,16 @@ if ( have_posts() ) :
 			
 			<!-- Related Products Section -->
 			<?php
-			if ( $marca_id ) {
+			if ( $categoria_id ) {
 				$related_args = array(
 					'post_type' => 'productos',
 					'posts_per_page' => 8,
 					'post__not_in' => array( get_the_ID() ),
 					'tax_query' => array(
 						array(
-							'taxonomy' => 'marcas',
+							'taxonomy' => 'categorias-de-producto',
 							'field' => 'term_id',
-							'terms' => $marca_id,
+							'terms' => $categoria_id,
 						),
 					),
 				);
