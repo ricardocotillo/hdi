@@ -56,9 +56,10 @@ function blankslate_child_enqueue_assets() {
 		'productos' === $post_type_query_var ||
 		( is_array( $post_type_query_var ) && in_array( 'productos', $post_type_query_var, true ) )
 	);
+	$is_lo_mas_vendido_template = is_page_template( 'template-lo-mas-vendido.php' );
 
 	// Taxonomy page assets
-	if ( is_tax() || $is_productos_search ) {
+	if ( is_tax() || $is_productos_search || $is_lo_mas_vendido_template ) {
 		wp_enqueue_style( 'blankslate-child-taxonomy', get_stylesheet_directory_uri() . '/taxonomy-styles.css', array(), '1.0.0' );
 		wp_enqueue_script( 'blankslate-child-taxonomy', get_stylesheet_directory_uri() . '/js/taxonomy.js', array(), '1.0.0', true );
 		
