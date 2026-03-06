@@ -16,8 +16,7 @@ if ( have_posts() ) :
 		$banner_4 = carbon_get_post_meta( get_the_ID(), 'crb_jaltest_banner_4' );
 		?>
 		<?php if ( $banner_1 ) : ?>
-			<header class="w-full jaltest-banner-container">
-				<?php echo wp_get_attachment_image( $banner_1, 'full', false, array( 'class' => 'page-header-image w-full h-auto', 'alt' => get_the_title() ) ); ?>
+			<header class="w-full jaltest-banner-container" style="background-image: url('<?php echo wp_get_attachment_url( $banner_1 ); ?>')">
                 
                 <div class="jaltest-form-overlay">
                     <div id="crmWebToEntityForm">
@@ -34,7 +33,7 @@ if ( have_posts() ) :
                                     <input type="text" class="form-control hartridge-form-control" id="NAME" required name="NAME" placeholder="Nombres y Apellidos">
                                 </div>
 
-                                <div class="row g-3 mb-3 flex flex-col md:flex-row gap-2 md:items-center">
+                                <div class="row g-3 mb-3 flex gap-2 items-center form-group">
                                     <div class="col-md-6 position-relative">
                                         <input type="text" class="form-control hartridge-form-control" id="COBJ6CF2" required name="COBJ6CF2" placeholder="Teléfono">
                                     </div>

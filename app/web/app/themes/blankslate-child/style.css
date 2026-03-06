@@ -2616,6 +2616,10 @@ textarea.hartridge-form-control {
 /* Jaltest Template - Form Overlay */
 .jaltest-banner-container {
   position: relative;
+  min-height: 40rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .jaltest-form-overlay {
@@ -2778,4 +2782,10 @@ textarea.hartridge-form-control {
 .e-fas-circle {
   width: 1rem;
   height: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  #form-container .form-group {
+    flex-direction: column;
+  }
 }
