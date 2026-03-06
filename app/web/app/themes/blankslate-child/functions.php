@@ -384,6 +384,7 @@ add_action( 'wp_ajax_nopriv_search_productos', 'blankslate_child_search_producto
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
+use Carbon_Fields\Block;
 
 // Register theme options fields after Carbon Fields is loaded
 add_action( 'carbon_fields_loaded', function() {
@@ -1074,6 +1075,31 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 				Field::make( 'image', 'image_consejo_3', __( 'Imagen 3' ) )->set_width( 30 ),
 				Field::make( 'text', 'image_consejo_2_link', __( 'Imagen 2 Link' ) )->set_width( 100 ),
 		) );
+
+	Block::make( __( 'Share block' ) )
+	->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+		$permalink = get_permalink();
+		$title = get_the_title();
+		$share_url = esc_url_raw( $permalink );
+		$share_title = rawurlencode( $title );
+		$facebook_share = add_query_arg( 'u', $share_url, 'https://www.facebook.com/sharer.php' );
+		$linkedin_share = add_query_arg( 'url', $share_url, 'https://www.linkedin.com/sharing/share-offsite/' );
+		$whatsapp_share = add_query_arg( 'text', $title . ' ' . $permalink, 'https://api.whatsapp.com/send' );
+		$email_share = 'mailto:?subject=' . $share_title . '&body=' . rawurlencode( $permalink );
+		?>
+		<!-- https://www.facebook.com/sharer.php?u=https://google.com -->
+		<!-- https://www.facebook.com/sharer/sharer.php?u=https://new_hdi.cotillo.dev/prolongar-la-vida-util-de-tu-motor-diesel/ -->
+		<div class="share-links flex flex-col items-start mt-8">
+			<ul class="flex flex-row gap-5 items-start">
+				<li><a class="share share-facebook" href="<?php echo esc_url( $facebook_share ); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a></li>
+				<li><a class="share share-linkedin" href="<?php echo esc_url( $linkedin_share ); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fab fa-linkedin"></i> Linkedin</a></li>
+				<li><a class="share share-whatsapp" href="<?php echo esc_url( $whatsapp_share ); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
+				<li><a class="share share-email" href="<?php echo esc_url( $email_share ); ?>" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Email</a></li>
+			</ul>
+		</div>
+
+		<?php
+	} );
 
 /* HOME TEMPLATE */
 } );
