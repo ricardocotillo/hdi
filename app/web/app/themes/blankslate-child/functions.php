@@ -1082,7 +1082,7 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		$title = get_the_title();
 		$share_url = esc_url_raw( $permalink );
 		$share_title = rawurlencode( $title );
-		$facebook_share = add_query_arg( 'u', $share_url, 'https://www.facebook.com/sharer.php' );
+		$facebook_share = add_query_arg( 'u', $share_url, 'https://www.facebook.com/sharer/sharer.php' );
 		$linkedin_share = add_query_arg( 'url', $share_url, 'https://www.linkedin.com/sharing/share-offsite/' );
 		$whatsapp_share = add_query_arg( 'text', $title . ' ' . $permalink, 'https://api.whatsapp.com/send' );
 		$email_share = 'mailto:?subject=' . $share_title . '&body=' . rawurlencode( $permalink );
