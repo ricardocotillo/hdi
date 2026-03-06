@@ -1087,8 +1087,6 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		$whatsapp_share = add_query_arg( 'text', $title . ' ' . $permalink, 'https://api.whatsapp.com/send' );
 		$email_share = 'mailto:?subject=' . $share_title . '&body=' . rawurlencode( $permalink );
 		?>
-		<!-- https://www.facebook.com/sharer.php?u=https://google.com -->
-		<!-- https://www.facebook.com/sharer/sharer.php?u=https://new_hdi.cotillo.dev/prolongar-la-vida-util-de-tu-motor-diesel/ -->
 		<div class="share-links flex flex-col items-start mt-8">
 			<ul class="flex flex-row gap-5 items-start">
 				<li><a class="share share-facebook" href="<?php echo esc_url( $facebook_share ); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a></li>
