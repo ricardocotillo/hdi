@@ -4,7 +4,7 @@ services:
     build: .
     container_name: php
     volumes:
-      - ./app:/var/www/html
+      - .:/var/www/html
     labels:
       - "traefik.enable=false" # Backend container, no direct access
     networks:
@@ -31,7 +31,7 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./app:/var/www/html
+      - .:/var/www/html
       - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - php
@@ -124,14 +124,14 @@ services:
   #     - app-network
 
   # For frontend build processes (for Vue/React)
-  node:
-    image: node:alpine
-    container_name: node
-    volumes:
-      - ./app:/var/www/html
-    working_dir: /var/www/html
-    networks:
-      - app-network
+  # node:
+  #   image: node:alpine
+  #   container_name: node
+  #   volumes:
+  #     - .:/var/www/html
+  #   working_dir: /var/www/html
+  #   networks:
+  #     - app-network
   # For advanced search and analytics capabilities
   # elasticsearch:
   #   image: elasticsearch:7.17.0
