@@ -298,7 +298,7 @@ if ( have_posts() ) :
                                             <input type="text" class="form-control hartridge-form-control" id="NAME" name="NAME" required placeholder="Nombres y Apellidos">
                                         </div>
 
-                                        <div class="row g-3 mb-3 flex flex-col md:flex-row gap-2 md:items-center">
+                                        <div class="row g-3 mb-3 flex flex-col md:flex-row gap-2 md:items-center form-group">
                                             <div class="col-md-6 position-relative">
                                                 <input type="text" class="form-control hartridge-form-control" id="COBJ6CF2" required name="COBJ6CF2" placeholder="Teléfono">
                                             </div>
