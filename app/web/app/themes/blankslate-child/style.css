@@ -2741,10 +2741,15 @@ textarea.hartridge-form-control {
     top: auto;
     right: auto;
     transform: none;
-    margin: 20px auto;
+    margin: 0;
     padding: 20px 0;
     max-width: 90%;
     z-index: 10;
+    width: 100%;
+  }
+
+  #form-container .form-group div:has(input) {
+    width: 100%;
   }
 
   .producto-image {
