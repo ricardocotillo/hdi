@@ -36,8 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			link.addEventListener('click', function(e) {
 				// Solo prevenir default si estamos en mobile
 				if (window.innerWidth < 768) {
-					e.preventDefault();
-					item.classList.toggle('active');
+					const isActive = item.classList.contains('active');
+					const hasOpenedOnce = item.dataset.openedOnce === 'true';
+					if (!isActive || !hasOpenedOnce) {
+						e.preventDefault();
+						item.classList.add('active');
+						item.dataset.openedOnce = 'true';
+					}
 				}
 			});
 		}
