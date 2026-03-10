@@ -451,6 +451,7 @@ add_action( 'carbon_fields_loaded', function() {
 
 
 		->add_tab( __( 'Footer' ), array(
+			Field::make( 'image', 'crb_footer_logo', __( 'Logo Footer' ) ),
 			Field::make( 'complex', 'crb_distribution', __( 'Direcciones' ) )
 				->set_layout( 'grid' )
 				->add_fields( array(
