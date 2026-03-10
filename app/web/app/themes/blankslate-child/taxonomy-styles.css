@@ -280,7 +280,7 @@
 
 .btn-ver-mas {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #0170B9;
     color: white !important;
     padding: 10px 20px;
     text-decoration: none;
@@ -347,7 +347,7 @@
 }
 
 .btn-ver-mas-productos {
-    background-color: #007bff;
+    background-color: #0170B9;
     color: white;
     border: none;
     padding: 12px 40px;
@@ -361,7 +361,6 @@
 }
 
 .btn-ver-mas-productos:hover {
-    background-color: #0056b3;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
