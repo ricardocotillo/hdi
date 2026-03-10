@@ -236,6 +236,14 @@
     width: 40%;
     padding-top: 10px;
   }
+  .header-sticky .sticky-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .header-sticky .sticky-right .mobile-menu-container {
+    margin-bottom: 6px;
+  }
   .menu-search {
     margin-top: 20px;
     margin-left: 20px;
