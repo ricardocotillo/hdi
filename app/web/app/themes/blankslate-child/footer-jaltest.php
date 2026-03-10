@@ -48,10 +48,10 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
                     $footer_email = carbon_get_post_meta( get_the_ID(), 'crb_footer_email' );
                     if ( $footer_email ) :
                         ?>
-                        <p class="footer-contact-item">
+                        <a href="mailto:<?php echo esc_attr( $footer_email ); ?>" class="footer-contact-item">
                             <i class="fas fa-envelope"></i>
                             <?php echo esc_html( $footer_email ); ?>
-                        </p>
+                        </a>
                     <?php endif; ?>
 
                     <?php
