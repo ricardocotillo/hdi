@@ -1088,8 +1088,8 @@ Container::make( 'post_meta', __( 'Galería de Equipamiento' ) )
 		$whatsapp_share = add_query_arg( 'text', $title . ' ' . $permalink, 'https://api.whatsapp.com/send' );
 		$email_share = 'mailto:?subject=' . $share_title . '&body=' . rawurlencode( $permalink );
 		?>
-		<div class="share-links flex flex-col items-start mt-8">
-			<ul class="flex flex-row gap-5 items-start">
+		<div class="share-links mt-8">
+			<ul>
 				<li><a class="share share-facebook" href="<?php echo esc_url( $facebook_share ); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a></li>
 				<li><a class="share share-linkedin" href="<?php echo esc_url( $linkedin_share ); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fab fa-linkedin"></i> Linkedin</a></li>
 				<li><a class="share share-whatsapp" href="<?php echo esc_url( $whatsapp_share ); ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
