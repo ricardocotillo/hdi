@@ -2755,6 +2755,12 @@ textarea.hartridge-form-control {
   .producto-image {
     height: auto !important;
   }
+
+  .page-header-image[alt="Servicios"] {
+    height: 200px;
+    object-fit: cover;
+    object-position: 25%;
+  }
 }
 
 .modelos-image {
