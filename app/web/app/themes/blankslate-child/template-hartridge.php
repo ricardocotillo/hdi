@@ -261,7 +261,7 @@ if ( have_posts() ) :
                                     <i class="fas fa-envelope"></i>
                                     <div>
                                         <p class="hartridge-demo-contact-value"><?php echo esc_html( $demo_email ); ?></p>
-                                        <p class="hartridge-demo-contact-label">Correo electrónico</p>
+                                        <a href="mailto:<?php echo esc_attr( $demo_email ); ?>" class="hartridge-demo-contact-label">Correo electrónico</a>
                                     </div>
                                 </div>
                             <?php endif; ?>
