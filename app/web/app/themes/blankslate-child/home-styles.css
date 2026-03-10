@@ -437,6 +437,7 @@
   width: 100%;
   padding: 60px 0;
   padding-top: 40px;
+  background-color: #EFEFEF;
 }
 
 .home-news-section h2 {
@@ -1007,7 +1008,7 @@
     gap: 16px;
   }
 
-  .consejo-container .w-1/4 {
+  .consejo-container .w-1\/4 {
     display: none !important;
   }
 
@@ -1015,8 +1016,8 @@
     display: none !important;
   }
 
-  .consejo-container .w-3/4,
-  .consejo-container .w-1/4,
+  .consejo-container .w-3\/4,
+  .consejo-container .w-1\/4,
   .consejo-container .w-full {
     width: 100% !important;
   }

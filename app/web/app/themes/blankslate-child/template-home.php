@@ -178,7 +178,7 @@ if ( have_posts() ) :
 			</section>
 
 			<!-- Section 7: News/Novedades -->
-			<section class="home-news-section py-12 bg-gray-50">
+			<section class="home-news-section py-12">
 				<div class="container">
 					<?php
 					$news_title = carbon_get_post_meta( get_the_ID(), 'crb_home_news_title' );
