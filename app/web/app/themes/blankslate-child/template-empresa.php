@@ -93,7 +93,7 @@ if ( have_posts() ) :
                             }
                         }
                         if ( $video_src ) {
-                            echo '<iframe width="100%" height="100%" src="' . esc_url( $video_src ) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                            echo '<iframe style="aspect-ratio: 16 / 9;" width="100%" height="100%" src="' . esc_url( $video_src ) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                         }
                     }
                     ?>
