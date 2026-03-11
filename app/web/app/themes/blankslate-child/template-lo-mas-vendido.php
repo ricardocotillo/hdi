@@ -5,8 +5,8 @@
 
 get_header();
 
-$header_image = carbon_get_post_meta( get_queried_object_id(), 'crb_page_header_image' );
-
+// $header_image = carbon_get_post_meta( get_queried_object_id(), 'crb_page_header_image' );
+$header_image = null;
 $productos_query = new WP_Query( array(
 	'post_type'      => 'productos',
 	'posts_per_page' => 12,
