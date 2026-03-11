@@ -173,14 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			const li = document.createElement('li');
 			li.className = 'search-result-item';
 			
-			let imageHtml = '';
-			if (product.image) {
-				imageHtml = `<img src="${product.image}" alt="${product.title}" class="result-image">`;
-			}
+			// let imageHtml = '';
+			// if (product.image) {
+			// 	imageHtml = `<img src="${product.image}" alt="${product.title}" class="result-image">`;
+			// }
 			
 			li.innerHTML = `
 				<a href="${product.url}" class="result-link">
-					${imageHtml}
 					<span class="result-title">${product.title}</span>
 				</a>
 			`;
