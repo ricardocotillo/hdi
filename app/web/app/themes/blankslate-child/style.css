@@ -1757,8 +1757,15 @@ textarea {
   grid-template-columns: repeat(2, 1fr);
 }
 
+#novedades-jaltest .novedades-grid.cols-1,
+#novedades-jaltest .novedades-grid.cols-2 {
+  justify-items: center;
+}
+
 #novedades-jaltest .novedad-item {
   position: relative;
+  width: 100%;
+  max-width: calc((100% - 40px) / 3);
 }
 
 #novedades-jaltest .novedad-item-image-wrapper {
@@ -1818,11 +1825,19 @@ textarea {
   #novedades-jaltest .novedades-grid.cols-1 {
     grid-template-columns: 1fr;
   }
+
+  #novedades-jaltest .novedad-item {
+    max-width: calc((100% - 20px) / 2);
+  }
 }
 
 @media (max-width: 768px) {
   #novedades-jaltest .novedades-grid {
     grid-template-columns: 1fr;
+  }
+
+  #novedades-jaltest .novedad-item {
+    max-width: 100%;
   }
 }
 
