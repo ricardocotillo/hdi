@@ -23,7 +23,7 @@ $whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
 
 <style>
 	.taxonomy-container {
-		padding: 2rem 0;
+		padding: 3rem 0;
 	}
 </style>
 
