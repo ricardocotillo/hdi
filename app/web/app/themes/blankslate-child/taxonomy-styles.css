@@ -501,6 +501,7 @@
     font-size: 17px;
     font-weight: 600;
     background-color: white;
+    padding-bottom: 2rem;
 }
 
 .home-parts-carousel {
@@ -677,6 +678,7 @@
     .home-parts-section {
         padding: 40px 0;
         font-size: 15px;
+        padding-bottom: 2rem;
     }
 
     .parts-item {
