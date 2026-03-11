@@ -428,6 +428,12 @@
     .brand-carousel-item img {
         height: 80px;
     }
+
+    .cuadro-azul {
+        height: auto;
+        min-height: unset;
+        padding: 2.5rem 0;
+    }
 }
 
 /* Utility Classes */
