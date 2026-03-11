@@ -2644,7 +2644,7 @@ textarea.hartridge-form-control {
 .jaltest-form-overlay {
   position: absolute;
   top: 50%;
-  right: 5%;
+  right: 20%;
   transform: translateY(-50%);
   z-index: 10;
   max-width: 400px;
