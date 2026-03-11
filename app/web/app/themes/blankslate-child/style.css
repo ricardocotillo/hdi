@@ -1749,6 +1749,14 @@ textarea {
   margin-top: 30px;
 }
 
+#novedades-jaltest .novedades-grid.cols-1 {
+  grid-template-columns: 1fr;
+}
+
+#novedades-jaltest .novedades-grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 #novedades-jaltest .novedad-item {
   position: relative;
 }
@@ -1805,6 +1813,10 @@ textarea {
 @media (max-width: 1024px) {
   #novedades-jaltest .novedades-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  #novedades-jaltest .novedades-grid.cols-1 {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -354,9 +354,18 @@ if ( have_posts() ) :
             <section class="w-full">
                 <section class="container" id="novedades-jaltest">
                     <h2 class="text-center"><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_jaltest_novedades_title' ) ); ?></h2>
-                    <section class="novedades-grid" id="novedades-jaltest-items">
+                    <?php
+                    $novedades_items = carbon_get_post_meta( get_the_ID(), 'crb_jaltest_news' );
+                    $novedades_cols = is_array( $novedades_items ) ? count( $novedades_items ) : 0;
+                    if ( $novedades_cols > 3 ) {
+                        $novedades_cols = 3;
+                    }
+                    if ( $novedades_cols < 1 ) {
+                        $novedades_cols = 3;
+                    }
+                    ?>
+                    <section class="novedades-grid cols-<?php echo esc_attr( $novedades_cols ); ?>" id="novedades-jaltest-items">
                         <?php
-                        $novedades_items = carbon_get_post_meta( get_the_ID(), 'crb_jaltest_news' );
                         if ( ! empty( $novedades_items ) ) :
                             ?>
                                 <?php foreach ( $novedades_items as $item ) : ?>
