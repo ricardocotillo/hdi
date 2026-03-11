@@ -132,7 +132,7 @@
 .filter-contact {
     margin-top: 40px;
     background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-    padding: 30px 20px;
+    padding: 1.25rem;
     margin: 40px 0 0 0;
     border-radius: 8px;
     border-top: 40px solid #ffffff;
@@ -149,15 +149,15 @@
     background-color: #00BC10;
     color: #FFFFFF !important;
     border-radius: 25px;
-    padding: 10px 20px;
-    font-size: 15px;
+    padding: 1rem 1.25rem;
+    font-size: 1.25rem;
     font-weight: 600;
     text-decoration: none !important;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 155px;
-    margin: 0 auto 15px auto;
+    width: 12.5rem;
+    margin: auto;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
