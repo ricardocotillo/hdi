@@ -123,7 +123,7 @@ get_header(); ?>
 
 
     <div class="w-full container mx-auto">
-        <section class="container">
+        <section class="container p-0">
             <section class="repuestos text-center">
                 <?php
                 $repuestos_text = carbon_get_theme_option( 'crb_repuestos_originals_text' );
