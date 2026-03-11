@@ -25,6 +25,9 @@ $whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
 	.taxonomy-container {
 		padding: 3rem 0;
 	}
+	.taxonomy-wrapper {
+		margin-bottom: 3rem;
+	}
 </style>
 
 <div class="container taxonomy-container">
