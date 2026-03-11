@@ -22,67 +22,65 @@ $whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
 ?>
 
 <div class="container taxonomy-container">
-	<div class="taxonomy-wrapper-container">
-		<div class="taxonomy-wrapper flex gap-5">
-			<aside class="filters-panel">
-				<h3 class="filters-title">Seleccione vehículos</h3>
+	<div class="taxonomy-wrapper flex gap-5">
+		<aside class="filters-panel">
+			<h3 class="filters-title">Seleccione vehículos</h3>
 
-				<div class="filter-group">
-					<label for="filter-fabricantes">Fabricantes</label>
-					<select id="filter-fabricantes" class="filter-select" data-taxonomy="fabricantes">
-						<option value="">Seleccionar...</option>
-						<?php foreach ( $fabricantes as $fabricante ) : ?>
-							<option value="<?php echo esc_attr( $fabricante->term_id ); ?>"><?php echo esc_html( $fabricante->name ); ?></option>
-						<?php endforeach; ?>
-					</select>
-				</div>
+			<div class="filter-group">
+				<label for="filter-fabricantes">Fabricantes</label>
+				<select id="filter-fabricantes" class="filter-select" data-taxonomy="fabricantes">
+					<option value="">Seleccionar...</option>
+					<?php foreach ( $fabricantes as $fabricante ) : ?>
+						<option value="<?php echo esc_attr( $fabricante->term_id ); ?>"><?php echo esc_html( $fabricante->name ); ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
 
-				<div class="filter-group">
-					<label for="filter-marcas">Marcas</label>
-					<select id="filter-marcas" class="filter-select" data-taxonomy="marcas">
-						<option value="">Seleccionar...</option>
-						<?php foreach ( $marcas as $marca ) : ?>
-							<option value="<?php echo esc_attr( $marca->term_id ); ?>"><?php echo esc_html( $marca->name ); ?></option>
-						<?php endforeach; ?>
-					</select>
-				</div>
+			<div class="filter-group">
+				<label for="filter-marcas">Marcas</label>
+				<select id="filter-marcas" class="filter-select" data-taxonomy="marcas">
+					<option value="">Seleccionar...</option>
+					<?php foreach ( $marcas as $marca ) : ?>
+						<option value="<?php echo esc_attr( $marca->term_id ); ?>"><?php echo esc_html( $marca->name ); ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
 
-				<div class="filter-group">
-					<label for="filter-oem">Código OEM</label>
-					<input type="text" id="filter-oem" class="filter-input" placeholder="Buscar...">
-				</div>
+			<div class="filter-group">
+				<label for="filter-oem">Código OEM</label>
+				<input type="text" id="filter-oem" class="filter-input" placeholder="Buscar...">
+			</div>
 
-				<div class="filter-group">
-					<label for="filter-fabricante-code">Códigos Fabricante</label>
-					<input type="text" id="filter-fabricante-code" class="filter-input" placeholder="Buscar...">
-				</div>
+			<div class="filter-group">
+				<label for="filter-fabricante-code">Códigos Fabricante</label>
+				<input type="text" id="filter-fabricante-code" class="filter-input" placeholder="Buscar...">
+			</div>
 
-				<div class="filter-contact hide-mobile">
-					<a href="<?php echo esc_url( $whatsapps[0]['link'] ); ?>" class="btn-contactanos"><i aria-hidden="true" class="fab fa-whatsapp"></i> Contáctanos</a>
-				</div>
-			</aside>
+			<div class="filter-contact hide-mobile">
+				<a href="<?php echo esc_url( $whatsapps[0]['link'] ); ?>" class="btn-contactanos"><i aria-hidden="true" class="fab fa-whatsapp"></i> Contáctanos</a>
+			</div>
+		</aside>
 
-			<main class="productos-main">
-				<div id="productos-grid" class="productos-grid">
-					<?php if ( $search_productos_query->have_posts() ) : ?>
-						<?php while ( $search_productos_query->have_posts() ) : $search_productos_query->the_post(); ?>
-							<article class="producto-item">
-								<div class="producto-image">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail( 'medium' ); ?>
-									<?php endif; ?>
-								</div>
-								<h3 class="producto-title"><?php the_title(); ?></h3>
-								<a href="<?php the_permalink(); ?>" class="btn-ver-mas">Ver más</a>
-							</article>
-						<?php endwhile; ?>
-						<?php wp_reset_postdata(); ?>
-					<?php else : ?>
-						<p class="no-productos">No hay productos.</p>
-					<?php endif; ?>
-				</div>
-			</main>
-		</div>
+		<main class="productos-main">
+			<div id="productos-grid" class="productos-grid">
+				<?php if ( $search_productos_query->have_posts() ) : ?>
+					<?php while ( $search_productos_query->have_posts() ) : $search_productos_query->the_post(); ?>
+						<article class="producto-item">
+							<div class="producto-image">
+								<?php if ( has_post_thumbnail() ) : ?>
+									<?php the_post_thumbnail( 'medium' ); ?>
+								<?php endif; ?>
+							</div>
+							<h3 class="producto-title"><?php the_title(); ?></h3>
+							<a href="<?php the_permalink(); ?>" class="btn-ver-mas">Ver más</a>
+						</article>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+				<?php else : ?>
+					<p class="no-productos">No hay productos.</p>
+				<?php endif; ?>
+			</div>
+		</main>
 	</div>
 
 	<?php if ( $search_productos_query->found_posts > 12 ) : ?>
