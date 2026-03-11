@@ -23,29 +23,6 @@ $productos_query = new WP_Query( array(
 <?php endif; ?>
 
 <div class="taxonomy-container bg-white">
-	<section class="w-full">
-		<div class="container text-center">
-			<h2 id="productos-mas-vendidos">Nuestras Marcas</h2>
-			<div class="owl-carousel owl-theme home-brands-carousel">
-				<?php
-				$brands_carousel = carbon_get_theme_option( 'crb_distribuidor_grid' );
-				if ( ! empty( $brands_carousel ) ) :
-					foreach ( $brands_carousel as $brand ) :
-						$logo_url = ! empty( $brand['image'] ) ? wp_get_attachment_image_url( $brand['image'], 'medium' ) : '';
-						$link = ! empty( $brand['link'] ) ? $brand['link'] : '#';
-						?>
-						<div class="brand-carousel-item text-center">
-							<?php if ( $logo_url ) : ?>
-								<img src="<?php echo esc_url( $logo_url ); ?>" alt="Brand Logo" class="brand-logo-image mx-auto">
-							<?php endif; ?>
-						</div>
-						<?php
-					endforeach;
-				endif;
-				?>
-			</div>
-		</div>
-	</section>
 
 	<div class="taxonomy-wrapper-container bg-white">
 		<div class="container mx-auto taxonomy-wrapper flex gap-5">
@@ -80,6 +57,29 @@ $productos_query = new WP_Query( array(
 		<?php endif; ?>
 	</div>
 
+	<section class="w-full">
+		<div class="container text-center">
+			<h2 id="productos-mas-vendidos">Nuestras Marcas</h2>
+			<div class="owl-carousel owl-theme home-brands-carousel">
+				<?php
+				$brands_carousel = carbon_get_theme_option( 'crb_distribuidor_grid' );
+				if ( ! empty( $brands_carousel ) ) :
+					foreach ( $brands_carousel as $brand ) :
+						$logo_url = ! empty( $brand['image'] ) ? wp_get_attachment_image_url( $brand['image'], 'medium' ) : '';
+						$link = ! empty( $brand['link'] ) ? $brand['link'] : '#';
+						?>
+						<div class="brand-carousel-item text-center">
+							<?php if ( $logo_url ) : ?>
+								<img src="<?php echo esc_url( $logo_url ); ?>" alt="Brand Logo" class="brand-logo-image mx-auto">
+							<?php endif; ?>
+						</div>
+						<?php
+					endforeach;
+				endif;
+				?>
+			</div>
+		</div>
+	</section>
 	<div class="w-full container mx-auto">
 		<section class="container">
 			<section class="home-parts-section bg-white">
