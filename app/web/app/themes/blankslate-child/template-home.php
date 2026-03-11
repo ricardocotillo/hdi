@@ -191,7 +191,7 @@ if ( have_posts() ) :
                     </div>
 
 
-                <div class="flex gap-2">
+                <div class="flex gap-2 novedades-grid-container">
 					<?php
 					$news = new WP_Query( array(
 						'post_type' => 'post',
