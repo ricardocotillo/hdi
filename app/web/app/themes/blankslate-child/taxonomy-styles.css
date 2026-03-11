@@ -390,51 +390,6 @@
     }
 }
 
-@media (max-width: 768px) {
-    .taxonomy-wrapper {
-        flex-direction: column;
-    }
-
-    .filters-panel {
-        flex: 1;
-        position: static;
-    }
-
-    .productos-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .producto-image {
-        height: 150px;
-    }
-
-    /* Carousel responsive styles */
-    .home-brands-carousel .owl-nav button,
-    .home-parts-carousel .owl-nav button {
-        width: 36px;
-        height: 36px;
-        font-size: 14px;
-    }
-
-    .parts-item-image {
-        width: 100px !important;
-    }
-
-    .brand-carousel-item {
-        height: 120px;
-        padding: 10px;
-    }
-
-    .brand-carousel-item img {
-        height: 80px;
-    }
-
-    .cuadro-azul {
-        height: auto;
-        min-height: unset;
-        padding: 2.5rem 0;
-    }
-}
 
 /* Utility Classes */
 .flex {
@@ -670,7 +625,12 @@
     line-height: 30px;
     max-width: 80%;
     margin:0 auto;
-}   
+}
+
+.taxonomy-wrapper-container {
+    padding-top: 60px;
+    background-color: #EFEFEF;
+}
 
 @media (min-width: 768px) {
     .cuadros-container {
@@ -733,7 +693,48 @@
     }
 }
 
-.taxonomy-wrapper-container {
-    padding-top: 60px;
-    background-color: #EFEFEF;
+@media (max-width: 768px) {
+    .taxonomy-wrapper {
+        flex-direction: column;
+    }
+
+    .filters-panel {
+        flex: 1;
+        position: static;
+    }
+
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .producto-image {
+        height: 150px;
+    }
+
+    /* Carousel responsive styles */
+    .home-brands-carousel .owl-nav button,
+    .home-parts-carousel .owl-nav button {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .parts-item-image {
+        width: 100px !important;
+    }
+
+    .brand-carousel-item {
+        height: 120px;
+        padding: 10px;
+    }
+
+    .brand-carousel-item img {
+        height: 80px;
+    }
+
+    .cuadro-azul {
+        height: auto;
+        min-height: unset;
+        padding: 2.5rem 0;
+    }
 }
