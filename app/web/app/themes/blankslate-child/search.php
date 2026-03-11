@@ -21,6 +21,12 @@ $search_productos_query = new WP_Query( array(
 $whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
 ?>
 
+<style>
+	.taxonomy-container {
+		padding: 2rem 0;
+	}
+</style>
+
 <div class="container taxonomy-container">
 	<div class="taxonomy-wrapper flex gap-5">
 		<aside class="filters-panel">
