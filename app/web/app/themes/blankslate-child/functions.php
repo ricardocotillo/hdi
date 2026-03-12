@@ -1118,5 +1118,45 @@ add_filter( 'import_upload_size_limit', function() {
 	return 100 * 1024 * 1024; // 100MB
 } );
 
+function blankslate_child_change_posts_menu_to_novedades() {
+	global $menu;
+	global $submenu;
 
+	if ( isset( $menu[5][0] ) ) {
+		$menu[5][0] = 'Novedades';
+	}
 
+	if ( isset( $submenu['edit.php'] ) ) {
+		if ( isset( $submenu['edit.php'][5][0] ) ) {
+			$submenu['edit.php'][5][0] = 'Novedades';
+		}
+		if ( isset( $submenu['edit.php'][10][0] ) ) {
+			$submenu['edit.php'][10][0] = 'Añadir nueva';
+		}
+	}
+}
+add_action( 'admin_menu', 'blankslate_child_change_posts_menu_to_novedades' );
+
+function blankslate_child_change_posts_labels_to_novedades() {
+	global $wp_post_types;
+
+	if ( ! isset( $wp_post_types['post'] ) ) {
+		return;
+	}
+
+	$labels = $wp_post_types['post']->labels;
+	$labels->name = 'Novedades';
+	$labels->singular_name = 'Novedad';
+	$labels->add_new = 'Añadir nueva';
+	$labels->add_new_item = 'Añadir nueva novedad';
+	$labels->edit_item = 'Editar novedad';
+	$labels->new_item = 'Novedad';
+	$labels->view_item = 'Ver novedad';
+	$labels->search_items = 'Buscar novedades';
+	$labels->not_found = 'No se encontraron novedades';
+	$labels->not_found_in_trash = 'No se encontraron novedades en la papelera';
+	$labels->all_items = 'Todas las novedades';
+	$labels->menu_name = 'Novedades';
+	$labels->name_admin_bar = 'Novedad';
+}
+add_action( 'init', 'blankslate_child_change_posts_labels_to_novedades' );
