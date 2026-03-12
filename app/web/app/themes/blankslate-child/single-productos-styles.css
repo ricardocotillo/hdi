@@ -697,7 +697,7 @@
 
 .related-products-carousel .btn-ver-mas {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #0170B9;
     color: white !important;
     padding: 10px 20px;
     text-decoration: none;
@@ -715,7 +715,6 @@
 }
 
 .related-products-carousel .btn-ver-mas:hover {
-    background-color: #0056b3;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
