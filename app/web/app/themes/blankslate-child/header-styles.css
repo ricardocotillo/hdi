@@ -363,6 +363,7 @@
     color: #000;
     padding: 0;
     font-size: 13px;
+    display: block;
   }
   #menu-principal > li > ul > li:hover {
     background-color: #e8e8e8;
