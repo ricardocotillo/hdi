@@ -67,7 +67,6 @@ if ( have_posts() ) :
                         <?php echo wp_kses_post( (string) carbon_get_post_meta( get_the_ID(), 'crb_page_policy_sig_text' ) ); ?>
                         <?php 
                             $policy_link = carbon_get_post_meta( get_the_ID(), 'crb_page_policy_sig_pdf' ) ? wp_get_attachment_url( carbon_get_post_meta( get_the_ID(), 'crb_page_policy_sig_pdf' ) ) : '';
-                            var_dump($policy_link);
                             $policy_button_text = carbon_get_post_meta( get_the_ID(), 'crb_page_button_text' );
                             if ($policy_button_text ) {
                                 echo '<a href="' . esc_url( $policy_link ) . '" target="_blank" rel="noopener noreferrer" class="btn-descarga-aqui">' . esc_html( $policy_button_text ) . '</a>';
