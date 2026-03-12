@@ -10,6 +10,9 @@
 	const menuProductsToggle = document.getElementById('menu-products-toggle');
 	const menuCloseBtn = document.getElementById('menu-lateral-close-btn');
 	const menuLateralCloseContainer = document.querySelector('.menu-lateral-close');
+	const menuMobileButton = document.getElementById('menu-mobile-button');
+	const menuPrincipal = document.getElementById('menu-principal');
+	const menuMobileIcon = menuMobileButton ? menuMobileButton.querySelector('i') : null;
 
 	// Verificar que todos los elementos existen
 	if (!menuLateral || !menuProductsToggle) {
@@ -59,12 +62,24 @@
 
 	// Function to open menu
 	function openMenu() {
+		closeMobileMenu();
 		menuLateral.classList.add('active');
 		if (menuOverlay) {
 			menuOverlay.classList.add('active');
 		}
 		if (menuLateralCloseContainer) {
 			menuLateralCloseContainer.classList.add('active');
+		}
+	}
+
+	function closeMobileMenu() {
+		if (!menuPrincipal) return;
+		if (!menuPrincipal.classList.contains('show')) return;
+
+		menuPrincipal.classList.remove('show');
+		if (menuMobileIcon) {
+			menuMobileIcon.classList.add('fa-bars');
+			menuMobileIcon.classList.remove('fa-times');
 		}
 	}
 
@@ -82,6 +97,13 @@
 	// Close menu when pressing Escape key
 	document.addEventListener('keydown', function(event) {
 		if (event.key === 'Escape' && menuLateral.classList.contains('active')) {
+			closeMenu();
+		}
+	});
+
+	// Allow other scripts to close this menu when opening a different one
+	document.addEventListener('hdi:close-lateral-menu', function() {
+		if (menuLateral.classList.contains('active')) {
 			closeMenu();
 		}
 	});
