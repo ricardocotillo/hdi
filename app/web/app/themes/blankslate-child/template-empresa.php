@@ -109,7 +109,7 @@ if ( have_posts() ) :
                                 foreach ( $values as $value ) {
                                     echo '<div class="w-1/3 p-4 text-center">';
                                     if ( isset( $value['icon'] ) && $value['icon'] ) {
-                                        echo wp_get_attachment_image( $value['icon'], 'full', false, array( 'class' => 'w-full h-auto', 'style' => 'max-width: 100px; margin: 0 auto 20px;' ) );
+                                        echo wp_get_attachment_image( $value['icon'], 'full', false, array( 'class' => 'w-auto', 'style' => 'margin: 0 auto 20px;' ) );
                                     }
                                     if ( isset( $value['text'] ) && $value['text'] ) {
                                         echo '<p>' . wp_kses_post( (string) $value['text'] ) . '</p>';

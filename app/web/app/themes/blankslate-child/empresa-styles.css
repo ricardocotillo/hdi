@@ -6,6 +6,10 @@
 	padding-right: 20px;
 }
 
+.values-list img {
+	height: 100px;
+}
+
 @media (max-width: 768px) {
 	.empresa-content .flex {
 		flex-direction: column;
