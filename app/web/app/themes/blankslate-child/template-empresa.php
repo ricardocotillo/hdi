@@ -112,7 +112,7 @@ if ( have_posts() ) :
                                         echo wp_get_attachment_image( $value['icon'], 'full', false, array( 'class' => 'w-auto', 'style' => 'margin: 0 auto 20px;' ) );
                                     }
                                     if ( isset( $value['text'] ) && $value['text'] ) {
-                                        echo '<p>' . wp_kses_post( (string) $value['text'] ) . '</p>';
+                                        echo '<p class="text-center">' . wp_kses_post( (string) $value['text'] ) . '</p>';
                                     }
                                     echo '</div>';
                                 }
