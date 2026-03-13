@@ -54,6 +54,7 @@
     overflow: visible;
     margin-bottom: 20px;
     position: relative;
+    aspect-ratio: 1 / 1;
 }
 
 .product-gallery-carousel {
