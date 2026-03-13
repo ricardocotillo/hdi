@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	if (menuMobileButton && menuPrincipal && menuIcon) {
 		menuMobileButton.addEventListener('click', function() {
+			if (!menuPrincipal.classList.contains('show')) {
+				document.dispatchEvent(new CustomEvent('hdi:close-lateral-menu'));
+			}
 			menuPrincipal.classList.toggle('show');
 			menuIcon.classList.toggle('fa-bars');
 			menuIcon.classList.toggle('fa-times');
