@@ -66,6 +66,7 @@
     justify-content: center;
     background-color: white;
     width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 .product-gallery-image {
