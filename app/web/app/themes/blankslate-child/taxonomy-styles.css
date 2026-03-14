@@ -680,7 +680,7 @@
     }
 
     .brand-carousel-item img {
-        height: 80px;
+        object-fit: contain;
     }
 
     .cuadro-azul {
