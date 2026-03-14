@@ -312,15 +312,6 @@
     font-size: 13px;
     color: #000;
   }
-  #menu-principal li:active {
-    position: relative;
-    background-color: #55595c !important;
-    color: #fff !important;
-  }
-  #menu-principal li:active > ul {
-    display: flex;
-    position: relative;
-  }
   #menu-principal > li > ul {
     position: absolute;
     top: 100%;
