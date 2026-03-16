@@ -227,7 +227,7 @@ if ( have_posts() ) :
                     ?>
                 </section>
             </section>
-            <section class="w-full fondo-plomo">
+            <section id="contacto" class="w-full fondo-plomo">
                 <section class="container">
                     <div class="hartridge-demo-section">
                         <div class="hartridge-demo-left">
