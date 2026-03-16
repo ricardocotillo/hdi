@@ -80,7 +80,7 @@
 						</div>
 					</div> 
 				</div>
-				<div class="sticky-right">
+				<div class="sticky-right" style="display: flex;flex-direction: column; justify-content: space-between;">
 					<div class="social flex items-center justify-end">
 						<?php 
 							$whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
