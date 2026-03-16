@@ -229,7 +229,9 @@ if ( have_posts() ) :
                                         </div>
 
                                         <div class="mb-3 row position-relative">
-                                            <input type="text" class="form-control" id="COBJ7CF1" name="COBJ7CF1" placeholder="RUC/DNI">
+                                            <div class="col-12">
+                                                <input type="text" class="form-control" id="COBJ7CF1" name="COBJ7CF1" placeholder="RUC/DNI">
+                                            </div>
                                         </div>
 
                                         <div class="row g-3 mb-4">
