@@ -229,7 +229,7 @@ if ( have_posts() ) :
                                         </div>
 
                                         <div class="mb-3 row position-relative">
-                                            <div class="col-12">
+                                            <div class="col-12" style="padding-right: 4px;">
                                                 <input type="text" class="form-control" id="COBJ7CF1" name="COBJ7CF1" placeholder="RUC/DNI">
                                             </div>
                                         </div>
