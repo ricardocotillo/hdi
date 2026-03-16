@@ -77,7 +77,7 @@ if ( have_posts() ) :
                     <?php endif; ?>
                 </section>
             </section>
-            <section class="w-full fondo-plomo">
+            <section id="productos" class="w-full fondo-plomo">
                 <section class="container nuestros-productos nuestros-productos-hartridge">
                     <h2 class="text-center">Nuestros Productos</h2>
                     <p class="text-center">Hartridge cuenta con una amplia variedad de bancos de pruebas, accesorios y sofware, dirigidos para laboratorio diésel.</p>
