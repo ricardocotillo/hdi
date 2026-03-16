@@ -166,7 +166,7 @@ if ( have_posts() ) :
                 endif;
                 ?>
             </section>
-            <section class="w-full">
+            <section id="novedades" class="w-full">
                 <section class="container" id="novedades-hartridge">
                     <h2><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_hartridge_novedades_title' ) ); ?></h2>
                     <section class="novedades-grid" id="novedades-hartridge-items">
