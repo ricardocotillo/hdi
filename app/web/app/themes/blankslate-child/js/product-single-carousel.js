@@ -86,7 +86,7 @@ jQuery(document).ready(function ($) {
 					$thumbnails.eq(index).addClass('active');
 				});
 			}
-		}, 2000)
+		}, 10000)
 	}
 
 	// Image Modal Functionality
