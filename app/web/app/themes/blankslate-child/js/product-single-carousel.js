@@ -11,82 +11,80 @@ jQuery(document).ready(function ($) {
 	var mainCarousel = null;
 
 	if ($('.product-gallery-carousel').length) {
-		setTimeout(() => {
-			console.log('✓ Inicializando product gallery carousel');
+		console.log('✓ Inicializando product gallery carousel');
 
-			// Determine if we have thumbnails
-			var hasThumbnails = $('.product-thumbnail-item').length > 0;
-			console.log('Has thumbnails:', hasThumbnails);
+		// Determine if we have thumbnails
+		var hasThumbnails = $('.product-thumbnail-item').length > 0;
+		console.log('Has thumbnails:', hasThumbnails);
 
-			mainCarousel = $('.product-gallery-carousel').owlCarousel({
-				items: 1,
-				loop: !hasThumbnails, // Disable loop if we have thumbnails to avoid index mismatch
-				nav: true,
-				dots: false,
-				autoplay: false,
-				autoplayTimeout: 5000,
-				autoplayHoverPause: true,
-				navText: [
-					'<i class="fas fa-chevron-left"></i>',
-					'<i class="fas fa-chevron-right"></i>'
-				],
-				responsive: {
-					0: {
-						items: 1
-					},
-					768: {
-						items: 1
-					},
-					1024: {
-						items: 1
-					}
+		mainCarousel = $('.product-gallery-carousel').owlCarousel({
+			items: 1,
+			loop: !hasThumbnails, // Disable loop if we have thumbnails to avoid index mismatch
+			nav: true,
+			dots: false,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplayHoverPause: true,
+			navText: [
+				'<i class="fas fa-chevron-left"></i>',
+				'<i class="fas fa-chevron-right"></i>'
+			],
+			responsive: {
+				0: {
+					items: 1
+				},
+				768: {
+					items: 1
+				},
+				1024: {
+					items: 1
 				}
-			}).data('owl.carousel');
-
-			// Thumbnails Carousel - Using flex layout instead of owl carousel
-			if (hasThumbnails && mainCarousel) {
-				console.log('✓ Inicializando product thumbnails');
-				console.log('Total thumbnails:', $('.product-thumbnail-item').length);
-
-				// Set first thumbnail as active by default
-				$('.product-thumbnail-item').first().addClass('active');
-
-				// Make thumbnails clickable to change main carousel using event delegation
-				$(document).on('click', '.product-thumbnail-item', function (e) {
-					e.preventDefault();
-					e.stopPropagation();
-					var $thumbnails = $('.product-thumbnail-item');
-					var index = $thumbnails.index(this);
-					console.log('Thumbnail clicked, index:', index, 'Total thumbnails:', $thumbnails.length);
-
-					// Update active thumbnail immediately
-					$thumbnails.removeClass('active');
-					$(this).addClass('active');
-					console.log('Active class added to thumbnail:', index);
-
-					// Trigger carousel to change
-					if (mainCarousel) {
-						mainCarousel.to(index, 300);
-						console.log('Carousel triggered to index:', index);
-					}
-				});
-
-				// Update active thumbnail when main carousel changes
-				$('.product-gallery-carousel').on('changed.owl.carousel', function (event) {
-					console.log('Carousel changed event fired');
-					console.log('Event:', event);
-					var carouselInstance = $(this).data('owl.carousel');
-					var realIndex = carouselInstance.relative(carouselInstance.current());
-					console.log('Real carousel index:', realIndex, 'Current item index:', event.item.index);
-
-					var index = realIndex;
-					var $thumbnails = $('.product-thumbnail-item');
-					console.log('Setting active thumbnail to index:', index, 'of', $thumbnails.length);
-					$thumbnails.removeClass('active');
-					$thumbnails.eq(index).addClass('active');
-				});
 			}
-		}, 10000)
+		}).data('owl.carousel');
+
+		// Thumbnails Carousel - Using flex layout instead of owl carousel
+		if (hasThumbnails && mainCarousel) {
+			console.log('✓ Inicializando product thumbnails');
+			console.log('Total thumbnails:', $('.product-thumbnail-item').length);
+
+			// Set first thumbnail as active by default
+			$('.product-thumbnail-item').first().addClass('active');
+
+			// Make thumbnails clickable to change main carousel using event delegation
+			$(document).on('click', '.product-thumbnail-item', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				var $thumbnails = $('.product-thumbnail-item');
+				var index = $thumbnails.index(this);
+				console.log('Thumbnail clicked, index:', index, 'Total thumbnails:', $thumbnails.length);
+
+				// Update active thumbnail immediately
+				$thumbnails.removeClass('active');
+				$(this).addClass('active');
+				console.log('Active class added to thumbnail:', index);
+
+				// Trigger carousel to change
+				if (mainCarousel) {
+					mainCarousel.to(index, 300);
+					console.log('Carousel triggered to index:', index);
+				}
+			});
+
+			// Update active thumbnail when main carousel changes
+			$('.product-gallery-carousel').on('changed.owl.carousel', function (event) {
+				console.log('Carousel changed event fired');
+				console.log('Event:', event);
+				var carouselInstance = $(this).data('owl.carousel');
+				var realIndex = carouselInstance.relative(carouselInstance.current());
+				console.log('Real carousel index:', realIndex, 'Current item index:', event.item.index);
+
+				var index = realIndex;
+				var $thumbnails = $('.product-thumbnail-item');
+				console.log('Setting active thumbnail to index:', index, 'of', $thumbnails.length);
+				$thumbnails.removeClass('active');
+				$thumbnails.eq(index).addClass('active');
+			});
+		}
 	}
 
 	// Image Modal Functionality
