@@ -77,7 +77,7 @@ if ( have_posts() ) :
                     <?php endif; ?>
                 </section>
             </section>
-            <section class="w-full fondo-plomo">
+            <section id="productos" class="w-full fondo-plomo">
                 <section class="container nuestros-productos nuestros-productos-hartridge">
                     <h2 class="text-center">Nuestros Productos</h2>
                     <p class="text-center">Hartridge cuenta con una amplia variedad de bancos de pruebas, accesorios y sofware, dirigidos para laboratorio diésel.</p>
@@ -166,7 +166,7 @@ if ( have_posts() ) :
                 endif;
                 ?>
             </section>
-            <section class="w-full">
+            <section id="novedades" class="w-full">
                 <section class="container" id="novedades-hartridge">
                     <h2><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_hartridge_novedades_title' ) ); ?></h2>
                     <section class="novedades-grid" id="novedades-hartridge-items">
@@ -227,7 +227,7 @@ if ( have_posts() ) :
                     ?>
                 </section>
             </section>
-            <section class="w-full fondo-plomo">
+            <section id="contacto" class="w-full fondo-plomo">
                 <section class="container">
                     <div class="hartridge-demo-section">
                         <div class="hartridge-demo-left">
