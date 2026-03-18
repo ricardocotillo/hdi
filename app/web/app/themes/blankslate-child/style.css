@@ -2463,7 +2463,7 @@ textarea {
   font-family: sans-serif;
 }
 
-#inicio-form #crmWebToEntityForm {
+.form-inicio-container #crmWebToEntityForm {
   padding: 32px;
 }
 
