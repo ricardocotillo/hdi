@@ -72,10 +72,6 @@
     height: 100%;
 }
 
-.related-products-section .owl-carousel .owl-stage-outer {
-    padding-left: 4px;
-}
-
 .product-gallery-item {
     display: flex;
     align-items: center;
@@ -666,8 +662,6 @@
 
 .related-products-section .owl-carousel .owl-stage {
     padding-top: 0.5rem;
-    display: flex;
-    align-items: stretch;
 }
 
 /* Related Products Item Styles */
@@ -707,17 +701,17 @@
 }
 
 .related-products-carousel .producto-title {
-    font-size: 14px;
+    font-size: .875rem;
     font-weight: 600;
     color: #333;
-    padding: 15px;
+    padding: 1rem;
     margin: 0;
     flex-grow: 1;
     display: flex;
     align-items: center;
-    min-height: 50px;
     line-height: 1.4;
     text-align: center;
+    height: 4.5rem;
 }
 
 .related-products-carousel .btn-ver-mas {
