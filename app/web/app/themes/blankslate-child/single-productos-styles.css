@@ -712,6 +712,11 @@
     line-height: 1.4;
     text-align: center;
     height: 4.5rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
 }
 
 .related-products-carousel .btn-ver-mas {
