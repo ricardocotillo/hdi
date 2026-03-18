@@ -1497,6 +1497,10 @@ figure.news-image img {
   text-decoration: none !important;
 }
 
+#inicio-form #crmWebToEntityForm {
+  margin-top: 20px;
+}
+
 #crmWebToEntityForm .row {
   --hdi-gutter-x: 1.5rem;
   --hdi-gutter-y: 0;
@@ -2457,6 +2461,10 @@ textarea {
   box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   font-family: sans-serif;
+}
+
+#inicio-form #crmWebToEntityForm {
+  padding: 2rem;
 }
 
 .hartridge-demo-right #crmWebToEntityForm {
