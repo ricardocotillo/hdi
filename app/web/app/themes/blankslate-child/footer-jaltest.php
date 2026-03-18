@@ -96,7 +96,7 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
             </div>
             <div class="flex mb-4 derechos-reservados derechos-reservados-jaltest">
                 <div class="col"><?php echo esc_html( carbon_get_post_meta( get_the_ID(), 'crb_jaltest_footer_copyright' ) ); ?></div>
-                <a href="https://hdi.com.pe/politica-de-garantia/" target="_blank" rel="noopener">Política de garantía y Libro de reclamaciones</a>
+                <a href="/politica-de-garantia/" target="_blank" rel="noopener">Política de garantía y Libro de reclamaciones</a>
             </div>
 		</div>
 	</footer>
