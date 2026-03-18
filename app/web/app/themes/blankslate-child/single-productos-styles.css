@@ -662,6 +662,8 @@
 
 .related-products-section .owl-carousel .owl-stage {
     padding-top: 0.5rem;
+    display: flex;
+    align-items: stretch;
 }
 
 /* Related Products Item Styles */
