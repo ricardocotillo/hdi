@@ -68,7 +68,7 @@
     aspect-ratio: 1 / 1;
 }
 
-.owl-carousel .owl-stage {
+.product-gallery-main-wrapper .owl-carousel .owl-stage {
     height: 100%;
 }
 
@@ -658,6 +658,10 @@
 .related-products-carousel {
     margin: 0 !important;
     margin-bottom: 60px;
+}
+
+.related-products-section .owl-carousel .owl-stage {
+    padding-top: 0.5rem;
 }
 
 /* Related Products Item Styles */
