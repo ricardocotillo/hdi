@@ -125,7 +125,6 @@ if ( have_posts() ) :
                 <section class="w-full services-campo footer-services-campo">
                     <div class="footer-servicios-container">
                         <div class="form-servicios-container" id="cotizar">
-                            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
                             <style>
                                 #crmWebToEntityForm {
                                     max-width: 650px;
@@ -228,8 +227,8 @@ if ( have_posts() ) :
                                             </div>
                                         </div>
 
-                                        <div class="mb-3 row position-relative">
-                                            <div class="col-12" style="padding-right: 4px;">
+                                        <div class="mb-3 position-relative">
+                                            <div class="col-12">
                                                 <input type="text" class="form-control" id="COBJ7CF1" name="COBJ7CF1" placeholder="RUC/DNI">
                                             </div>
                                         </div>
@@ -274,92 +273,92 @@ if ( have_posts() ) :
                                 </div>
                             </div>
 
-                                <script>
-                                    async function submitAjax() {
-                                        const form = document.getElementById('zohoCotizacionAjax');
-                                        
-                                        const fields = [
-                                            { id: 'COBJ7CF3', msg: 'Selecciona una opción', isSelect: true },
-                                            { id: 'NAME', msg: 'Completa este campo' },
-                                            { id: 'COBJ7CF1', msg: 'Completa este campo' },
-                                            { id: 'COBJ7CF2', msg: 'Completa este campo' },
-                                            { id: 'Email', msg: 'Email inválido', isEmail: true },
-                                            { id: 'pol_seg', msg: 'Debes aceptar las políticas', isCheck: true },
-                                            { id: 'term_cond', msg: 'Debes aceptar los términos', isCheck: true }
-                                        ];
+                            <script>
+                                async function submitAjax() {
+                                    const form = document.getElementById('zohoCotizacionAjax');
+                                    
+                                    const fields = [
+                                        { id: 'COBJ7CF3', msg: 'Selecciona una opción', isSelect: true },
+                                        { id: 'NAME', msg: 'Completa este campo' },
+                                        { id: 'COBJ7CF1', msg: 'Completa este campo' },
+                                        { id: 'COBJ7CF2', msg: 'Completa este campo' },
+                                        { id: 'Email', msg: 'Email inválido', isEmail: true },
+                                        { id: 'pol_seg', msg: 'Debes aceptar las políticas', isCheck: true },
+                                        { id: 'term_cond', msg: 'Debes aceptar los términos', isCheck: true }
+                                    ];
 
-                                        // Limpiar errores previos
-                                        document.querySelectorAll('.error-tooltip-custom').forEach(el => el.remove());
-                                        document.querySelectorAll('.form-control, .form-select, .form-check-input').forEach(el => el.classList.remove('is-invalid-custom'));
+                                    // Limpiar errores previos
+                                    document.querySelectorAll('.error-tooltip-custom').forEach(el => el.remove());
+                                    document.querySelectorAll('.form-control, .form-select, .form-check-input').forEach(el => el.classList.remove('is-invalid-custom'));
 
-                                        for (let field of fields) {
-                                            const input = document.getElementById(field.id);
-                                            let isError = false;
+                                    for (let field of fields) {
+                                        const input = document.getElementById(field.id);
+                                        let isError = false;
 
-                                            if (field.isCheck) {
-                                                if (!input.checked) isError = true;
-                                            } else if (field.isSelect) {
-                                                if (input.value === "-None-") isError = true;
-                                            } else if (field.isEmail) {
-                                                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) isError = true;
-                                            } else {
-                                                if (input.value.trim() === "") isError = true;
-                                            }
-
-                                            if (isError) {
-                                                showBalloonError(input, field.msg);
-                                                return; // Detiene la ejecución
-                                            }
+                                        if (field.isCheck) {
+                                            if (!input.checked) isError = true;
+                                        } else if (field.isSelect) {
+                                            if (input.value === "-None-") isError = true;
+                                        } else if (field.isEmail) {
+                                            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) isError = true;
+                                        } else {
+                                            if (input.value.trim() === "") isError = true;
                                         }
 
-                                        const btn = document.querySelector('.btn-cotizar');
-                                        btn.disabled = true;
-                                        btn.innerText = "Enviando...";
-
-                                        const formData = new FormData(form);
-
-                                        try {
-                                            await fetch('https://crm.zoho.com/crm/WebForm', {
-                                                method: 'POST',
-                                                mode: 'no-cors', 
-                                                body: formData
-                                            });
-
-                                            document.getElementById('form-container').style.display = 'none';
-                                            document.getElementById('success-container').style.display = 'block';
-
-                                        } catch (error) {
-                                            alert('Hubo un error al procesar tu solicitud. Por favor, intenta de nuevo.');
-                                            btn.disabled = false;
-                                            btn.innerText = "Cotizar";
+                                        if (isError) {
+                                            showBalloonError(input, field.msg);
+                                            return; // Detiene la ejecución
                                         }
                                     }
 
-                                    function showBalloonError(input, msg) {
-                                        const tooltip = document.createElement('div');
-                                        tooltip.className = 'error-tooltip-custom';
-                                        tooltip.innerHTML = `<div class="error-icon">!</div><span>${msg}</span>`;
-                                        
-                                        input.parentElement.appendChild(tooltip);
-                                        input.classList.add('is-invalid-custom');
-                                        input.focus();
+                                    const btn = document.querySelector('.btn-cotizar');
+                                    btn.disabled = true;
+                                    btn.innerText = "Enviando...";
 
-                                        const eventType = input.type === 'checkbox' || input.tagName === 'SELECT' ? 'change' : 'input';
-                                        input.addEventListener(eventType, () => {
-                                            tooltip.remove();
-                                            input.classList.remove('is-invalid-custom');
-                                        }, { once: true });
-                                    }
+                                    const formData = new FormData(form);
 
-                                    function resetForm() {
-                                        document.getElementById('zohoCotizacionAjax').reset();
-                                        document.getElementById('form-container').style.display = 'block';
-                                        document.getElementById('success-container').style.display = 'none';
-                                        const btn = document.querySelector('.btn-cotizar');
+                                    try {
+                                        await fetch('https://crm.zoho.com/crm/WebForm', {
+                                            method: 'POST',
+                                            mode: 'no-cors', 
+                                            body: formData
+                                        });
+
+                                        document.getElementById('form-container').style.display = 'none';
+                                        document.getElementById('success-container').style.display = 'block';
+
+                                    } catch (error) {
+                                        alert('Hubo un error al procesar tu solicitud. Por favor, intenta de nuevo.');
                                         btn.disabled = false;
                                         btn.innerText = "Cotizar";
                                     }
-                                </script>
+                                }
+
+                                function showBalloonError(input, msg) {
+                                    const tooltip = document.createElement('div');
+                                    tooltip.className = 'error-tooltip-custom';
+                                    tooltip.innerHTML = `<div class="error-icon">!</div><span>${msg}</span>`;
+                                    
+                                    input.parentElement.appendChild(tooltip);
+                                    input.classList.add('is-invalid-custom');
+                                    input.focus();
+
+                                    const eventType = input.type === 'checkbox' || input.tagName === 'SELECT' ? 'change' : 'input';
+                                    input.addEventListener(eventType, () => {
+                                        tooltip.remove();
+                                        input.classList.remove('is-invalid-custom');
+                                    }, { once: true });
+                                }
+
+                                function resetForm() {
+                                    document.getElementById('zohoCotizacionAjax').reset();
+                                    document.getElementById('form-container').style.display = 'block';
+                                    document.getElementById('success-container').style.display = 'none';
+                                    const btn = document.querySelector('.btn-cotizar');
+                                    btn.disabled = false;
+                                    btn.innerText = "Cotizar";
+                                }
+                            </script>
                         </div>
                         <p class="text-center text-servicios-form poppins-light">Especialistas en evaluación, diagnóstico, mantenimiento<br> y reparación de <span class="texto-azul">Sistemas de Inyección Diésel</span></p>
                     </div>
