@@ -11,7 +11,7 @@ if ( have_posts() ) :
 		?>
 
 		<article id="post-<?php the_ID(); ?>" class="site-main">
-			<div class="container py-12">
+			<div class="container py-12 pb-14">
 				<div class="max-w-4xl mx-auto" id="garantia-content">
 					<?php the_content(); ?>
 				</div>
