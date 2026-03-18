@@ -299,10 +299,10 @@ if ( have_posts() ) :
                                         </div>
 
                                         <div class="row g-3 mb-3 flex md:flex-row gap-2 md:items-center form-group">
-                                            <div class="col-md-6 position-relative">
+                                            <div class="col-12 col-md-6 position-relative">
                                                 <input type="text" class="form-control hartridge-form-control" id="COBJ6CF2" required name="COBJ6CF2" placeholder="Teléfono">
                                             </div>
-                                            <div class="col-md-6 position-relative">
+                                            <div class="col-12 col-md-6 position-relative">
                                                 <input type="text" class="form-control hartridge-form-control" id="Email" name="Email" required placeholder="Correo electrónico">
                                             </div>
                                         </div>
