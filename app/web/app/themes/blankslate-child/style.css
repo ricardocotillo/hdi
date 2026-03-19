@@ -1004,6 +1004,11 @@ input[type="submit"]:hover {
   .md\:gap-6 {
     gap: 1.5rem;
   }
+
+  .container:has(#garantia-content) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 /*catalogo*/
