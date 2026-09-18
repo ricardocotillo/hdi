@@ -46,18 +46,16 @@
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
     "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "6.9",
+    "roots/wordpress": "^6.9.4",
     "roots/wp-config": "1.0.0",
     "wpackagist-theme/twentytwentyfive": "^1.0",
-    "wpackagist-plugin/woocommerce": "^10.4",
     "mnsami/composer-custom-directory-installer": "^2.0",
     "htmlburger/carbon-fields": "^3.6",
-    "wpackagist-plugin/ubigeo-peru": "^4.7",
-    "wpackagist-theme/generatepress": "^3.6",
     "wpackagist-theme/blankslate": "^2026.0",
     "wpackagist-plugin/custom-post-type-ui": "^1.18",
-    "wpackagist-plugin/contact-form-7": "^6.1",
-    "wpackagist-plugin/better-search-replace": "^1.4"
+    "wpackagist-plugin/generateblocks": "^2.2",
+    "wpackagist-plugin/wordfence": "^9.0",
+    "wpackagist-plugin/duracelltomi-google-tag-manager": "^2.0"
   },
   "require-dev": {
     "laravel/pint": "^1.18"
