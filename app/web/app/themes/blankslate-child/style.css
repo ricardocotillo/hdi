@@ -1819,12 +1819,12 @@ textarea {
     padding-right: 20px;
   }
 
-  .servicios-content .w-1/4,
-  .servicios-content .w-3/4 {
+  .servicios-content .w-1\/4,
+  .servicios-content .w-3\/4 {
     width: 100%;
   }
 
-  .servicios-content .w-3/4 {
+  .servicios-content .w-3\/4 {
     padding: 20px 0;
   }
 
