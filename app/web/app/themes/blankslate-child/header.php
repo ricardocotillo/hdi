@@ -72,7 +72,7 @@
 					</div> 
 				</div>
 				<div class="sticky-right">
-					<div class="social flex items-center justify-end">
+					<div class="social hidden items-center justify-end">
 						<?php 
 							$whatsapps = carbon_get_theme_option( 'crb_header_whatsapp' );
 							foreach ( $whatsapps as $whatsapp ) :

@@ -393,7 +393,8 @@ add_action( 'carbon_fields_loaded', function() {
 					Field::make( 'text', 'link', __( 'Link' ) )
 						->set_width( 34 ),
 				) ),
-			Field::make( 'text', 'crb_copyright', __( 'Copyright Text' ) ),	
+			Field::make( 'text', 'crb_copyright', __( 'Copyright Text' ) ),
+			Field::make( 'image', 'crb_hdi_footer_logo', __( 'Logo Footer' ) ),
 		) )
 
 

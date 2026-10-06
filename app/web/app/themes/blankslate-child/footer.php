@@ -7,7 +7,7 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
 
 	<footer id="site-footer" class="site-footer">
 		<div class="container">
-            <div class="flex flex-col md:flex-row justify-between mb-4 gap-6 md:gap-8">
+            <div class="flex flex-row md:flex-col justify-between mb-4 gap-6 md:gap-8">
                 <div class="col w-full md:w-auto">
                     <?php foreach($directions as $key => $direction) : ?>
                     <p class="footer-title">
@@ -43,7 +43,7 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
                 </div>
                 <div class="col w-full md:w-auto">
                     <?php
-                    $logo_id = carbon_get_theme_option( 'crb_footer_logo' );
+                    $logo_id = carbon_get_theme_option( 'crb_hdi_footer_logo' );
                     if ( $logo_id ) {
                         echo wp_get_attachment_image( $logo_id, 'full', false, array( 'class' => 'footer-logo' ) );
                     }
@@ -52,11 +52,10 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
                         <p class="footer-title">
                             <?php if($telefono['link']) : ?>
                                 <a class="address" href="<?php echo esc_url( $telefono['link'] ); ?>" target="_blank" rel="noopener">
-                            <?php endif; ?>
-                                    <i aria-hidden="true" class="fas fa-phone-alt"></i> 
+                                    <?php endif; ?>
+                                    <i aria-hidden="true" class="fas fa-phone-alt"></i> <?php echo esc_html( $telefono['phone'] ); ?>
                                     <?php echo esc_html( $telefono['label'] ); ?>
-                                    <?php echo esc_html( $telefono['phone'] ); ?>
-                            <?php if($telefono['link']) : ?>
+                                    <?php if($telefono['link']) : ?>
                                 </a>
                             <?php endif; ?>
                         </p>
@@ -70,6 +69,5 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
 	</footer>
 
 	<?php wp_footer(); ?>
-    <script type="text/javascript">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"siqe7b8814a522ca952b6efa7949a84c938c1f79d0767a08402c975273014b747df", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
 </body>
 </html>
