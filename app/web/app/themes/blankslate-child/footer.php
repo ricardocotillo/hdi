@@ -29,7 +29,7 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
                     <!-- <p><i aria-hidden="true" class="fas fa-map-marker-alt"></i> Calle Telares #203 - Ate</p>
                     <div class="hr"></div>
                     <p class="footer-title">_____<br>Oficina</p>
-                    <p><i aria-hidden="true" class="fas fa-map-marker-alt"></i> Calle Rene Descartes #146 - Ate</p>                     -->
+                    <p><i aria-hidden="true" class="fas fa-map-marker-alt"></i> Calle Rene Descartes #146 - Ate</p> -->
                 </div>
                 <div class="col w-full md:w-auto">                    
                     <p class="footer-title">Productos</p>
