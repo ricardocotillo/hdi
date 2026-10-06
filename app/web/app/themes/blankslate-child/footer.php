@@ -7,7 +7,7 @@ $telefonos = carbon_get_theme_option( 'crb_footer_contacts' );
 
 	<footer id="site-footer" class="site-footer">
 		<div class="container">
-            <div class="flex flex-row md:flex-col justify-between mb-4 gap-6 md:gap-8">
+            <div class="flex flex-col md:flex-row justify-between mb-4 gap-6 md:gap-8">
                 <div class="col w-full md:w-auto">
                     <?php foreach($directions as $key => $direction) : ?>
                     <p class="footer-title">
